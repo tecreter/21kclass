@@ -1,0 +1,16 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env", {
+            "targets": {
+                "browsers": ["> 0.10%, IE 8, IE 9, IE 10, IE 11"]
+            }
+        }
+        ]
+    ],
+    "env": {
+        "development" : {
+            "compact": true
+        }
+    }
+}
