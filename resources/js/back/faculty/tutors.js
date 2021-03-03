@@ -27,17 +27,18 @@ tutors.getTutorsList = function () {
             { "data": null },
             { "data": null },
             { "data": null },
+            { "data": null },
             { "data": "created_at" },
             { "data": null },
         ],
         "order": [ [4, 'asc'] ],
         "columnDefs": [
             { // Order
-                "targets": [ 1, 2, 3, 5 ],
+                "targets": [ 1, 2, 3, 6 ],
                 "orderable": false
             },
             {
-                "targets" : [ 0, 1, 2, 3, 4, 5 ],
+                "targets" : [ 0, 1, 2, 3, 4, 5, 6 ],
                 "className": 'text-center',
             },
             {
@@ -72,12 +73,18 @@ tutors.getTutorsList = function () {
             {
                 "targets" : [ 4 ],
                 "render" : function(data) {
+                    return data.order;
+                }
+            },
+            {
+                "targets" : [ 5 ],
+                "render" : function(data) {
                     if (data != null) return moment(data).format('YYYY.MM.DD h:mm a');
                     else return '';
                 }
             },
             {
-                "targets" : [ 5 ],
+                "targets" : [ 6 ],
                 "className": 'text-center',
                 "render" : function(data) {
                     return '<a class="btn btn-info" href="/backoffice/faculty/tutor/' + data.id + '/edit"><i class="far fa-edit"></i></a> <span class="btn btn-danger" onclick="window.deleteTutor('+data.id+')"><i class="far fa-trash-alt"></i></span>';

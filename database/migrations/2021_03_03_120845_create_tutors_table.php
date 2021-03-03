@@ -28,6 +28,7 @@ class CreateTutorsTable extends Migration
             $table->string('social_linkedin')->nullable();
             $table->string('social_google')->nullable();
             $table->string('social_quora')->nullable();
+            $table->integer('order')->default(0);
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('course_categories')->onUpdate('cascade')->onDelete('cascade');

@@ -45,6 +45,7 @@
                                                 <th>Position</th>
                                                 <th>Course Category</th>
                                                 <th>Profile Picture</th>
+                                                <th>Order</th>
                                                 <th>Created At</th>
                                                 <th>Actions</th>
                                             </tr>

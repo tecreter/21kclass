@@ -169,7 +169,7 @@ class CourseController extends Controller
                                 $courseTypeLists = Course::with('category')->orderBy('name', $order['dir'])->take($length)->skip($start)->get();
                                 break;
 
-                            case '3':
+                            case '4':
                                 $courseTypeLists = Course::with('category')->orderBy('created_at', $order['dir'])->take($length)->skip($start)->get();
                                 break;
                         }

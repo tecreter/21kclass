@@ -47,6 +47,7 @@ class TutorController extends Controller
             'position' => 'nullable|max:255',
             'excerpt' => 'nullable',
             'profile_picture' => 'nullable|image|mimes:gif,jpeg,jpg,bmp,png|max:2048',
+            'order' => 'nullable|numeric',
             'social_facebook' => 'nullable',
             'social_twitter' => 'nullable',
             'social_linkedin' => 'nullable',
@@ -63,6 +64,7 @@ class TutorController extends Controller
         $tutor->position = request('position');
         $tutor->excerpt = request('excerpt');
         $tutor->profile_picture = request('profile_picture');
+        $tutor->order = request('order');
         $tutor->social_facebook = request('social_facebook');
         $tutor->social_twitter = request('social_twitter');
         $tutor->social_linkedin = request('social_linkedin');
@@ -98,6 +100,7 @@ class TutorController extends Controller
             'position' => 'nullable|max:255',
             'excerpt' => 'nullable',
             'profile_picture' => 'nullable|image|mimes:gif,jpeg,jpg,bmp,png|max:2048',
+            'order' => 'nullable|numeric',
             'social_facebook' => 'nullable',
             'social_twitter' => 'nullable',
             'social_linkedin' => 'nullable',
@@ -113,7 +116,7 @@ class TutorController extends Controller
         $tutor->qualification = request('qualification');
         $tutor->position = request('position');
         $tutor->excerpt = request('excerpt');
-        $tutor->profile_picture = request('profile_picture');
+        $tutor->order = request('order');
         $tutor->social_facebook = request('social_facebook');
         $tutor->social_twitter = request('social_twitter');
         $tutor->social_linkedin = request('social_linkedin');
@@ -174,6 +177,10 @@ class TutorController extends Controller
                                 break;
 
                             case '4':
+                                $tutorLists = Tutor::with('category')->orderBy('order', $order['dir'])->take($length)->skip($start)->get();
+                                break;
+
+                            case '5':
                                 $tutorLists = Tutor::with('category')->orderBy('created_at', $order['dir'])->take($length)->skip($start)->get();
                                 break;
                         }

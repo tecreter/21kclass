@@ -1,9 +1,4 @@
-<header id="header" class="header header-box-shadow-on-scroll header-abs-top header-bg-transparent header-show-hide"
-        data-hs-header-options='{
-            "fixMoment": 1,
-            "fixEffect": "slide"
-          }'>
-
+<header id="header" class="header header-box-shadow-on-scroll header-abs-top header-bg-transparent header-show-hide" data-hs-header-options='{"fixMoment": 1,"fixEffect": "slide"}'>
     <div class="header-section">
         <div class="container header-hide-content pt-2">
             <div class="d-flex align-items-center">

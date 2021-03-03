@@ -31,7 +31,6 @@ mix
     .copy('resources/images/900x450/*.*', 'public/images/900x450')
     .copy('resources/images/900x900/*.*', 'public/images/900x900')
     .copy('resources/images/1920x800/*.*', 'public/images/1920x800')
-    .copy('resources/images/course/*.*', 'public/images/course')
     .copy('resources/images/logos/*.*', 'public/images/logos')
     .copy('resources/images/mockups/*.*', 'public/images/mockups')
     .copy('resources/images/others/*.*', 'public/images/others')

@@ -208,17 +208,18 @@
             </div>
         </div>
 
-        <div id="demoExamplesSection" class="bg-light overflow-hidden">
-            <div class="container-fluid space-2 space-lg-3 px-lg-5">
-                <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
-                    <h2>Popular Courses</h2>
-                    <p>Discover your perfect program in our courses.</p>
-                </div>
+        @if($courseCategories)
+            <div id="demoExamplesSection" class="bg-light overflow-hidden">
+                <div class="container-fluid space-2 space-lg-3 px-lg-5">
+                    <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
+                        <h2>Popular Courses</h2>
+                        <p>Discover your perfect program in our courses.</p>
+                    </div>
 
-                <div class="row">
-                    <div id="stickyBlockStartPoint" class="col-lg-3 pr-xl-5 mb-5 mb-lg-0">
-                        <div id="cbpStickyFilter" class="js-sticky-block card p-4"
-                             data-hs-sticky-block-options='{
+                    <div class="row">
+                        <div id="stickyBlockStartPoint" class="col-lg-3 pr-xl-5 mb-5 mb-lg-0">
+                            <div id="cbpStickyFilter" class="js-sticky-block card p-4"
+                                 data-hs-sticky-block-options='{
                                                                "parentSelector": "#stickyBlockStartPoint",
                                                                "targetSelector": "#logoAndNav",
                                                                "breakpoint": "lg",
@@ -226,749 +227,109 @@
                                                                "endPoint": "#stickyBlockEndPoint",
                                                                "stickyOffsetTop": 16
                                                              }'>
-                            <div id="filterControls" class="nav nav-sm nav-x-0 flex-lg-column">
-                                <div class="cbp-filter-scrollbar">
-                                    <a class="cbp-filter-item cbp-filter d-flex justify-content-between align-items-center-item-active nav-link mx-2 mx-lg-0"
-                                       href="javascript:;" data-filter=".coaching">
-                                        Coaching
-                                        <span class="badge border badge-pill ml-2">1</span>
-                                    </a>
-                                    <a class="cbp-filter-item nav-link d-flex justify-content-between align-items-center mx-2 mx-lg-0"
-                                       href="javascript:;" data-filter=".commerce">
-                                        Commerce
-                                        <span class="badge border badge-pill ml-2">2</span>
-                                    </a>
-                                    <a class="cbp-filter-item nav-link d-flex align-items-center mx-2 mx-lg-0"
-                                       href="javascript:;" data-filter=".tutoring">
-                                        Tutoring
-                                        <span class="badge border badge-pill ml-2 ml-lg-auto">5</span>
-                                    </a>
+                                <div id="filterControls" class="nav nav-sm nav-x-0 flex-lg-column">
+                                    <div class="cbp-filter-scrollbar">
+                                        @foreach($courseCategories as $courseCategory)
+                                            <a class="cbp-filter-item cbp-filter d-flex justify-content-between align-items-center-item-active nav-link mx-2 mx-lg-0"
+                                               href="javascript:;" data-filter=".{{ $courseCategory->name }}">
+                                                {{ $courseCategory->name }}
+                                                <span class="badge border badge-pill ml-2">{{ $courseCategory->courses->count() }}</span>
+                                            </a>
+                                        @endforeach
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-9 pl-xl-0">
-                        <div class="cbp mt-n3 mx-n3"
-                             data-hs-cbp-options='{
-                                                       "defaultFilter": ".all-course",
-                                                       "animationType": "fadeOut",
-                                                       "caption": "zoom",
-                                                       "gapHorizontal": 0,
-                                                       "gapVertical": 0,
-                                                       "mediaQueries": [
-                                                         {"width": 1500, "cols": 3},
-                                                         {"width": 1100, "cols": 3},
-                                                         {"width": 800, "cols": 3},
-                                                         {"width": 480, "cols": 2},
-                                                         {"width": 380, "cols": 1}
-                                                       ]
-                                                     }'>
-                            <article class="cbp-item all-course coaching">
-                                <div class="card card-bordered h-100 m-3">
-                                    <div class="card-img-top position-relative">
-                                        <img class="card-img-top" src="{{ cdn_mix('/images/course/course-coaching-thumb-1.jpg') }}"
-                                             alt="Image Description">
-
-                                        <div class="position-absolute top-0 left-0 mt-3 ml-3">
-                                            <small
-                                                class="btn btn-xs btn-success btn-pill text-uppercase shadow-soft mb-3">Bestseller</small>
-                                        </div>
-
-                                        <div class="position-absolute bottom-0 left-0 mb-3 ml-4">
-                                            <div class="d-flex align-items-center flex-wrap">
-                                                <ul class="list-inline mt-b2 mb-0 mr-2">
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                </ul>
-                                                <span class="d-inline-block">
-                          <small class="font-weight-bold text-white mr-1">4.91</small>
-                          <small class="text-white-70">(1.5k+ reviews)</small>
-                        </span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-body">
-                                        <div class="mb-3">
-                                            <h3>
-                                                <a class="text-inherit" href="#">NEET Medical</a>
-                                            </h3>
-                                        </div>
-
-                                        <div class="d-flex align-items-center">
-                                            <div class="avatar-group">
-                                                <a class="avatar avatar-xs avatar-circle" data-toggle="tooltip"
-                                                   data-placement="top" title="Nataly Gaga" href="#">
-                                                    <img class="avatar-img" src="{{ cdn_mix('/images/100x100/img1.jpg') }}"
-                                                         alt="Image Description">
+                        <div class="col-lg-9 pl-xl-0">
+                            <div class="cbp mt-n3 mx-n3" data-hs-cbp-options='{"defaultFilter": ".all-course","animationType": "fadeOut","caption": "zoom","gapHorizontal": 0,"gapVertical": 0,"mediaQueries": [{"width": 1500, "cols": 3},{"width": 1100, "cols": 3},{"width": 800, "cols": 3},{"width": 480, "cols": 2},{"width": 380, "cols": 1}]}'>
+                                @foreach($courseCategories as $courseCategory)
+                                    @foreach($courseCategory->courses as $course)
+                                        <article class="cbp-item all-course {{ $courseCategory->name }}">
+                                            <div class="card card-bordered h-100 m-3">
+                                                <a class="card-img-top position-relative" href="/course/{{ $course->slug }}">
+                                                    <img class="card-img-top" src="{{ ($course->thumb) ? asset('/storage/'.$course->thumb) : cdn_mix('/images/logos/logo.png') }}" alt="{{ $course->name }}">
                                                 </a>
-                                            </div>
-                                            <div class="d-flex align-items-center ml-auto">
-                                                <div class="small text-muted">
-                                                    <i class="fa fa-book-reader d-block d-sm-inline-block mb-1 mb-sm-0 mr-1"></i>
-                                                    10 lessons
+                                                <div class="card-body">
+                                                    <div class="mb-3">
+                                                        <h3>
+                                                            <a class="text-inherit" href="/course/{{ $course->slug }}">{{ $course->name }}</a>
+                                                        </h3>
+                                                    </div>
+                                                    <p class="mb-0">{{ $course->excerpt }}</p>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="bottom-0 left-0 mb-3">
+                                                            <div class="d-flex align-items-center flex-wrap">
+                                                                <ul class="list-inline mt-b2 mb-0 mr-2">
+                                                                    @if ($course->rating >= 1)
+                                                                        <li class="list-inline-item mx-0"><i class="fas fa-star fa-xs text-primary"></i></li>
+                                                                    @elseif ($course->rating > 0 && $course->rating < 1)
+                                                                        <li class="list-inline-item mx-0"><i class="fas fa-star-half-alt fa-xs text-primary"></i></li>
+                                                                    @else
+                                                                        <li class="list-inline-item mx-0"><i class="far fa-star fa-xs text-primary"></i></li>
+                                                                    @endif
+
+                                                                    @if ($course->rating >= 2)
+                                                                        <li class="list-inline-item mx-0"><i class="fas fa-star fa-xs text-primary"></i></li>
+                                                                    @elseif ($course->rating > 1 && $course->rating < 2)
+                                                                        <li class="list-inline-item mx-0"><i class="fas fa-star-half-alt fa-xs text-primary"></i></li>
+                                                                    @else
+                                                                        <li class="list-inline-item mx-0"><i class="far fa-star fa-xs text-primary"></i></li>
+                                                                    @endif
+
+                                                                    @if ($course->rating >= 3)
+                                                                        <li class="list-inline-item mx-0"><i class="fas fa-star fa-xs text-primary"></i></li>
+                                                                    @elseif ($course->rating > 2 && $course->rating < 3)
+                                                                        <li class="list-inline-item mx-0"><i class="fas fa-star-half-alt fa-xs text-primary"></i></li>
+                                                                    @else
+                                                                        <li class="list-inline-item mx-0"><i class="far fa-star fa-xs text-primary"></i></li>
+                                                                    @endif
+
+                                                                    @if ($course->rating >= 4)
+                                                                        <li class="list-inline-item mx-0"><i class="fas fa-star fa-xs text-primary"></i></li>
+                                                                    @elseif ($course->rating > 3 && $course->rating < 4)
+                                                                        <li class="list-inline-item mx-0"><i class="fas fa-star-half-alt fa-xs text-primary"></i></li>
+                                                                    @else
+                                                                        <li class="list-inline-item mx-0"><i class="far fa-star fa-xs text-primary"></i></li>
+                                                                    @endif
+
+                                                                    @if ($course->rating >= 5)
+                                                                        <li class="list-inline-item mx-0"><i class="fas fa-star fa-xs text-primary"></i></li>
+                                                                    @elseif ($course->rating > 4 && $course->rating < 5)
+                                                                        <li class="list-inline-item mx-0"><i class="fas fa-star-half-alt fa-xs text-primary"></i></li>
+                                                                    @else
+                                                                        <li class="list-inline-item mx-0"><i class="far fa-star fa-xs text-primary"></i></li>
+                                                                    @endif
+                                                                </ul>
+                                                                <span class="d-inline-block">
+                                                              <small class="font-weight-bold text-dark mr-1">{{ $course->rating }} / 5</small>
+                                                            </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <small class="text-muted mx-2">|</small>
-                                                <div class="small text-muted">
-                                                    <i class="fa fa-clock d-block d-sm-inline-block mb-1 mb-sm-0 mr-1"></i>
-                                                    20h 0m
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-footer border-0 pt-0">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="mr-2">
-                                                <span class="d-block h5 text-lh-sm mb-0 text-danger">₹3,600</span>
-                                            </div>
-                                            <a class="btn btn-sm btn-info transition-3d-hover" href="javascripr:;">Buy
-                                                This Course</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-
-                            <article class="cbp-item all-course commerce">
-                                <div class="card card-bordered h-100 m-3">
-                                    <div class="card-img-top position-relative">
-                                        <img class="card-img-top" src="{{ cdn_mix('/images/course/course-commerce-thumb-1.jpg') }}" alt="Image Description">
-                                        <div class="position-absolute bottom-0 left-0 mb-3 ml-4">
-                                            <div class="d-flex align-items-center flex-wrap">
-                                                <ul class="list-inline mt-b2 mb-0 mr-2">
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                </ul>
-                                                <span class="d-inline-block">
-                          <small class="font-weight-bold text-white mr-1">4.91</small>
-                          <small class="text-white-70">(1.5k+ reviews)</small>
-                        </span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-body">
-                                        <!--                    <small class="d-block small font-weight-bold text-cap mb-2">Code</small>-->
-
-                                        <div class="mb-3">
-                                            <h3>
-                                                <a class="text-inherit" href="#">Chartered Accountancy</a>
-                                            </h3>
-                                        </div>
-
-                                        <div class="d-flex align-items-center">
-                                            <div class="avatar-group">
-                                                <a class="avatar avatar-xs avatar-circle" data-toggle="tooltip"
-                                                   data-placement="top" title="Nataly Gaga" href="#">
-                                                    <img class="avatar-img" src="{{ cdn_mix('/images/100x100/img1.jpg') }}"
-                                                         alt="Image Description">
-                                                </a>
-                                            </div>
-                                            <div class="d-flex align-items-center ml-auto">
-                                                <div class="small text-muted">
-                                                    <i class="fa fa-book-reader d-block d-sm-inline-block mb-1 mb-sm-0 mr-1"></i>
-                                                    10 lessons
-                                                </div>
-                                                <small class="text-muted mx-2">|</small>
-                                                <div class="small text-muted">
-                                                    <i class="fa fa-clock d-block d-sm-inline-block mb-1 mb-sm-0 mr-1"></i>
-                                                    26h 33m
+                                                <div class="card-footer border-0 pt-0">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div class="mr-2">
+                                                            @if($course->original_price > 0)
+                                                                <small class="d-block text-muted text-lh-sm"><del>₹{{ number_format($course->original_price) }}</del></small>
+                                                            @endif
+                                                            <span class="d-block h5 text-lh-sm mb-0 text-danger">₹{{ number_format($course->price) }}</span>
+                                                        </div>
+                                                        <a class="btn btn-sm btn-info transition-3d-hover" href="javascript:void(0);">Buy This Course</a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-footer border-0 pt-0">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="mr-2">
-                                                <small class="d-block text-muted text-lh-sm">
-                                                    <del>₹8,000</del>
-                                                </small>
-                                                <span class="d-block h5 text-lh-sm mb-0 text-danger">₹6,900</span>
-                                            </div>
-                                            <a class="btn btn-sm btn-info transition-3d-hover" href="javascripr:;">Buy
-                                                This Course</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-
-                            <article class="cbp-item all-course commerce">
-                                <div class="card card-bordered h-100 m-3">
-                                    <div class="card-img-top position-relative">
-                                        <img class="card-img-top" src="{{ cdn_mix('/images/course/course-commerce-thumb-2.jpg') }}"
-                                             alt="Image Description">
-
-                                        <!--                    <div class="position-absolute top-0 left-0 mt-3 ml-3">-->
-                                        <!--                      <small class="btn btn-xs btn-success btn-pill text-uppercase shadow-soft mb-3">Bestseller</small>-->
-                                        <!--                    </div>-->
-
-                                        <div class="position-absolute bottom-0 left-0 mb-3 ml-4">
-                                            <div class="d-flex align-items-center flex-wrap">
-                                                <ul class="list-inline mt-b2 mb-0 mr-2">
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                </ul>
-                                                <span class="d-inline-block">
-                          <small class="font-weight-bold text-white mr-1">4.91</small>
-                          <small class="text-white-70">(1.5k+ reviews)</small>
-                        </span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-body">
-                                        <!--                    <small class="d-block small font-weight-bold text-cap mb-2">Code</small>-->
-
-                                        <div class="mb-3">
-                                            <h3>
-                                                <a class="text-inherit" href="#">Company Secretary</a>
-                                            </h3>
-                                        </div>
-
-                                        <div class="d-flex align-items-center">
-                                            <div class="avatar-group">
-                                                <a class="avatar avatar-xs avatar-circle" data-toggle="tooltip"
-                                                   data-placement="top" title="Nataly Gaga" href="#">
-                                                    <img class="avatar-img" src="{{ cdn_mix('/images/100x100/img1.jpg') }}"
-                                                         alt="Image Description">
-                                                </a>
-                                            </div>
-                                            <div class="d-flex align-items-center ml-auto">
-                                                <div class="small text-muted">
-                                                    <i class="fa fa-book-reader d-block d-sm-inline-block mb-1 mb-sm-0 mr-1"></i>
-                                                    10 lessons
-                                                </div>
-                                                <small class="text-muted mx-2">|</small>
-                                                <div class="small text-muted">
-                                                    <i class="fa fa-clock d-block d-sm-inline-block mb-1 mb-sm-0 mr-1"></i>
-                                                    26h 33m
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-footer border-0 pt-0">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="mr-2">
-                                                <!--                        <small class="d-block text-muted text-lh-sm"><del>₹8,000</del></small>-->
-                                                <span class="d-block h5 text-lh-sm mb-0 text-danger">₹3,000</span>
-                                            </div>
-                                            <a class="btn btn-sm btn-info transition-3d-hover" href="javascripr:;">Buy
-                                                This Course</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <!-- End Item -->
-
-                            <!-- Item -->
-                            <article class="cbp-item all-course tutoring">
-                                <div class="card card-bordered h-100 m-3">
-                                    <div class="card-img-top position-relative">
-                                        <img class="card-img-top" src="{{ cdn_mix('/images/course/course-tutoring-thumb-1.jpg') }}"
-                                             alt="Image Description">
-
-                                        <!--                    <div class="position-absolute top-0 left-0 mt-3 ml-3">-->
-                                        <!--                      <small class="btn btn-xs btn-success btn-pill text-uppercase shadow-soft mb-3">Bestseller</small>-->
-                                        <!--                    </div>-->
-
-                                        <div class="position-absolute bottom-0 left-0 mb-3 ml-4">
-                                            <div class="d-flex align-items-center flex-wrap">
-                                                <ul class="list-inline mt-b2 mb-0 mr-2">
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                </ul>
-                                                <span class="d-inline-block">
-                          <small class="font-weight-bold text-white mr-1">4.91</small>
-                          <small class="text-white-70">(1.5k+ reviews)</small>
-                        </span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-body">
-                                        <!--                    <small class="d-block small font-weight-bold text-cap mb-2">Code</small>-->
-
-                                        <div class="mb-3">
-                                            <h3>
-                                                <a class="text-inherit" href="#">CBSE Grade 6-12 Biology</a>
-                                            </h3>
-                                        </div>
-
-                                        <div class="d-flex align-items-center">
-                                            <div class="avatar-group">
-                                                <a class="avatar avatar-xs avatar-circle" data-toggle="tooltip"
-                                                   data-placement="top" title="Nataly Gaga" href="#">
-                                                    <img class="avatar-img" src="{{ cdn_mix('/images/100x100/img1.jpg') }}"
-                                                         alt="Image Description">
-                                                </a>
-                                            </div>
-                                            <div class="d-flex align-items-center ml-auto">
-                                                <div class="small text-muted">
-                                                    <i class="fa fa-book-reader d-block d-sm-inline-block mb-1 mb-sm-0 mr-1"></i>
-                                                    10 lessons
-                                                </div>
-                                                <small class="text-muted mx-2">|</small>
-                                                <div class="small text-muted">
-                                                    <i class="fa fa-clock d-block d-sm-inline-block mb-1 mb-sm-0 mr-1"></i>
-                                                    50h 0m
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-footer border-0 pt-0">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="mr-2">
-                                                <small class="d-block text-muted text-lh-sm">
-                                                    <del>₹6,000</del>
-                                                </small>
-                                                <span class="d-block h5 text-lh-sm mb-0 text-danger">₹3,900</span>
-                                            </div>
-                                            <a class="btn btn-sm btn-info transition-3d-hover" href="javascripr:;">Buy
-                                                This Course</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <!-- End Item -->
-
-                            <!-- Item -->
-                            <article class="cbp-item all-course tutoring">
-                                <div class="card card-bordered h-100 m-3">
-                                    <div class="card-img-top position-relative">
-                                        <img class="card-img-top" src="{{ cdn_mix('/images/course/course-tutoring-thumb-2.jpg') }}"
-                                             alt="Image Description">
-
-                                        <!--                    <div class="position-absolute top-0 left-0 mt-3 ml-3">-->
-                                        <!--                      <small class="btn btn-xs btn-success btn-pill text-uppercase shadow-soft mb-3">Bestseller</small>-->
-                                        <!--                    </div>-->
-
-                                        <div class="position-absolute bottom-0 left-0 mb-3 ml-4">
-                                            <div class="d-flex align-items-center flex-wrap">
-                                                <ul class="list-inline mt-b2 mb-0 mr-2">
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                </ul>
-                                                <span class="d-inline-block">
-                          <small class="font-weight-bold text-white mr-1">4.91</small>
-                          <small class="text-white-70">(1.5k+ reviews)</small>
-                        </span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-body">
-                                        <!--                    <small class="d-block small font-weight-bold text-cap mb-2">Code</small>-->
-
-                                        <div class="mb-3">
-                                            <h3>
-                                                <a class="text-inherit" href="#">CBSE Grade 6-12 Chemistry</a>
-                                            </h3>
-                                        </div>
-
-                                        <div class="d-flex align-items-center">
-                                            <div class="avatar-group">
-                                                <a class="avatar avatar-xs avatar-circle" data-toggle="tooltip"
-                                                   data-placement="top" title="Nataly Gaga" href="#">
-                                                    <img class="avatar-img" src="{{ cdn_mix('/images/100x100/img1.jpg') }}"
-                                                         alt="Image Description">
-                                                </a>
-                                            </div>
-                                            <div class="d-flex align-items-center ml-auto">
-                                                <div class="small text-muted">
-                                                    <i class="fa fa-book-reader d-block d-sm-inline-block mb-1 mb-sm-0 mr-1"></i>
-                                                    10 lessons
-                                                </div>
-                                                <small class="text-muted mx-2">|</small>
-                                                <div class="small text-muted">
-                                                    <i class="fa fa-clock d-block d-sm-inline-block mb-1 mb-sm-0 mr-1"></i>
-                                                    50h 0m
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-footer border-0 pt-0">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="mr-2">
-                                                <small class="d-block text-muted text-lh-sm">
-                                                    <del>₹6,000</del>
-                                                </small>
-                                                <span class="d-block h5 text-lh-sm mb-0 text-danger">₹3,900</span>
-                                            </div>
-                                            <a class="btn btn-sm btn-info transition-3d-hover" href="javascripr:;">Buy
-                                                This Course</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <!-- End Item -->
-
-                            <!-- Item -->
-                            <article class="cbp-item all-course tutoring">
-                                <div class="card card-bordered h-100 m-3">
-                                    <div class="card-img-top position-relative">
-                                        <img class="card-img-top" src="{{ cdn_mix('/images/course/course-tutoring-thumb-3.jpg') }}"
-                                             alt="Image Description">
-
-                                        <!--                    <div class="position-absolute top-0 left-0 mt-3 ml-3">-->
-                                        <!--                      <small class="btn btn-xs btn-success btn-pill text-uppercase shadow-soft mb-3">Bestseller</small>-->
-                                        <!--                    </div>-->
-
-                                        <div class="position-absolute bottom-0 left-0 mb-3 ml-4">
-                                            <div class="d-flex align-items-center flex-wrap">
-                                                <ul class="list-inline mt-b2 mb-0 mr-2">
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                </ul>
-                                                <span class="d-inline-block">
-                          <small class="font-weight-bold text-white mr-1">4.91</small>
-                          <small class="text-white-70">(1.5k+ reviews)</small>
-                        </span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-body">
-                                        <!--                    <small class="d-block small font-weight-bold text-cap mb-2">Code</small>-->
-
-                                        <div class="mb-3">
-                                            <h3>
-                                                <a class="text-inherit" href="#">CBSE Grade 6-12 Maths</a>
-                                            </h3>
-                                        </div>
-
-                                        <div class="d-flex align-items-center">
-                                            <div class="avatar-group">
-                                                <a class="avatar avatar-xs avatar-circle" data-toggle="tooltip"
-                                                   data-placement="top" title="Nataly Gaga" href="#">
-                                                    <img class="avatar-img" src="{{ cdn_mix('/images/100x100/img1.jpg') }}"
-                                                         alt="Image Description">
-                                                </a>
-                                            </div>
-                                            <div class="d-flex align-items-center ml-auto">
-                                                <div class="small text-muted">
-                                                    <i class="fa fa-book-reader d-block d-sm-inline-block mb-1 mb-sm-0 mr-1"></i>
-                                                    10 lessons
-                                                </div>
-                                                <small class="text-muted mx-2">|</small>
-                                                <div class="small text-muted">
-                                                    <i class="fa fa-clock d-block d-sm-inline-block mb-1 mb-sm-0 mr-1"></i>
-                                                    160h 0m
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-footer border-0 pt-0">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="mr-2">
-                                                <small class="d-block text-muted text-lh-sm">
-                                                    <del>₹6,000</del>
-                                                </small>
-                                                <span class="d-block h5 text-lh-sm mb-0 text-danger">₹3,900</span>
-                                            </div>
-                                            <a class="btn btn-sm btn-info transition-3d-hover" href="javascripr:;">Buy
-                                                This Course</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <!-- End Item -->
-
-                            <!-- Item -->
-                            <article class="cbp-item all-course tutoring">
-                                <div class="card card-bordered h-100 m-3">
-                                    <div class="card-img-top position-relative">
-                                        <img class="card-img-top" src="{{ cdn_mix('/images/course/course-tutoring-thumb-4.jpg') }}"
-                                             alt="Image Description">
-
-                                        <!--                    <div class="position-absolute top-0 left-0 mt-3 ml-3">-->
-                                        <!--                      <small class="btn btn-xs btn-success btn-pill text-uppercase shadow-soft mb-3">Bestseller</small>-->
-                                        <!--                    </div>-->
-
-                                        <div class="position-absolute bottom-0 left-0 mb-3 ml-4">
-                                            <div class="d-flex align-items-center flex-wrap">
-                                                <ul class="list-inline mt-b2 mb-0 mr-2">
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                </ul>
-                                                <span class="d-inline-block">
-                          <small class="font-weight-bold text-white mr-1">4.91</small>
-                          <small class="text-white-70">(1.5k+ reviews)</small>
-                        </span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-body">
-                                        <!--                    <small class="d-block small font-weight-bold text-cap mb-2">Code</small>-->
-
-                                        <div class="mb-3">
-                                            <h3>
-                                                <a class="text-inherit" href="#">CBSE Grade 6-12 English</a>
-                                            </h3>
-                                        </div>
-
-                                        <div class="d-flex align-items-center">
-                                            <div class="avatar-group">
-                                                <a class="avatar avatar-xs avatar-circle" data-toggle="tooltip"
-                                                   data-placement="top" title="Nataly Gaga" href="#">
-                                                    <img class="avatar-img" src="{{ cdn_mix('/images/100x100/img1.jpg') }}"
-                                                         alt="Image Description">
-                                                </a>
-                                            </div>
-                                            <div class="d-flex align-items-center ml-auto">
-                                                <div class="small text-muted">
-                                                    <i class="fa fa-book-reader d-block d-sm-inline-block mb-1 mb-sm-0 mr-1"></i>
-                                                    10 lessons
-                                                </div>
-                                                <small class="text-muted mx-2">|</small>
-                                                <div class="small text-muted">
-                                                    <i class="fa fa-clock d-block d-sm-inline-block mb-1 mb-sm-0 mr-1"></i>
-                                                    160h 0m
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-footer border-0 pt-0">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="mr-2">
-                                                <!--                        <small class="d-block text-muted text-lh-sm"><del>₹6,000</del></small>-->
-                                                <span class="d-block h5 text-lh-sm mb-0 text-danger">₹500</span>
-                                            </div>
-                                            <a class="btn btn-sm btn-info transition-3d-hover" href="javascripr:;">Buy
-                                                This Course</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <!-- End Item -->
-
-                            <!-- Item -->
-                            <article class="cbp-item all-course tutoring">
-                                <div class="card card-bordered h-100 m-3">
-                                    <div class="card-img-top position-relative">
-                                        <img class="card-img-top" src="{{ cdn_mix('/images/course/course-tutoring-thumb-5.jpg') }}"
-                                             alt="Image Description">
-
-                                        <!--                    <div class="position-absolute top-0 left-0 mt-3 ml-3">-->
-                                        <!--                      <small class="btn btn-xs btn-success btn-pill text-uppercase shadow-soft mb-3">Bestseller</small>-->
-                                        <!--                    </div>-->
-
-                                        <div class="position-absolute bottom-0 left-0 mb-3 ml-4">
-                                            <div class="d-flex align-items-center flex-wrap">
-                                                <ul class="list-inline mt-b2 mb-0 mr-2">
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                    <li class="list-inline-item mx-0"><img
-                                                            src="{{ cdn_mix('/svg/illustrations/star.svg') }}"
-                                                            alt="Review rating" class="img-responsive" width="14"
-                                                            style="width: 14px !important;"></li>
-                                                </ul>
-                                                <span class="d-inline-block">
-                          <small class="font-weight-bold text-white mr-1">4.91</small>
-                          <small class="text-white-70">(1.5k+ reviews)</small>
-                        </span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-body">
-                                        <!--                    <small class="d-block small font-weight-bold text-cap mb-2">Code</small>-->
-
-                                        <div class="mb-3">
-                                            <h3>
-                                                <a class="text-inherit" href="#">CBSE Grade 6-12 Physics</a>
-                                            </h3>
-                                        </div>
-
-                                        <div class="d-flex align-items-center">
-                                            <div class="avatar-group">
-                                                <a class="avatar avatar-xs avatar-circle" data-toggle="tooltip"
-                                                   data-placement="top" title="Nataly Gaga" href="#">
-                                                    <img class="avatar-img" src="{{ cdn_mix('/images/100x100/img1.jpg') }}"
-                                                         alt="Image Description">
-                                                </a>
-                                            </div>
-                                            <div class="d-flex align-items-center ml-auto">
-                                                <div class="small text-muted">
-                                                    <i class="fa fa-book-reader d-block d-sm-inline-block mb-1 mb-sm-0 mr-1"></i>
-                                                    10 lessons
-                                                </div>
-                                                <small class="text-muted mx-2">|</small>
-                                                <div class="small text-muted">
-                                                    <i class="fa fa-clock d-block d-sm-inline-block mb-1 mb-sm-0 mr-1"></i>
-                                                    160h 0m
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-footer border-0 pt-0">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="mr-2">
-                                                <small class="d-block text-muted text-lh-sm">
-                                                    <del>₹6,000</del>
-                                                </small>
-                                                <span class="d-block h5 text-lh-sm mb-0 text-danger">₹3,900</span>
-                                            </div>
-                                            <a class="btn btn-sm btn-info transition-3d-hover" href="javascripr:;">Buy
-                                                This Course</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
+                                        </article>
+                                    @endforeach
+                                @endforeach
+                            </div>
                         </div>
                     </div>
+                    <div id="stickyBlockEndPoint"></div>
                 </div>
-                <div id="stickyBlockEndPoint"></div>
             </div>
-        </div>
+        @endif
 
         <div class="container space-top-1 space-top-md-2 space-bottom-2 space-bottom-lg-3">
             <div class="row justify-content-lg-center">
@@ -1074,36 +435,35 @@
     <script>
         $(document).on('ready', function () {
 
-            var cbpStickyFilter = new HSStickyBlock($('#cbpStickyFilter'));
+            if ($('#cbpStickyFilter').length) {
+                var cbpStickyFilter = new HSStickyBlock($('#cbpStickyFilter'));
 
-            $('.cbp').each(function () {
-                var cbp = $.HSCore.components.HSCubeportfolio.init($(this), {
-                    layoutMode: 'grid',
-                    filters: '#filterControls',
-                    displayTypeSpeed: 0
+                $('.cbp').each(function () {
+                    var cbp = $.HSCore.components.HSCubeportfolio.init($(this), {
+                        layoutMode: 'grid',
+                        filters: '#filterControls',
+                        displayTypeSpeed: 0
+                    });
                 });
-            });
 
-            $('.cbp').on('initComplete.cbp', function () {
-                // update sticky block
-                cbpStickyFilter.update();
-            });
+                $('.cbp').on('initComplete.cbp', function () {
+                    cbpStickyFilter.update();
+                });
 
-            $('.cbp').on('filterComplete.cbp', function () {
-                // update sticky block
-                cbpStickyFilter.update();
-            });
+                $('.cbp').on('filterComplete.cbp', function () {
+                    cbpStickyFilter.update();
+                });
 
-            $('.cbp').on('pluginResize.cbp', function () {
-                // update sticky block
-                cbpStickyFilter.update();
-            });
+                $('.cbp').on('pluginResize.cbp', function () {
+                    cbpStickyFilter.update();
+                });
 
-            $('#cbpStickyFilter').on('click', '.cbp-filter-item', function (e) {
-                $('html, body').stop().animate({
-                    scrollTop: $('#demoExamplesSection').offset().top
-                }, 200);
-            });
+                $('#cbpStickyFilter').on('click', '.cbp-filter-item', function (e) {
+                    $('html, body').stop().animate({
+                        scrollTop: $('#demoExamplesSection').offset().top
+                    }, 200);
+                });
+            }
 
         });
     </script>

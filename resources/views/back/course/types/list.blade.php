@@ -43,6 +43,7 @@
                                             <tr>
                                                 <th>Name</th>
                                                 <th>Course Category</th>
+                                                <th>Thumbnail</th>
                                                 <th>Enable Status</th>
                                                 <th>Created At</th>
                                                 <th>Actions</th>

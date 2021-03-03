@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Back\Course;
 use Illuminate\Support\Facades\Route;
 
 Route::namespace('Front')->group(function () {
@@ -53,6 +54,15 @@ Route::namespace('Front')->group(function () {
     Route::get('/career-intern', 'HomeController@careerIntern')->name('career-intern');
     Route::get('/career-software-engineer', 'HomeController@careerSoftwareEngineer')->name('career-software-engineer');
     Route::get('/social', 'HomeController@social')->name('social');
+
+    Route::get('/course/{course:slug}', function (Course $course) {
+        $otherCourses = Course::where('category_id', $course->category_id)->where('id', '!=', $course->id)->get();
+
+        return view('front.pages.course', [
+            'course' => $course,
+            'otherCourses' => $otherCourses
+        ]);
+    });
 
     // Authentication
     // NOTE: Below Route is for user authentication

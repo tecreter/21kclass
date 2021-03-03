@@ -45,8 +45,14 @@
 
 <script type="text/javascript">
 
+
     $(function () {
-        var header = new HSHeader($('#header')).init();
+
+
+        @if(!Request::is('course/*'))
+            var header = new HSHeader($('#header')).init();
+        @endif
+
 
         var megaMenu = new HSMegaMenu($('.js-mega-menu'), {
             desktop: {

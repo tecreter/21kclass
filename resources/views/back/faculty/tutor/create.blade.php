@@ -91,7 +91,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-md-3 col-form-label" for="last_name">{{ __('Last Name') }}</label>
                                                             <div class="col-md-9">
-                                                                <input class="form-control @error('last_name') is-invalid @enderror" name="last_name" id="last_name" type="text" value="{{ old('last_name') }}" required>
+                                                                <input class="form-control @error('last_name') is-invalid @enderror" name="last_name" id="last_name" type="text" value="{{ old('last_name') }}">
                                                                 @error('last_name')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
@@ -161,6 +161,22 @@
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
                                                                 </span>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="offset-lg-2 col-md-8 col-lg-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-md-3 col-form-label" for="order">{{ __('Profile Display Order') }}</label>
+                                                            <div class="col-md-9">
+                                                                <input class="form-control @error('order') is-invalid @enderror" name="order" id="order" type="text" value="{{ old('order') }}">
+                                                                @error('order')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
                                                                 @enderror
                                                             </div>
                                                         </div>

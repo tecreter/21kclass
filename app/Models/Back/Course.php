@@ -11,6 +11,11 @@ class Course extends Model
         'category_id', 'name', 'slug', 'amount', 'excerpt', 'description', 'rating', 'thumb'
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function category()
     {
         return $this->belongsTo(CourseCategory::class);

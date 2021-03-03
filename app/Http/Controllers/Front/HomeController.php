@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
+use App\Models\Back\CourseCategory;
+use App\Models\Back\Tutor;
 
 class HomeController extends Controller
 {
@@ -21,7 +21,10 @@ class HomeController extends Controller
     // About us
     public function index()
     {
-        return view('front.pages.index');
+        $courseCategories = CourseCategory::with('courses')->where('enable_flag', 1)->get();
+        return view('front.pages.index', [
+            'courseCategories' => $courseCategories
+        ]);
     }
 
     public function whatSetsUsApart()
@@ -181,7 +184,10 @@ class HomeController extends Controller
 
     public function meetOurFaculty()
     {
-        return view('front.pages.meet-our-faculty');
+        $tutors = Tutor::with('category')->orderBy('order')->get();
+        return view('front.pages.meet-our-faculty', [
+            'tutors' => $tutors
+        ]);
     }
 
     public function events()

@@ -175,6 +175,22 @@
                                                 <div class="row">
                                                     <div class="offset-lg-2 col-md-8 col-lg-6">
                                                         <div class="form-group row">
+                                                            <label class="col-md-3 col-form-label" for="order">{{ __('Profile Display Order') }}</label>
+                                                            <div class="col-md-9">
+                                                                <input class="form-control @error('order') is-invalid @enderror" name="order" id="order" type="text" value="{{ old('order', $tutor->order) }}">
+                                                                @error('order')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="offset-lg-2 col-md-8 col-lg-6">
+                                                        <div class="form-group row">
                                                             <label class="col-md-3 col-form-label" for="social_facebook">{{ __('Facebook Link') }}</label>
                                                             <div class="col-md-9">
                                                                 <input class="form-control @error('social_facebook') is-invalid @enderror" name="social_facebook" id="social_facebook" type="text" value="{{ old('social_facebook', $tutor->social_facebook) }}">

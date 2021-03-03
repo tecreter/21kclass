@@ -12,7 +12,7 @@ class CourseCategory extends Model
 
     public function courses()
     {
-        return $this->hasMany(Course::class, 'category_id');
+        return $this->hasMany(Course::class, 'category_id')->where('enable_flag', 1);
     }
 
 }
