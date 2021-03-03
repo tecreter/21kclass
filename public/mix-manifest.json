@@ -220,5 +220,9 @@
     "/svg/illustrations/reading.svg": "/svg/illustrations/reading.svg?id=6d5839f458171133e8e0",
     "/svg/illustrations/referral.svg": "/svg/illustrations/referral.svg?id=c59ec93ae919115acdd6",
     "/svg/illustrations/star.svg": "/svg/illustrations/star.svg?id=2752f8258c68ae6db971",
-    "/svg/illustrations/we-are-in-office-1.svg": "/svg/illustrations/we-are-in-office-1.svg?id=121e42009ab41f3bc8c5"
+    "/svg/illustrations/we-are-in-office-1.svg": "/svg/illustrations/we-are-in-office-1.svg?id=121e42009ab41f3bc8c5",
+    "/js/tocb/app.js": "/js/tocb/app.js?id=2a8f9cc917f73e8a35a8",
+    "/css/admin-app.css": "/css/admin-app.css?id=1dc17969bbfb533a1884",
+    "/js/tocb/manifest.js": "/js/tocb/manifest.js?id=3c768977c2574a34506e",
+    "/js/tocb/vendor.js": "/js/tocb/vendor.js?id=4fe5888fc7bf6501fd39"
 }

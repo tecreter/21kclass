@@ -10,10 +10,9 @@ let webpackPlugins = [
 ];
 
 mix
-    .js('resources/js/tocb/app.js', 'public/js/tocb')
+    .js('resources/js/back/app.js', 'public/js/tocb')
     .extract(['jquery', 'moment', 'bootstrap', 'popper.js'])
     .sass('resources/sass/back/admin-app.sass', 'public/css')
-    .copy('resources/images/*.*', 'public/images')
     .autoload({
         jquery: ['$', 'window.jQuery', 'jQuery', 'jquery'],
         moment: 'moment'

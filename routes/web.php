@@ -29,10 +29,6 @@ Route::namespace('Front')->group(function () {
     Route::get('/who-should-enrol', 'HomeController@whoShouldEnrol')->name('who-should-enrol');
     Route::get('/process-and-requirements', 'HomeController@processAndRequirements')->name('process-and-requirements');
 
-
-
-
-
     // How it works
     Route::get('/how-does-it-work', 'HomeController@howDoesItWork')->name('how-does-it-work');
     Route::get('/technology', 'HomeController@technology')->name('technology');
@@ -43,9 +39,6 @@ Route::namespace('Front')->group(function () {
     Route::get('/your-privacy', 'HomeController@yourPrivacy')->name('your-privacy');
     Route::get('/safety-and-security', 'HomeController@safetyAndSecurity')->name('safety-and-security');
 
-
-
-
     // #Being21k
     Route::get('/student-work', 'HomeController@studentWork')->name('student-work');
     Route::get('/parents-speak', 'HomeController@parentsSpeak')->name('parents-speak');
@@ -54,18 +47,12 @@ Route::namespace('Front')->group(function () {
     Route::get('/media-hub', 'HomeController@mediaHub')->name('media-hub');
     Route::get('/insights', 'HomeController@insights')->name('insights');
 
-
     // Connect
     Route::get('/contact-us', 'HomeController@contactUs')->name('contact-us');
     Route::get('/work-with-us', 'HomeController@workWithUs')->name('work-with-us');
     Route::get('/career-intern', 'HomeController@careerIntern')->name('career-intern');
     Route::get('/career-software-engineer', 'HomeController@careerSoftwareEngineer')->name('career-software-engineer');
     Route::get('/social', 'HomeController@social')->name('social');
-
-
-
-
-
 
     // Authentication
     // NOTE: Below Route is for user authentication

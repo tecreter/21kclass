@@ -12,7 +12,4 @@
 @endsection
 
 @section('script')
-    <script type="text/javascript">
-        window.KolonLsiAdmin.Home.homeFormInit();
-    </script>
 @endsection
