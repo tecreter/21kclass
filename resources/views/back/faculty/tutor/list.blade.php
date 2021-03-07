@@ -41,12 +41,11 @@
                                         <table class="table table-striped table-bordered table-condensed dt-responsive nowrap dataTable no-footer my-2" id="tutors_list" style="width: 100%;">
                                             <thead>
                                             <tr>
+                                                <th>Image</th>
                                                 <th>Name</th>
+                                                <th>Qualification</th>
                                                 <th>Position</th>
-                                                <th>Course Category</th>
-                                                <th>Profile Picture</th>
-                                                <th>Order</th>
-                                                <th>Created At</th>
+                                                <th>Type</th>
                                                 <th>Actions</th>
                                             </tr>
                                             </thead>

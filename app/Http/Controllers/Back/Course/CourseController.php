@@ -42,7 +42,7 @@ class CourseController extends Controller
             'category_id' => 'required|exists:course_categories,id',
             'name' => 'required|unique:courses|max:255',
             'price' => 'required|numeric|between:0,9999999.99',
-            'original_price' => 'required|numeric|between:0,9999999.99',
+            'original_price' => 'required|numeric|between:0,9999999.99|gte:price',
             'excerpt' => 'required|max:255',
             'description' => 'required',
             'rating' => 'required|numeric|between:0,5.00',
@@ -87,7 +87,7 @@ class CourseController extends Controller
             'category_id' => 'required|exists:course_categories,id',
             'name' => 'required|min:2|max:255|unique:App\Models\Back\Course,name,' . $id,
             'price' => 'required|numeric|between:0,9999999.99',
-            'original_price' => 'required|numeric|between:0,9999999.99',
+            'original_price' => 'required|numeric|between:0,9999999.99|gte:price',
             'excerpt' => 'required|max:255',
             'description' => 'required',
             'rating' => 'required|numeric|between:0,5.00',
@@ -130,19 +130,7 @@ class CourseController extends Controller
     {
         if ($request->ajax()) {
             try {
-
-                // Check if any Course is registered under this category
-                $course = Course::where('category_id', $id)->first();
-
-                if (!is_null($course)) {
-                    return response()->json(RESULT_OK());
-                }
-
-                // Delete course thumbnail images
-                if (!is_null($course)) {
-                    $course->thumb ?? Storage::disk('public')->delete($course->thumb);
-                }
-
+                $course = Course::findOrFail($id)->first();
                 $course->delete();
 
                 return response()->json(RESULT_OK());
@@ -162,7 +150,7 @@ class CourseController extends Controller
                 $length = $this->requestParams['length'];
 
                 $courseTypeLists = array();
-                if(count($this->requestParams['order']) > 0) {
+                if(isset($this->requestParams['order']) && count($this->requestParams['order']) > 0) {
                     foreach ($this->requestParams['order'] as $order) {
                         switch ($order['column']) {
                             case '0':

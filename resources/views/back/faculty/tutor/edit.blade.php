@@ -39,13 +39,13 @@
                                                         <div class="form-group row">
                                                             <label class="col-md-3 col-form-label" for="name">{{ __('Course Category') }}<span class="text-danger">*</span></label>
                                                             <div class="col-md-9">
-                                                                <select name="category_id" id="category_id" class="form-control @error('category_id') is-invalid @enderror" autofocus required>
-                                                                    <option value="">- Select a course category -</option>
-                                                                    @foreach($courseCategories as $courseCategory)
-                                                                        <option value="{{ $courseCategory->id }}" {{ (old('category_id', $courseCategory->id) == $tutor->category_id) ? ' selected' : '' }}>{{ $courseCategory->name }}</option>
-                                                                    @endforeach
+                                                                <select name="type_id" id="type_id" class="form-control @error('type_id') is-invalid @enderror" autofocus required>
+                                                                    <option value="">- Select a Type -</option>
+                                                                    <option value="1" {{ (old('type_id', $tutor->type_id) == 1) ? ' selected' : '' }}>Coaching</option>
+                                                                    <option value="2" {{ (old('type_id', $tutor->type_id) == 2) ? ' selected' : '' }}>Tutoring</option>
+                                                                    <option value="3" {{ (old('type_id', $tutor->type_id) == 3) ? ' selected' : '' }}>Commerce</option>
                                                                 </select>
-                                                                @error('category_id')
+                                                                @error('type_id')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
                                                                 </span>
@@ -58,9 +58,9 @@
                                                 <div class="row">
                                                     <div class="offset-lg-2 col-md-8 col-lg-6">
                                                         <div class="form-group row">
-                                                            <label class="col-md-3 col-form-label" for="honorifics">{{ __('Honorifics') }}</label>
+                                                            <label class="col-md-3 col-form-label" for="honorifics">{{ __('Title') }}</label>
                                                             <div class="col-md-9">
-                                                                <input class="form-control @error('honorifics') is-invalid @enderror" name="honorifics" id="honorifics" type="text" value="{{ old('honorifics', $tutor->honorifics) }}">
+                                                                <input class="form-control @error('honorifics') is-invalid @enderror" name="honorifics" id="honorifics" type="text" value="{{ old('honorifics', $tutor->honorifics) }}" placeholder="Dr. Mr. Mrs. Miss.">
                                                                 @error('honorifics')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
@@ -177,7 +177,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-md-3 col-form-label" for="order">{{ __('Profile Display Order') }}</label>
                                                             <div class="col-md-9">
-                                                                <input class="form-control @error('order') is-invalid @enderror" name="order" id="order" type="text" value="{{ old('order', $tutor->order) }}">
+                                                                <input class="form-control @error('order') is-invalid @enderror" name="order" id="order" type="text" value="{{ old('order', $tutor->order) }}" maxlength="6">
                                                                 @error('order')
                                                                 <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>

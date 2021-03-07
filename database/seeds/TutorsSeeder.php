@@ -10,7 +10,7 @@ class TutorsSeeder extends Seeder
     {
         DB::table('tutors')->insert([
             [
-                'category_id' => 1,
+                'type_id' => 1,
                 'honorifics' => 'Mrs.',
                 'first_name' => 'Sunitha',
                 'qualification' => 'M.Sc, B.Ed',

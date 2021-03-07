@@ -20,6 +20,13 @@ class AdminSeeder extends Seeder
             ],
             [
                 'name' => 'Admin',
+                'username' => 'tocbackoperator',
+                'password' => Hash::make('$3w@pr$q5#'),
+                'enable_flag' => 1,
+                'is_master' => 'n'
+            ],
+            [
+                'name' => 'Admin',
                 'username' => 'admin',
                 'password' => Hash::make('password'),
                 'enable_flag' => 1,

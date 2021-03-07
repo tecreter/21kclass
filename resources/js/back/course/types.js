@@ -7,6 +7,23 @@ courseType.courseTypeListFormInit = function () {
     }, 5000);
 };
 
+courseType.numberFormat = function (x) {
+
+    // 10000000 > 10,00,000
+    x = x.toString();
+    let lastThree = x.substring(x.length - 3);
+    let otherNumbers = x.substring(0, x.length - 3);
+    if (otherNumbers != '') lastThree = ',' + lastThree;
+
+    return otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+
+    // 10000000 > 10,00,000.00
+    // return (x).toFixed(2).replace(/(\d)(?=(\d{2})+\d\.)/g, '$1,');
+
+    // 10000000 > 1,000,000
+    // return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
 courseType.getCourseTypesList = function () {
     $('#courses_list').dataTable({
         "destroy": true,
@@ -14,7 +31,7 @@ courseType.getCourseTypesList = function () {
         //"lengthMenu": [[1, 5, 10, 25, 50, -1], [1, 5, 10, 25, 50, "All"]],
         "serverSide": true,
         //"paginationType": "full_numbers",
-        "ordering": true,
+        "ordering": false,
         "processing": true,
         "scrollX": true,
         "searching": false,
@@ -23,11 +40,11 @@ courseType.getCourseTypesList = function () {
             "type": 'POST'
         },
         "columns": [
-            { "data": "name" },
             { "data": null },
             { "data": null },
             { "data": null },
-            { "data": "created_at" },
+            { "data": null },
+            { "data": null },
             { "data": null },
         ],
         "order": [ [4, 'asc'] ],
@@ -41,29 +58,33 @@ courseType.getCourseTypesList = function () {
                 "className": 'text-center',
             },
             {
-                "targets" : [ 1 ],
-                "render" : function(data) {
-                    return data.category.name;
-                }
-            },
-            {
-                "targets" : [ 2 ],
+                "targets" : [ 0 ],
                 "render" : function(data) {
                     return '<img src="/storage/'+data.thumb+'" width="100">';
                 }
             },
             {
+                "targets" : [ 1 ],
+                "render" : function(data) {
+                    return data.name;
+                }
+            },
+            {
+                "targets" : [ 2 ],
+                "render" : function(data) {
+                    return data.category.name;
+                }
+            },
+            {
                 "targets" : [ 3 ],
                 "render" : function(data) {
-                    if(data.enable_flag == 1) return '<label class="c-switch c-switch-label c-switch-success mb-0"><input class="c-switch-input" type="checkbox" checked=""><span class="c-switch-slider" data-checked="On" data-unchecked="Off" onclick="window.changeCourseTypeEnableFlag('+data.id+', 0)"></span></label>';
-                    else return '<label class="c-switch c-switch-label c-switch-success mb-0"><input class="c-switch-input" type="checkbox"><span class="c-switch-slider" data-checked="On" data-unchecked="Off" onclick="window.changeCourseTypeEnableFlag('+data.id+', 1)"></span></label>';
+                    return '₹' + courseType.numberFormat(Math.floor(data.price), 3);
                 }
             },
             {
                 "targets" : [ 4 ],
                 "render" : function(data) {
-                    if (data != null) return moment(data).format('YYYY.MM.DD h:mm a');
-                    else return '';
+                    return '₹' + courseType.numberFormat(Math.floor(data.original_price), 3);
                 }
             },
             {

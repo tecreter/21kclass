@@ -15,7 +15,7 @@ class CreateTutorsTable extends Migration
     {
         Schema::create('tutors', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id');
+            $table->integer('type_id');
             $table->string('honorifics')->nullable();
             $table->string('first_name');
             $table->string('last_name')->nullable();
@@ -23,15 +23,13 @@ class CreateTutorsTable extends Migration
             $table->string('position')->nullable();
             $table->text('excerpt')->nullable();
             $table->string('profile_picture')->nullable();
+            $table->integer('display_order')->nullable();
             $table->string('social_facebook')->nullable();
             $table->string('social_twitter')->nullable();
             $table->string('social_linkedin')->nullable();
             $table->string('social_google')->nullable();
             $table->string('social_quora')->nullable();
-            $table->integer('order')->default(0);
             $table->timestamps();
-
-            $table->foreign('category_id')->references('id')->on('course_categories')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

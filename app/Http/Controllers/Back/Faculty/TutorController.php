@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 use Mockery\Exception;
 
 class TutorController extends Controller
@@ -25,21 +26,16 @@ class TutorController extends Controller
 
     public function create()
     {
-        $tutorCategory = CourseCategory::where('enable_flag', 1)->orderBy('created_at', 'asc')->get();
-
-        if (count($tutorCategory) < 1) {
-            return redirect()->route('back.course.category.index')->with('warning', 'Add/Enable a category to create new course!');
-        }
-
-        return view('back.faculty.tutor.create', [
-            'courseCategories' => CourseCategory::where('enable_flag', '1')->get()
-        ]);
+        return view('back.faculty.tutor.create');
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'category_id' => 'required|exists:course_categories,id',
+            'type_id' => [
+                'required',
+                Rule::in([1, 2, 3]),
+            ],
             'honorifics' => 'nullable',
             'first_name' => 'required|min:1|max:255',
             'last_name' => 'nullable|min:1|max:255',
@@ -47,7 +43,7 @@ class TutorController extends Controller
             'position' => 'nullable|max:255',
             'excerpt' => 'nullable',
             'profile_picture' => 'nullable|image|mimes:gif,jpeg,jpg,bmp,png|max:2048',
-            'order' => 'nullable|numeric',
+            'display_order' => 'nullable|integer',
             'social_facebook' => 'nullable',
             'social_twitter' => 'nullable',
             'social_linkedin' => 'nullable',
@@ -55,8 +51,9 @@ class TutorController extends Controller
             'social_quora' => 'nullable',
         ]);
 
+
         $tutor = new Tutor();
-        $tutor->category_id = request('category_id');
+        $tutor->type_id = request('type_id');
         $tutor->honorifics = request('honorifics');
         $tutor->first_name = request('first_name');
         $tutor->last_name = request('last_name');
@@ -64,7 +61,7 @@ class TutorController extends Controller
         $tutor->position = request('position');
         $tutor->excerpt = request('excerpt');
         $tutor->profile_picture = request('profile_picture');
-        $tutor->order = request('order');
+        $tutor->display_order = request('order') ? (int) request('order') : 0;
         $tutor->social_facebook = request('social_facebook');
         $tutor->social_twitter = request('social_twitter');
         $tutor->social_linkedin = request('social_linkedin');
@@ -85,14 +82,16 @@ class TutorController extends Controller
     {
         return view('back.faculty.tutor.edit', ([
             'tutor' => Tutor::findOrFail($id),
-            'courseCategories' => CourseCategory::where('enable_flag', '1')->get()
         ]));
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
-            'category_id' => 'required|exists:course_categories,id',
+            'type_id' => [
+                'required',
+                Rule::in([1, 2, 3]),
+            ],
             'honorifics' => 'nullable',
             'first_name' => 'required|min:1|max:255',
             'last_name' => 'nullable|min:1|max:255',
@@ -100,7 +99,7 @@ class TutorController extends Controller
             'position' => 'nullable|max:255',
             'excerpt' => 'nullable',
             'profile_picture' => 'nullable|image|mimes:gif,jpeg,jpg,bmp,png|max:2048',
-            'order' => 'nullable|numeric',
+            'display_order' => 'nullable|integer',
             'social_facebook' => 'nullable',
             'social_twitter' => 'nullable',
             'social_linkedin' => 'nullable',
@@ -109,14 +108,14 @@ class TutorController extends Controller
         ]);
 
         $tutor = Tutor::findOrFail($id);
-        $tutor->category_id = request('category_id');
+        $tutor->type_id = request('type_id');
         $tutor->honorifics = request('honorifics');
         $tutor->first_name = request('first_name');
         $tutor->last_name = request('last_name');
         $tutor->qualification = request('qualification');
         $tutor->position = request('position');
         $tutor->excerpt = request('excerpt');
-        $tutor->order = request('order');
+        $tutor->display_order = request('order') ? (int) request('order') : 0;
         $tutor->social_facebook = request('social_facebook');
         $tutor->social_twitter = request('social_twitter');
         $tutor->social_linkedin = request('social_linkedin');
@@ -169,25 +168,17 @@ class TutorController extends Controller
                 $length = $this->requestParams['length'];
 
                 $tutorLists = array();
-                if(count($this->requestParams['order']) > 0) {
+                if(isset($this->requestParams['order']) && count($this->requestParams['order']) > 0) {
                     foreach ($this->requestParams['order'] as $order) {
                         switch ($order['column']) {
-                            case '0':
-                                $tutorLists = Tutor::with('category')->orderBy('first_name', $order['dir'])->take($length)->skip($start)->get();
-                                break;
-
                             case '4':
-                                $tutorLists = Tutor::with('category')->orderBy('order', $order['dir'])->take($length)->skip($start)->get();
-                                break;
-
-                            case '5':
-                                $tutorLists = Tutor::with('category')->orderBy('created_at', $order['dir'])->take($length)->skip($start)->get();
+                                $tutorLists = Tutor::orderBy('created_at', $order['dir'])->take($length)->skip($start)->get();
                                 break;
                         }
                     }
                 }
                 else {
-                    $tutorLists = Tutor::with('category')->orderBy('created_at', 'asc')->take($length)->skip($start)->get();
+                    $tutorLists = Tutor::orderBy('created_at', 'asc')->take($length)->skip($start)->get();
                 }
 
                 if(count($tutorLists) > 0) {

@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tutor extends Model
 {
+    public const TUTOR_TYPE = [
+        1 => 'Coaching',
+        2 => 'Tutoring',
+        3 => 'Commerce'
+    ];
+
     protected $fillable = [
         'first_name', 'last_name', 'qualification'
     ];

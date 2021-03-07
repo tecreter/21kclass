@@ -167,11 +167,10 @@
 
     <div class="container space-top-2 space-top-md-1">
         <div class="row">
-            <div class="col-md-7 col-lg-8">
+            <div class="col-md-7 col-lg-8" style="min-height: 800px">
                 <div class="pt-0 mt-0">
                     <h3 class="mb-4">Description</h3>
                     {!! $course->description !!}
-                    <div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
                 </div>
             </div>
         </div>
@@ -181,94 +180,99 @@
 
     <div class="space-top-1"></div>
 
-    <div class="container space-bottom-2">
-        <div class="border-top pt-7 mt-7">
-            <h3 class="mb-4">Students also bought</h3>
+    @if(count($otherCourses))
 
-            <div class="row">
-                @foreach($otherCourses as $otherCourse)
-                    <article class="col-md-6 col-lg-4 mb-5">
-                        <div class="card card-bordered h-100">
-                            <a class="card-img-top position-relative" href="/course/{{ $otherCourse->slug }}">
-                                <img class="card-img-top" src="{{ ($otherCourse->thumb) ? asset('/storage/'.$otherCourse->thumb) : cdn_mix('/images/logos/logo.png') }}" alt="{{ $otherCourse->name }}">
-                            </a>
-                            <div class="card-body">
-                                <div class="mb-3">
-                                    <h3>
-                                        <a class="text-inherit" href="/course/{{ $otherCourse->slug }}">{{ $otherCourse->name }}</a>
-                                    </h3>
-                                </div>
-                                <p class="mb-0">{{ $otherCourse->excerpt }}</p>
-                                <div class="d-flex align-items-center">
-                                    <div class="bottom-0 left-0 mb-3">
-                                        <div class="d-flex align-items-center flex-wrap">
-                                            <ul class="list-inline mt-b2 mb-0 mr-2">
-                                                @if ($otherCourse->rating >= 1)
-                                                    <li class="list-inline-item mx-0"><i class="fas fa-star fa-xs text-primary"></i></li>
-                                                @elseif ($otherCourse->rating > 0 && $otherCourse->rating < 1)
-                                                    <li class="list-inline-item mx-0"><i class="fas fa-star-half-alt fa-xs text-primary"></i></li>
-                                                @else
-                                                    <li class="list-inline-item mx-0"><i class="far fa-star fa-xs text-primary"></i></li>
-                                                @endif
+        <div class="container space-bottom-2">
+            <div class="border-top pt-7 mt-7">
+                <h3 class="mb-4">Students also bought</h3>
 
-                                                @if ($otherCourse->rating >= 2)
-                                                    <li class="list-inline-item mx-0"><i class="fas fa-star fa-xs text-primary"></i></li>
-                                                @elseif ($otherCourse->rating > 1 && $otherCourse->rating < 2)
-                                                    <li class="list-inline-item mx-0"><i class="fas fa-star-half-alt fa-xs text-primary"></i></li>
-                                                @else
-                                                    <li class="list-inline-item mx-0"><i class="far fa-star fa-xs text-primary"></i></li>
-                                                @endif
+                <div class="row">
+                    @foreach($otherCourses as $otherCourse)
+                        <article class="col-md-6 col-lg-4 mb-5">
+                            <div class="card card-bordered h-100">
+                                <a class="card-img-top position-relative" href="/course/{{ $otherCourse->slug }}">
+                                    <img class="card-img-top" src="{{ ($otherCourse->thumb) ? asset('/storage/'.$otherCourse->thumb) : cdn_mix('/images/logos/logo.png') }}" alt="{{ $otherCourse->name }}">
+                                </a>
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <h3>
+                                            <a class="text-inherit" href="/course/{{ $otherCourse->slug }}">{{ $otherCourse->name }}</a>
+                                        </h3>
+                                    </div>
+                                    <p class="mb-0">{{ $otherCourse->excerpt }}</p>
+                                    <div class="d-flex align-items-center">
+                                        <div class="bottom-0 left-0 mb-3">
+                                            <div class="d-flex align-items-center flex-wrap">
+                                                <ul class="list-inline mt-b2 mb-0 mr-2">
+                                                    @if ($otherCourse->rating >= 1)
+                                                        <li class="list-inline-item mx-0"><i class="fas fa-star fa-xs text-primary"></i></li>
+                                                    @elseif ($otherCourse->rating > 0 && $otherCourse->rating < 1)
+                                                        <li class="list-inline-item mx-0"><i class="fas fa-star-half-alt fa-xs text-primary"></i></li>
+                                                    @else
+                                                        <li class="list-inline-item mx-0"><i class="far fa-star fa-xs text-primary"></i></li>
+                                                    @endif
 
-                                                @if ($otherCourse->rating >= 3)
-                                                    <li class="list-inline-item mx-0"><i class="fas fa-star fa-xs text-primary"></i></li>
-                                                @elseif ($otherCourse->rating > 2 && $otherCourse->rating < 3)
-                                                    <li class="list-inline-item mx-0"><i class="fas fa-star-half-alt fa-xs text-primary"></i></li>
-                                                @else
-                                                    <li class="list-inline-item mx-0"><i class="far fa-star fa-xs text-primary"></i></li>
-                                                @endif
+                                                    @if ($otherCourse->rating >= 2)
+                                                        <li class="list-inline-item mx-0"><i class="fas fa-star fa-xs text-primary"></i></li>
+                                                    @elseif ($otherCourse->rating > 1 && $otherCourse->rating < 2)
+                                                        <li class="list-inline-item mx-0"><i class="fas fa-star-half-alt fa-xs text-primary"></i></li>
+                                                    @else
+                                                        <li class="list-inline-item mx-0"><i class="far fa-star fa-xs text-primary"></i></li>
+                                                    @endif
 
-                                                @if ($otherCourse->rating >= 4)
-                                                    <li class="list-inline-item mx-0"><i class="fas fa-star fa-xs text-primary"></i></li>
-                                                @elseif ($otherCourse->rating > 3 && $otherCourse->rating < 4)
-                                                    <li class="list-inline-item mx-0"><i class="fas fa-star-half-alt fa-xs text-primary"></i></li>
-                                                @else
-                                                    <li class="list-inline-item mx-0"><i class="far fa-star fa-xs text-primary"></i></li>
-                                                @endif
+                                                    @if ($otherCourse->rating >= 3)
+                                                        <li class="list-inline-item mx-0"><i class="fas fa-star fa-xs text-primary"></i></li>
+                                                    @elseif ($otherCourse->rating > 2 && $otherCourse->rating < 3)
+                                                        <li class="list-inline-item mx-0"><i class="fas fa-star-half-alt fa-xs text-primary"></i></li>
+                                                    @else
+                                                        <li class="list-inline-item mx-0"><i class="far fa-star fa-xs text-primary"></i></li>
+                                                    @endif
 
-                                                @if ($otherCourse->rating >= 5)
-                                                    <li class="list-inline-item mx-0"><i class="fas fa-star fa-xs text-primary"></i></li>
-                                                @elseif ($otherCourse->rating > 4 && $otherCourse->rating < 5)
-                                                    <li class="list-inline-item mx-0"><i class="fas fa-star-half-alt fa-xs text-primary"></i></li>
-                                                @else
-                                                    <li class="list-inline-item mx-0"><i class="far fa-star fa-xs text-primary"></i></li>
-                                                @endif
-                                            </ul>
-                                            <span class="d-inline-block">
+                                                    @if ($otherCourse->rating >= 4)
+                                                        <li class="list-inline-item mx-0"><i class="fas fa-star fa-xs text-primary"></i></li>
+                                                    @elseif ($otherCourse->rating > 3 && $otherCourse->rating < 4)
+                                                        <li class="list-inline-item mx-0"><i class="fas fa-star-half-alt fa-xs text-primary"></i></li>
+                                                    @else
+                                                        <li class="list-inline-item mx-0"><i class="far fa-star fa-xs text-primary"></i></li>
+                                                    @endif
+
+                                                    @if ($otherCourse->rating >= 5)
+                                                        <li class="list-inline-item mx-0"><i class="fas fa-star fa-xs text-primary"></i></li>
+                                                    @elseif ($otherCourse->rating > 4 && $otherCourse->rating < 5)
+                                                        <li class="list-inline-item mx-0"><i class="fas fa-star-half-alt fa-xs text-primary"></i></li>
+                                                    @else
+                                                        <li class="list-inline-item mx-0"><i class="far fa-star fa-xs text-primary"></i></li>
+                                                    @endif
+                                                </ul>
+                                                <span class="d-inline-block">
                                               <small class="font-weight-bold text-dark mr-1">{{ $otherCourse->rating }} / 5</small>
                                             </span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card-footer border-0 pt-0">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="mr-2">
-                                        @if($otherCourse->original_price > 0)
-                                            <small class="d-block text-muted text-lh-sm"><del>₹{{ number_format($otherCourse->original_price) }}</del></small>
-                                        @endif
-                                        <span class="d-block h5 text-lh-sm mb-0 text-danger">₹{{ number_format($otherCourse->price) }}</span>
+                                <div class="card-footer border-0 pt-0">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="mr-2">
+                                            @if($otherCourse->original_price > 0)
+                                                <small class="d-block text-muted text-lh-sm"><del>₹{{ number_format($otherCourse->original_price) }}</del></small>
+                                            @endif
+                                            <span class="d-block h5 text-lh-sm mb-0 text-danger">₹{{ number_format($otherCourse->price) }}</span>
+                                        </div>
+                                        <a class="btn btn-sm btn-info transition-3d-hover" href="javascript:void(0);">Buy This Course</a>
                                     </div>
-                                    <a class="btn btn-sm btn-info transition-3d-hover" href="javascript:void(0);">Buy This Course</a>
                                 </div>
                             </div>
-                        </div>
-                    </article>
-                @endforeach
+                        </article>
+                    @endforeach
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="space-top-1"></div>
+        <div class="space-top-1"></div>
+    @endif
+
+
 
     <div class="border-top">
         <div class="container space-2">
@@ -276,8 +280,8 @@
                 <h2>Find the right learning path for you</h2>
                 <p>Answer a few questions and match your goals to our programs.</p>
                 <span class="d-block mt-5">
-                      <a class="btn btn-primary transition-3d-hover" href="#">Explore by Category</a>
-                    </span>
+                  <a class="btn btn-primary transition-3d-hover" href="#">Explore by Category</a>
+                </span>
             </div>
         </div>
     </div>

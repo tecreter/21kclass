@@ -66,11 +66,10 @@ class CategoryController extends Controller
         if ($request->ajax()) {
             try {
 
-                // Check if any Course or Tutors are registered under this category
+                // Check if any Course are registered under this category
                 $course = Course::where('category_id', $id)->first();
-                $tutors = Tutor::where('category_id', $id)->first();
 
-                if (!is_null($course) || !is_null($tutors)) {
+                if (!is_null($course)) {
                     return response()->json(RESULT_BAD_REQUEST_ERROR_CODE(1));
                 }
 
