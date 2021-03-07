@@ -91,7 +91,15 @@
                             </div>
 
                             <div class="mb-2">
-                                <a class="btn btn-block btn-primary transition-3d-hover" href="#">Buy Now</a>
+                                @if(!in_array($course->id, session('SESSION_TOC_CART_COURSE_IDS', [])))
+                                    <form id="add-to-cart" action="{{ route('add-to-cart') }}" method="POST" style="display: none;">
+                                        @csrf
+                                        <input type="hidden" name="course_id" value="{{ $course->id }}">
+                                    </form>
+                                    <div class="btn btn-block btn-primary transition-3d-hover" onclick="event.preventDefault();document.getElementById('add-to-cart').submit();">Add to cart</div>
+                                @else
+                                    <a class="btn btn-block btn-primary transition-3d-hover" href="{{ route('cart') }}">Go to cart</a>
+                                @endif
                             </div>
 
                             <div class="text-center mb-4">

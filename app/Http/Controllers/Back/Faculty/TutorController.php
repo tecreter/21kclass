@@ -51,7 +51,6 @@ class TutorController extends Controller
             'social_quora' => 'nullable',
         ]);
 
-
         $tutor = new Tutor();
         $tutor->type_id = request('type_id');
         $tutor->honorifics = request('honorifics');

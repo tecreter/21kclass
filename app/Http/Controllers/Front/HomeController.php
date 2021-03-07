@@ -14,13 +14,14 @@ class HomeController extends Controller
         //$this->middleware('auth');
     }
 
-
-
-
-
     // About us
     public function index()
     {
+
+//        if (session()->get('SESSION_TOC_CART_COURSE_IDS')) {
+//            dd( session()->all() );
+//        }
+
         $courseCategories = CourseCategory::with('courses')->where('enable_flag', 1)->get();
         return view('front.pages.index', [
             'courseCategories' => $courseCategories

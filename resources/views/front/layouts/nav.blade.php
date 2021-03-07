@@ -35,31 +35,70 @@
                         <div class="hs-unfold">
                             <a class="js-hs-unfold-invoker btn btn-xs btn-icon btn-ghost-secondary" href="javascript:void(0);"
                                data-hs-unfold-options='{
-                                                        "target": "#shoppingCartDropdown",
-                                                        "type": "css-animation",
-                                                        "hideOnScroll": "true"
-                                                       }'>
+                                                    "target": "#shoppingCartDropdown",
+                                                    "type": "css-animation",
+                                                    "event": "hover",
+                                                    "hideOnScroll": "true"
+                                                   }'>
                                 <i class="fas fa-shopping-cart"></i>
+                                @if(session('SESSION_TOC_CART_COURSE_IDS', null))
+                                    <span style="position: absolute;margin: -0.3rem 4rem 0 0.2rem;top: 0;left: 50%;background: #ec5252;color: #fff;display: inline-block;text-align: center;border-radius:9999px;min-width:1.5rem;padding:2px;font-size: 0.75rem" class="" title="{{ __(1) }} item in the cart">{{ count(session()->get('SESSION_TOC_CART_COURSE_IDS')) }}</span>
+                                @endif
                             </a>
 
-                            <div id="shoppingCartDropdown"
-                                 class="hs-unfold-content dropdown-menu dropdown-menu-right dropdown-card text-center"
-                                 style="min-width: 275px;">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <figure class="max-w-9rem mx-auto mb-3">
-                                            <img class="img-fluid"
-                                                 src="{{ cdn_mix('/svg/illustrations/empty-cart.svg') }}"
-                                                 alt="SVG">
-                                        </figure>
-                                        <span class="d-block">Your cart is empty</span>
-                                    </div>
-
-                                    <div class="card-footer">
-                                        <button type="button" class="btn btn-primary btn-xs">View Cart</button>
+                            @if(session('SESSION_TOC_CART_COURSE_IDS', null))
+                                <div id="shoppingCartDropdown"
+                                     class="hs-unfold-content dropdown-menu dropdown-menu-right dropdown-card text-left"
+                                     style="min-width: 275px;">
+                                    <div class="card">
+                                        <div class="card-body p-0">
+                                            <div class="list-group list-group-lg list-group-flush list-group-no-gutters" style="max-height:200px;overflow:hidden;overflow-y:scroll">
+                                                @php
+                                                    $course_details = session('SESSION_TOC_CART_COURSE_DETAILS', null);
+                                                @endphp
+                                                @foreach($course_details as $course)
+                                                    <div class="list-group-item">
+                                                        <div class="media">
+                                                            <img  class="img img-fluid" width="50" src="{{ ($course['thumb']) ? asset('/storage/'.$course['thumb']) : cdn_mix('/images/logos/logo.png') }}" alt="{{ $course['name'] }}">
+                                                            <div class="media-body">
+                                                                <div class="row align-items-left">
+                                                                    <div class="col-sm mb-1 mb-sm-0">
+                                                                        <h6 class="mb-0">{{ $course['name'] }}</h6>
+                                                                        <small class="d-block h6 text-lh-sm mb-0 text-danger mt-1"><strong>₹{{ number_format($course['price']) }}</strong></small>
+                                                                        @if($course['original_price'] > 0)
+                                                                            <small class="d-block text-muted text-lh-sm"><del>₹{{ number_format($course['original_price']) }}</del></small>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                        <div class="card-footer text-center">
+                                            <a href="{{ route('cart') }}" class="btn btn-sm btn-primary transition-3d-hover">Go to cart</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            @else
+                                <div id="shoppingCartDropdown"
+                                     class="hs-unfold-content dropdown-menu dropdown-menu-right dropdown-card text-center"
+                                     style="min-width: 275px;">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <figure class="max-w-9rem mx-auto mb-3">
+                                                <img class="img-fluid" src="{{ cdn_mix('/svg/illustrations/empty-cart.svg') }}" alt="SVG">
+                                            </figure>
+                                            <span class="d-block">Your cart is empty.</span>
+                                        </div>
+
+                                        <div class="card-footer">
+                                            <a href="{{ route('index') }}" class="text-primary font-size-1">Keep shopping</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                     </li>
                 </ul>
