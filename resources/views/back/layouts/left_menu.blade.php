@@ -7,21 +7,19 @@
     <ul class="c-sidebar-nav ps ps--active-y">
         <li class="c-sidebar-nav-title">{{ __('Modules') }}</li>
 
+        <li class="c-sidebar-nav-dropdown{!! (Request::is('backoffice/customer/*')) ? ' c-show' : '' !!}">
+            <a class="c-sidebar-nav-link{!! Request::is('backoffice/customer/tutor*') ? ' c-active' : '' !!}" href="{{ route('back.customer.index') }}">
+                <i class="fas fa-users mr-2"></i> {{ __('Customers') }}
+            </a>
+        </li>
+
         <li class="c-sidebar-nav-dropdown{!! (Request::is('backoffice/faculty/*')) ? ' c-show' : '' !!}">
-
-            <a class="c-sidebar-nav-dropdown-toggle" href="#"><i class="fas fa-user-cog mr-2"></i> Faculty</a>
-            <ul class="c-sidebar-nav-dropdown-items">
-                <li class="c-sidebar-nav-item">
-                    <a class="c-sidebar-nav-link{!! Request::is('backoffice/faculty/tutor*') ? ' c-active' : '' !!}" href="{{ route('back.faculty.tutor.index') }}">
-                        <i class="fas fa-user-tie mr-2"></i> {{ __('Tutors') }}
-                    </a>
-                </li>
-            </ul>
-
+            <a class="c-sidebar-nav-link{!! Request::is('backoffice/faculty/tutor*') ? ' c-active' : '' !!}" href="{{ route('back.faculty.tutor.index') }}">
+                <i class="fas fa-user-tie mr-2"></i> {{ __('Tutors') }}
+            </a>
         </li>
 
         <li class="c-sidebar-nav-dropdown{!! (Request::is('backoffice/course/*')) ? ' c-show' : '' !!}">
-
             <a class="c-sidebar-nav-dropdown-toggle" href="#"><i class="fas fa-book mr-2"></i> Course</a>
             <ul class="c-sidebar-nav-dropdown-items">
                 <li class="c-sidebar-nav-item">
@@ -35,7 +33,6 @@
                     </a>
                 </li>
             </ul>
-
         </li>
 
 

@@ -231,10 +231,9 @@
                                     <div class="cbp-filter-scrollbar">
                                         @php($i=0)
                                         @foreach($courseCategories as $courseCategory)
-                                            <a class="cbp-filter-item cbp-filter d-flex justify-content-between align-items-center-item-active nav-link mx-2 mx-lg-0"
-                                               href="javascript:;" data-filter=".{{ 'course_category_' . $i }}">
-                                                {{ $courseCategory->name }}
-                                                <span class="badge border badge-pill ml-2" style="display:inline-table">{{ $courseCategory->courses->count() }}</span>
+                                            <a class="cbp-filter-item nav-link d-flex align-items-center mx-2 mx-lg-0" href="javascript:;" data-filter=".account">
+                                                {{ $courseCategory->name }} {!! ($courseCategory->is_new == 1) ? '<span class="badge badge-success ml-2 mr-2">New</span>' : '' !!}
+                                                <span class="badge border badge-pill ml-auto">{{ $courseCategory->courses->count() }}</span>
                                             </a>
                                             @php($i++)
                                         @endforeach
@@ -254,6 +253,11 @@
                                                     <img class="card-img-top" src="{{ ($course->thumb) ? asset('/storage/'.$course->thumb) : cdn_mix('/images/logos/logo.png') }}" alt="{{ $course->name }}">
                                                 </a>
                                                 <div class="card-body">
+                                                    @if($course->is_new == 1)
+                                                    <div class="position-absolute top-0 left-0 mt-3 ml-3">
+                                                        <small class="btn btn-xs btn-success btn-pill text-uppercase shadow-soft mb-3 rounded">New</small>
+                                                    </div>
+                                                    @endif
                                                     <div class="mb-3">
                                                         <h3>
                                                             <a class="text-inherit" href="/course/{{ $course->slug }}">{{ $course->name }}</a>
@@ -305,7 +309,7 @@
                                                                     @endif
                                                                 </ul>
                                                                 <span class="d-inline-block">
-                                                              <small class="font-weight-bold text-dark mr-1">{{ $course->rating }} / 5</small>
+                                                              <small class="font-weight-bold text-dark mr-1">{{ number_format($course->rating, 1) }} / 5</small>
                                                             </span>
                                                             </div>
                                                         </div>

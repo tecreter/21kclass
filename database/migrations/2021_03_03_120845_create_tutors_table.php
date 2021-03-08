@@ -20,7 +20,7 @@ class CreateTutorsTable extends Migration
             $table->string('first_name');
             $table->string('last_name')->nullable();
             $table->string('qualification');
-            $table->string('position')->nullable();
+            $table->string('position', 50)->nullable();
             $table->text('excerpt')->nullable();
             $table->string('profile_picture')->nullable();
             $table->integer('display_order')->nullable();

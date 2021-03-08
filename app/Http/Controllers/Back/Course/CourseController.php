@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 use Mockery\Exception;
 
 class CourseController extends Controller
@@ -45,7 +46,12 @@ class CourseController extends Controller
             'original_price' => 'required|numeric|between:0,9999999.99|gte:price',
             'excerpt' => 'required|max:255',
             'description' => 'required',
+            'features' => 'nullable',
             'rating' => 'required|numeric|between:0,5.00',
+            'is_new' => [
+                'required',
+                Rule::in([0, 1]),
+            ],
             'thumb' => 'required|image|mimes:gif,jpeg,jpg,bmp,png|max:2048',
         ]);
 
@@ -61,7 +67,9 @@ class CourseController extends Controller
         $course->original_price = request('original_price');
         $course->excerpt = request('excerpt');
         $course->description = request('description');
+        $course->features = request('features');
         $course->rating = request('rating');
+        $course->is_new = request('is_new');
 
         $thumb_img = request('thumb');
         $course->thumb = Storage::disk('public')->putFileAs('course_thumb', $thumb_img, time() . '.' . $thumb_img->getClientOriginalName());
@@ -90,7 +98,12 @@ class CourseController extends Controller
             'original_price' => 'required|numeric|between:0,9999999.99|gte:price',
             'excerpt' => 'required|max:255',
             'description' => 'required',
+            'features' => 'nullable',
             'rating' => 'required|numeric|between:0,5.00',
+            'is_new' => [
+                'required',
+                Rule::in([0, 1]),
+            ],
             'thumb' => 'nullable|image|mimes:gif,jpeg,jpg,bmp,png|max:2048',
         ]);
 
@@ -102,7 +115,9 @@ class CourseController extends Controller
         $course->original_price = request('original_price');
         $course->excerpt =  $request->get('excerpt');
         $course->description =  $request->get('description');
+        $course->features =  $request->get('features');
         $course->rating =  $request->get('rating');
+        $course->is_new =  $request->get('is_new');
 
         if ($request->hasFile('thumb')) {
             // delete old thumb image

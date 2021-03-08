@@ -22,8 +22,10 @@ class CreateCoursesTable extends Migration
             $table->float('original_price', 8,2)->default(0);
             $table->string('excerpt');
             $table->longText('description');
+            $table->longText('features')->nullable();
             $table->float('rating', 8,2)->nullable();
             $table->string('thumb')->nullable();
+            $table->char('is_new', 1)->default(1)->comment('0=old, 1=new');
             $table->char('enable_flag', 1)->default(1)->comment('0=disabled, 1=enabled');
             $table->timestamps();
 

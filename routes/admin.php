@@ -16,6 +16,11 @@ Route::namespace('Back')->prefix('backoffice')->name('back.')->group(function ()
     Route::get('/settings', 'HomeController@settings')->name('settings')->middleware(['auth:admin']);
     Route::post('/settings', 'HomeController@settings')->name('settings')->middleware(['auth:admin']);
 
+    // Customers
+    Route::get('customer', 'CustomerController@index')->middleware(['auth:admin'])->name('customer.index');
+    Route::post('getCustomersList', 'CustomerController@getCustomersList')->name('getCustomersList');
+
+
     // Faculty
     Route::namespace('Faculty')->prefix('faculty')->name('faculty.')->group(function () {
 

@@ -9,6 +9,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-7 col-lg-8">
+                        @if($course->is_new == 1)
+                            <small class="btn btn-xs btn-success btn-pill text-uppercase mb-2 rounded">New</small>
+                        @endif
                         <h1 class="text-lh-sm text-white">{{ $course->name }}</h1>
                         <p class="text-white-70">{{ $course->excerpt }}</p>
 
@@ -55,7 +58,7 @@
                                 @endif
                             </ul>
                             <span class="d-inline-block">
-                              <small class="font-weight-bold text-white-50 mr-1">{{ $course->rating }} / 5</small>
+                              <small class="font-weight-bold text-white-50 mr-1">{{ number_format($course->rating, 1) }} / 5</small>
                             </span>
                         </div>
 
@@ -90,83 +93,32 @@
                                 @endif
                             </div>
 
-                            <div class="mb-2">
+                            <div class="mb-4">
                                 @if(!in_array($course->id, session('SESSION_TOC_CART_COURSE_IDS', [])))
                                     <form id="add-to-cart" action="{{ route('add-to-cart') }}" method="POST" style="display: none;">
                                         @csrf
                                         <input type="hidden" name="course_id" value="{{ $course->id }}">
                                     </form>
-                                    <div class="btn btn-block btn-primary transition-3d-hover" onclick="event.preventDefault();document.getElementById('add-to-cart').submit();">Add to cart</div>
+                                    <div class="btn btn-block btn-primary" onclick="event.preventDefault();document.getElementById('add-to-cart').submit();">Add to cart</div>
                                 @else
-                                    <a class="btn btn-block btn-primary transition-3d-hover" href="{{ route('cart') }}">Go to cart</a>
+                                    <a class="btn btn-block btn-primary" href="{{ route('cart') }}">Go to cart</a>
                                 @endif
-                            </div>
 
-                            <div class="text-center mb-4">
-                                <p class="small">30-day money-back guarantee</p>
+                                <form id="buy-now" action="{{ route('buy-now') }}" method="POST" style="display: none;">
+                                    @csrf
+                                    <input type="hidden" name="course_id" value="{{ $course->id }}">
+                                </form>
+                                <div class="btn btn-block btn-outline-info mt-2" onclick="event.preventDefault();document.getElementById('buy-now').submit();">Buy now</div>
                             </div>
 
                             <h2 class="h4">This course includes</h2>
 
                             <div class="media text-body font-size-1 mb-2">
-                                <div class="min-w-3rem text-center mr-3">
-                                    <i class="fa fa-video"></i>
-                                </div>
-                                <div class="media-body">
-                                    46.5 hours on-demand video
-                                </div>
+                                {!! $course->features !!}
                             </div>
 
-                            <div class="media text-body font-size-1 mb-2">
-                                <div class="min-w-3rem text-center mr-3">
-                                    <i class="fa fa-file"></i>
-                                </div>
-                                <div class="media-body">
-                                    77 articles
-                                </div>
-                            </div>
-
-                            <div class="media text-body font-size-1 mb-2">
-                                <div class="min-w-3rem text-center mr-3">
-                                    <i class="fa fa-file-download"></i>
-                                </div>
-                                <div class="media-body">
-                                    85 downloadable resources
-                                </div>
-                            </div>
-
-                            <div class="media text-body font-size-1 mb-2">
-                                <div class="min-w-3rem text-center mr-3">
-                                    <i class="fa fa-infinity"></i>
-                                </div>
-                                <div class="media-body">
-                                    Full time access
-                                </div>
-                            </div>
-
-                            <div class="media text-body font-size-1 mb-2">
-                                <div class="min-w-3rem text-center mr-3">
-                                    <i class="fa fa-mobile"></i>
-                                </div>
-                                <div class="media-body">
-                                    Access on mobile and Tablet
-                                </div>
-                            </div>
-
-                            <div class="media text-body font-size-1 mb-2">
-                                <div class="min-w-3rem text-center mr-3">
-                                    <i class="fa fa-certificate"></i>
-                                </div>
-                                <div class="media-body">
-                                    Certificate of Completion
-                                </div>
-                            </div>
                         </div>
 
-                        <a class="card-footer text-center font-weight-bold py-3" data-toggle="modal" data-target="#copyToClipboardModal" href="javascript:;">
-                            <i class="fa fa-share mr-1"></i>
-                            Share
-                        </a>
                     </div>
                 </div>
             </div>

@@ -9,6 +9,7 @@ use App\Models\Back\Tutor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 use Mockery\Exception;
 
 class CategoryController extends Controller
@@ -31,10 +32,15 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name'=> 'required|min:2|max:255|unique:App\Models\Back\CourseCategory,name,' . request('name'), // unique:table,column,except,idColumn
+            'is_new' => [
+                'required',
+                Rule::in([0, 1]),
+            ]
         ]);
 
         $courseCategory = new CourseCategory();
         $courseCategory->name = request('name');
+        $courseCategory->is_new = request('is_new');
 
         $courseCategory->save();
 
@@ -51,11 +57,16 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name'=> 'required|min:2|max:255|unique:App\Models\Back\CourseCategory,name,' . request('name'), // unique:table,column,except,idColumn
+            'name'=> 'required|min:2|max:255|unique:App\Models\Back\CourseCategory,name,' . $id, // unique:table,column,except,idColumn
+            'is_new' => [
+                'required',
+                Rule::in([0, 1]),
+            ]
         ]);
 
         $courseCategory = CourseCategory::findOrFail($id);
         $courseCategory->name =  $request->get('name');
+        $courseCategory->is_new = request('is_new');
         $courseCategory->save();
 
         return redirect()->route('back.course.category.index')->with('success', 'Course category information updated!');
@@ -98,7 +109,7 @@ class CategoryController extends Controller
                 $length = $this->requestParams['length'];
 
                 $categoryLists = array();
-                if(count($this->requestParams['order']) > 0) {
+                if(isset($this->requestParams['order']) && count($this->requestParams['order']) > 0) {
                     foreach ($this->requestParams['order'] as $order) {
                         switch ($order['column']) {
                             case '0':
@@ -112,7 +123,7 @@ class CategoryController extends Controller
                     }
                 }
                 else {
-                    $categoryLists = CourseCategory::with('courses')->orderBy('created_at', 'asc')->take($length)->skip($start)->get();
+                    $categoryLists = CourseCategory::with('courses')->orderBy('created_at', 'desc')->take($length)->skip($start)->get();
                 }
 
                 if(count($categoryLists) > 0) {

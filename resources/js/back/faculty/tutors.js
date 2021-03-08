@@ -51,7 +51,7 @@ tutors.getTutorsList = function () {
                 "targets" : [ 0 ],
                 "render" : function(data) {
                     if(data.profile_picture != null) return '<img src="/storage/'+data.profile_picture+'" width="100">';
-                    else return '';
+                    else return '<img src="/images/100x100/img12.jpg">';
                 }
             },
             {

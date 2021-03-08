@@ -60,61 +60,61 @@
             <div class="row mx-n2 mb-5">
                 @forelse($tutors as $tutor)
                     <div class="col-sm-6 col-lg-3 px-2 mb-3">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <div class="avatar avatar-xl avatar-circle mb-4">
-                                        <img class="avatar-img" src="{{ ($tutor->profile_picture) ? asset('/storage/'.$tutor->profile_picture) : cdn_mix('/images/100x100/img12.jpg') }}">
-                                    </div>
-
-                                    <h4 class="text-lh-sm">{{ $tutor->honorifics }} {{ $tutor->first_name }} {{ $tutor->last_name }}</h4>
-                                    <p class="small">{{ $tutor->qualification }}</p>
-                                    <span class="d-block small font-weight-bold text-cap mb-3">{{ $tutor->position }}</span>
-
-                                    <p class="font-size-1">
-                                        {{ $tutor->excerpt }}
-                                    </p>
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="avatar avatar-xl avatar-circle mb-4">
+                                    <img class="avatar-img" src="{{ ($tutor->profile_picture) ? asset('/storage/'.$tutor->profile_picture) : cdn_mix('/images/100x100/img12.jpg') }}">
                                 </div>
-                                <div class="card-footer border-0 pt-0">
-                                    <ul class="list-inline mb-0">
-                                        @if($tutor->social_facebook)
-                                            <li class="list-inline-item">
-                                                <a class="btn btn-xs btn-icon btn-soft-secondary rounded-lg" href="{{ $tutor->social_facebook }}" target="_blank">
-                                                    <i class="fab fa-facebook-f"></i>
-                                                </a>
-                                            </li>
-                                        @endif
-                                        @if($tutor->social_twitter)
-                                            <li class="list-inline-item">
-                                                <a class="btn btn-xs btn-icon btn-soft-secondary rounded-lg" href="{{ $tutor->social_twitter }}" target="_blank">
-                                                    <i class="fab fa-twitter"></i>
-                                                </a>
-                                            </li>
-                                        @endif
-                                        @if($tutor->social_google)
-                                            <li class="list-inline-item">
-                                                <a class="btn btn-xs btn-icon btn-soft-secondary rounded-lg" href="{{ $tutor->social_google }}" target="_blank">
-                                                    <i class="fab fa-google"></i>
-                                                </a>
-                                            </li>
-                                        @endif
-                                        @if($tutor->social_linkedin)
-                                            <li class="list-inline-item">
-                                                <a class="btn btn-xs btn-icon btn-soft-secondary rounded-lg" href="{{ $tutor->social_linkedin }}" target="_blank">
-                                                    <i class="fab fa-linkedin"></i>
-                                                </a>
-                                            </li>
-                                        @endif
-                                        @if($tutor->social_quora)
-                                            <li class="list-inline-item">
-                                                <a class="btn btn-xs btn-icon btn-soft-secondary rounded-lg" href="{{ $tutor->social_quora }}" target="_blank">
-                                                    <i class="fab fa-quora"></i>
-                                                </a>
-                                            </li>
-                                        @endif
-                                    </ul>
-                                </div>
+
+                                <h4 class="text-lh-sm">{{ $tutor->honorifics }} {{ $tutor->first_name }} {{ $tutor->last_name }}</h4>
+                                <p class="small">{{ $tutor->qualification }}</p>
+                                <span class="d-block small font-weight-bold text-cap mb-1" style="min-height:38px;max-height:38px;overflow:hidden">{{ $tutor->position }}</span>
+
+                                <p class="font-size-1">
+                                    {{ $tutor->excerpt }}
+                                </p>
+                            </div>
+                            <div class="card-footer border-0 pt-0">
+                                <ul class="list-inline mb-0">
+                                    @if($tutor->social_facebook)
+                                        <li class="list-inline-item">
+                                            <a class="btn btn-xs btn-icon btn-soft-secondary rounded-lg" href="{{ $tutor->social_facebook }}" target="_blank">
+                                                <i class="fab fa-facebook-f"></i>
+                                            </a>
+                                        </li>
+                                    @endif
+                                    @if($tutor->social_twitter)
+                                        <li class="list-inline-item">
+                                            <a class="btn btn-xs btn-icon btn-soft-secondary rounded-lg" href="{{ $tutor->social_twitter }}" target="_blank">
+                                                <i class="fab fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                    @endif
+                                    @if($tutor->social_google)
+                                        <li class="list-inline-item">
+                                            <a class="btn btn-xs btn-icon btn-soft-secondary rounded-lg" href="{{ $tutor->social_google }}" target="_blank">
+                                                <i class="fab fa-google"></i>
+                                            </a>
+                                        </li>
+                                    @endif
+                                    @if($tutor->social_linkedin)
+                                        <li class="list-inline-item">
+                                            <a class="btn btn-xs btn-icon btn-soft-secondary rounded-lg" href="{{ $tutor->social_linkedin }}" target="_blank">
+                                                <i class="fab fa-linkedin"></i>
+                                            </a>
+                                        </li>
+                                    @endif
+                                    @if($tutor->social_quora)
+                                        <li class="list-inline-item">
+                                            <a class="btn btn-xs btn-icon btn-soft-secondary rounded-lg" href="{{ $tutor->social_quora }}" target="_blank">
+                                                <i class="fab fa-quora"></i>
+                                            </a>
+                                        </li>
+                                    @endif
+                                </ul>
                             </div>
                         </div>
+                    </div>
                 @empty
                 @endforelse
             </div>

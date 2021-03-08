@@ -14,7 +14,7 @@ courseCategory.getCourseCategoriesList = function () {
         //"lengthMenu": [[1, 5, 10, 25, 50, -1], [1, 5, 10, 25, 50, "All"]],
         "serverSide": true,
         //"paginationType": "full_numbers",
-        "ordering": true,
+        "ordering": false,
         "processing": true,
         "scrollX": true,
         "searching": false,
@@ -26,17 +26,16 @@ courseCategory.getCourseCategoriesList = function () {
             { "data": "name" },
             { "data": null },
             { "data": null },
-            { "data": "created_at" },
             { "data": null },
         ],
         "order": [ [3, 'asc'] ],
         "columnDefs": [
             { // Order
-                "targets": [ 1, 2, 4 ],
+                "targets": [ 1, 2, 3 ],
                 "orderable": false
             },
             {
-                "targets" : [ 0, 1, 2, 3, 4 ],
+                "targets" : [ 1, 2, 3 ],
                 "className": 'text-center',
             },
             {
@@ -48,19 +47,11 @@ courseCategory.getCourseCategoriesList = function () {
             {
                 "targets" : [ 2 ],
                 "render" : function(data) {
-                    if(data.enable_flag == 1) return '<label class="c-switch c-switch-label c-switch-success mb-0"><input class="c-switch-input" type="checkbox" checked=""><span class="c-switch-slider" data-checked="On" data-unchecked="Off" onclick="window.changeCourseCategoryEnableFlag('+data.id+', 0)"></span></label>';
-                    else return '<label class="c-switch c-switch-label c-switch-success mb-0"><input class="c-switch-input" type="checkbox"><span class="c-switch-slider" data-checked="On" data-unchecked="Off" onclick="window.changeCourseCategoryEnableFlag('+data.id+', 1)"></span></label>';
+                    return (data.is_new == 1) ? 'Yes' : 'No';
                 }
             },
             {
                 "targets" : [ 3 ],
-                "render" : function(data) {
-                    if (data != null) return moment(data).format('YYYY.MM.DD h:mm a');
-                    else return '';
-                }
-            },
-            {
-                "targets" : [ 4 ],
                 "className": 'text-center',
                 "render" : function(data) {
                     return '<a class="btn btn-info" href="/backoffice/course/category/' + data.id + '/edit"><i class="far fa-edit"></i></a> <span class="btn btn-danger" onclick="window.deleteCourseCategory('+data.id+')"><i class="far fa-trash-alt"></i></span>';

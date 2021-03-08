@@ -2,6 +2,9 @@
 
 @section('content')
     <body class="c-app pg-admin-list">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
+
     @include('back.layouts.left_menu')
     <div class="c-wrapper">
         @include('back.layouts.header')
@@ -26,28 +29,22 @@
                             </div>
                         @endif
 
-                        <div class="mb-3 text-right">
-                            <a href="{{ route('back.course.types.create') }}">
-                                <button type="button" class="btn btn-dark btn-square">New Course</button>
-                            </a>
-                        </div>
                         <div class="fade-in">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="mb-0">Course List</h5>
+                                    <h5 class="mb-0">Customers List</h5>
                                 </div>
                                 <div class="card-body">
                                     <div class="mx-2 dataTables_wrapper dt-bootstrap4 no-footer">
-                                        <table class="table table-striped table-bordered table-condensed dt-responsive nowrap dataTable no-footer my-2" id="courses_list" style="width: 100%;">
+                                        <table class="table table-striped table-bordered table-condensed dt-responsive nowrap dataTable no-footer my-2" id="customers_list" style="width: 100%;">
                                             <thead>
                                             <tr>
-                                                <th>Image</th>
-                                                <th>Course Title</th>
-                                                <th>Course Category</th>
-                                                <th>Price</th>
-                                                <th>Original Price</th>
-                                                <th>New</th>
-                                                <th>Actions</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Phone</th>
+                                                <th>Amount Paid</th>
+                                                <th>Payment Status</th>
+                                                <th>Paid On</th>
                                             </tr>
                                             </thead>
                                         </table>
@@ -76,6 +73,6 @@
 
 @section('script')
     <script type="text/javascript">
-        window.TocAdmin.CourseType.courseTypeListFormInit();
+        window.TocAdmin.Customer.customerListFormInit();
     </script>
 @endsection

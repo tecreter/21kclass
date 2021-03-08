@@ -14,7 +14,7 @@
                             <div class="row justify-content-sm-center">
                                 <div class="col-sm-12">
                                     <div class="card">
-                                        <div class="card-header"><strong>New Tutor</strong></div>
+                                        <div class="card-header"><h5 class="mb-0">New Tutor</h5></div>
                                         <form action="{{ route('back.faculty.tutor.store') }}" method="post" autocomplete="off" enctype="multipart/form-data">
                                             @csrf
                                             <div class="card-body">
@@ -167,21 +167,21 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="row">
-                                                    <div class="offset-lg-2 col-md-8 col-lg-6">
-                                                        <div class="form-group row">
-                                                            <label class="col-md-3 col-form-label" for="order">{{ __('Profile Display Order') }}</label>
-                                                            <div class="col-md-9">
-                                                                <input class="form-control @error('order') is-invalid @enderror" name="order" id="order" type="text" value="{{ old('order') }}" maxlength="6">
-                                                                @error('order')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $message }}</strong>
-                                                            </span>
-                                                                @enderror
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+{{--                                                <div class="row">--}}
+{{--                                                    <div class="offset-lg-2 col-md-8 col-lg-6">--}}
+{{--                                                        <div class="form-group row">--}}
+{{--                                                            <label class="col-md-3 col-form-label" for="order">{{ __('Profile Display Order') }}</label>--}}
+{{--                                                            <div class="col-md-9">--}}
+{{--                                                                <input class="form-control @error('order') is-invalid @enderror" name="order" id="order" type="text" value="{{ old('order') }}" maxlength="6">--}}
+{{--                                                                @error('order')--}}
+{{--                                                                <span class="invalid-feedback" role="alert">--}}
+{{--                                                                <strong>{{ $message }}</strong>--}}
+{{--                                                            </span>--}}
+{{--                                                                @enderror--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
 
                                                 <div class="row">
                                                     <div class="offset-lg-2 col-md-8 col-lg-6">

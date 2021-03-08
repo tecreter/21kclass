@@ -34,7 +34,7 @@
                         <div class="fade-in">
                             <div class="card">
                                 <div class="card-header">
-                                    Tutors List
+                                    <h5 class="mb-0">Tutors List</h5>
                                 </div>
                                 <div class="card-body">
                                     <div class="mx-2 dataTables_wrapper dt-bootstrap4 no-footer">

@@ -46,15 +46,16 @@ courseType.getCourseTypesList = function () {
             { "data": null },
             { "data": null },
             { "data": null },
+            { "data": null },
         ],
         "order": [ [4, 'asc'] ],
         "columnDefs": [
             { // Order
-                "targets": [ 1, 2, 3, 5 ],
+                "targets": [ 1, 2, 3, 5, 6 ],
                 "orderable": false
             },
             {
-                "targets" : [ 0, 1, 2, 3, 4, 5 ],
+                "targets" : [ 0, 1, 2, 3, 4, 5, 6 ],
                 "className": 'text-center',
             },
             {
@@ -89,6 +90,12 @@ courseType.getCourseTypesList = function () {
             },
             {
                 "targets" : [ 5 ],
+                "render" : function(data) {
+                    return (data.is_new == 1) ? 'Yes' : 'No';
+                }
+            },
+            {
+                "targets" : [ 6 ],
                 "className": 'text-center',
                 "render" : function(data) {
                     return '<a class="btn btn-info" href="/backoffice/course/types/' + data.id + '/edit"><i class="far fa-edit"></i></a> <span class="btn btn-danger" onclick="window.deleteCourseType('+data.id+')"><i class="far fa-trash-alt"></i></span>';

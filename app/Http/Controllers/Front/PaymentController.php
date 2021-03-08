@@ -45,6 +45,34 @@ class PaymentController extends Controller
     }
 
 
+    public function buyNow(Request $request)
+    {
+        $session_cart_course_ids = session('SESSION_TOC_CART_COURSE_IDS', []);
+        $session_cart_course_details = session('SESSION_TOC_CART_COURSE_DETAILS', []);
+
+        if (!in_array((int)$request->course_id, $session_cart_course_ids)) {
+            $session_cart_course_ids[] = (int) $request->course_id;
+            session(['SESSION_TOC_CART_COURSE_IDS' => $session_cart_course_ids], []);
+
+            $course_info = Course::where('id', (int) $request->course_id)->first();
+            $session_cart_course_details[] = array(
+                'id' => (int)$request->course_id,
+                'name' => $course_info->name,
+                'slug' => $course_info->slug,
+                'excerpt' => $course_info->excerpt,
+                'price' => $course_info->price,
+                'original_price' => $course_info->original_price,
+                'thumb' => $course_info->thumb,
+            );
+            session(['SESSION_TOC_CART_COURSE_DETAILS' => $session_cart_course_details], []);
+
+            return redirect()->route('checkout');
+        }
+
+        return redirect()->route('index');
+    }
+
+
 
 
     public function removeFromCart(Request $request)
@@ -155,7 +183,7 @@ class PaymentController extends Controller
 
 
         // Check if cart is empty and redirect to cart page
-        if (count(session('SESSION_TOC_CART_COURSE_IDS', null)) < 1) {
+        if (count(session('SESSION_TOC_CART_COURSE_IDS', [])) < 1) {
             return view('front.pages.cart');
         }
 

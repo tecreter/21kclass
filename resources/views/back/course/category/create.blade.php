@@ -14,7 +14,7 @@
                             <div class="row justify-content-sm-center">
                                 <div class="col-sm-12">
                                     <div class="card">
-                                        <div class="card-header"><strong>New Course Category</strong></div>
+                                        <div class="card-header"><h5 class="mb-0">New Course Category</h5></div>
                                         <form action="{{ route('back.course.category.store') }}" method="post" autocomplete="off" enctype="multipart/form-data">
                                             @csrf
                                             <div class="card-body">
@@ -40,6 +40,29 @@
                                                             <div class="col-md-9">
                                                                 <input class="form-control @error('name') is-invalid @enderror" name="name" id="name" type="text" value="{{ old('name') }}" autofocus required>
                                                                 @error('name')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="offset-lg-2 col-md-8 col-lg-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-md-3 col-form-label" for="is_new">{{ __('New Category') }}<span class="text-danger">*</span></label>
+                                                            <div class="col-md-9 col-form-label">
+                                                                <div class="form-check form-check-inline mr-1">
+                                                                    <input class="form-check-input @error('is_new') is-invalid @enderror" id="category_new_yes" type="radio" value="1" name="is_new" required>
+                                                                    <label class="form-check-label" for="category_new_yes">Yes</label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline mr-1">
+                                                                    <input class="form-check-input" id="category_new_no" type="radio" value="0" name="is_new">
+                                                                    <label class="form-check-label" for="category_new_no">No</label>
+                                                                </div>
+                                                                @error('is_new')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
                                                                 </span>

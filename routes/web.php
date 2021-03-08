@@ -67,6 +67,7 @@ Route::namespace('Front')->group(function () {
 
     // Cart
     Route::post('add-to-cart', 'PaymentController@addToCart')->name('add-to-cart');
+    Route::post('buy-now', 'PaymentController@buyNow')->name('buy-now');
     Route::post('remove-from-cart', 'PaymentController@removeFromCart')->name('remove-from-cart');
     Route::get('cart', 'PaymentController@cart')->name('cart');
     Route::get('checkout', 'PaymentController@checkout')->name('checkout');

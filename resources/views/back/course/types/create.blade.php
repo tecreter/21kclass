@@ -7,7 +7,7 @@
     <div class="c-wrapper">
         @include('back.layouts.header')
         <link rel="stylesheet" href="//cdn.quilljs.com/1.3.6/quill.snow.css" />
-        <style type="text/css">#description {height: 250px;}</style>
+        <style type="text/css">#description {height: 250px;} #features {height: 250px;}</style>
         <div class="c-body">
             <main class="c-main">
                 <div class="container-fluid">
@@ -16,7 +16,7 @@
                             <div class="row justify-content-sm-center">
                                 <div class="col-sm-12">
                                     <div class="card">
-                                        <div class="card-header"><strong>New Course</strong></div>
+                                        <div class="card-header"><h5 class="mb-0">New Course</h5></div>
                                         <form action="{{ route('back.course.types.store') }}" method="post" autocomplete="off" enctype="multipart/form-data">
                                             @csrf
                                             <div class="card-body">
@@ -122,8 +122,8 @@
 
                                                 <div class="row">
                                                     <div class="offset-lg-2 col-md-8 col-lg-6">
-                                                        <div class="form-group row">
-                                                            <label class="col-md-3 col-form-label" for="name">{{ __('Description') }}<span class="text-danger">*</span></label>
+                                                        <div class="form-group">
+                                                            <label class="col-md-3 col-form-label" for="name">{{ __('Course Description') }}<span class="text-danger">*</span></label>
                                                             <div class="col-md-9"></div>
                                                             <div class="col-xs-12">
                                                                 <div id="description" class="@error('description') is-invalid @enderror">
@@ -131,6 +131,26 @@
                                                                 </div>
                                                                 <textarea style="display: none" class="form-control @error('description') is-invalid @enderror" name="description" id="description-textarea" cols="30" rows="7">{{ old('description') }}</textarea>
                                                                 @error('description')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="offset-lg-2 col-md-8 col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="col-md-3 col-form-label" for="name">{{ __('Course Features') }}</label>
+                                                            <div class="col-md-9"></div>
+                                                            <div class="col-xs-12">
+                                                                <div id="features" class="@error('features') is-invalid @enderror">
+                                                                    {!! old('features') !!}
+                                                                </div>
+                                                                <textarea style="display: none" class="form-control @error('features') is-invalid @enderror" name="features" id="features-textarea" cols="30" rows="7">{{ old('features') }}</textarea>
+                                                                @error('features')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
                                                                 </span>
@@ -150,6 +170,29 @@
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
                                                                 </span>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="offset-lg-2 col-md-8 col-lg-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-md-3 col-form-label" for="is_new">{{ __('New Course') }}<span class="text-danger">*</span></label>
+                                                            <div class="col-md-9 col-form-label">
+                                                                <div class="form-check form-check-inline mr-1">
+                                                                    <input class="form-check-input @error('is_new') is-invalid @enderror" id="course_new_yes" type="radio" value="1" name="is_new" required>
+                                                                    <label class="form-check-label" for="course_new_yes">Yes</label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline mr-1">
+                                                                    <input class="form-check-input" id="course_new_no" type="radio" value="0" name="is_new">
+                                                                    <label class="form-check-label" for="course_new_no">No</label>
+                                                                </div>
+                                                                @error('is_new')
+                                                                <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
                                                                 @enderror
                                                             </div>
                                                         </div>
@@ -212,6 +255,20 @@
                 var str = quill.root.innerHTML;
                 if(str === '<p><br></p>') str = '';
                 $("#description-textarea").text(str);
+            });
+
+            var quill2 = new Quill(
+                '#features', {
+                    modules: {
+                        toolbar: toolbarOptions
+                    },
+                    theme: 'snow'
+                });
+
+            quill2.on('text-change', function(delta, oldDelta, source) {
+                var str = quill2.root.innerHTML;
+                if(str === '<p><br></p>') str = '';
+                $("#features-textarea").text(str);
             });
         });
     </script>

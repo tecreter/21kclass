@@ -16,6 +16,7 @@ class CreateCourseCategoriesTable extends Migration
         Schema::create('course_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
+            $table->char('is_new', 1)->default(1)->comment('0=old, 1=new');
             $table->char('enable_flag', 1)->default(1)->comment('0=disabled, 1=enabled');
             $table->timestamps();
         });
