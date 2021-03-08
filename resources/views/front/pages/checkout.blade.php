@@ -6,6 +6,16 @@
 
     <main id="content" role="main">
 
+{{--        @if ($errors->any())--}}
+{{--            <div class="alert alert-danger">--}}
+{{--                <ul>--}}
+{{--                    @foreach ($errors->all() as $error)--}}
+{{--                        <li>{{ $error }}</li>--}}
+{{--                    @endforeach--}}
+{{--                </ul>--}}
+{{--            </div>--}}
+{{--        @endif--}}
+
         <div class="container space-1 space-md-2">
             <div class="row">
                 <div class="col-lg-4 order-lg-2 mb-7 mb-lg-0">
@@ -150,8 +160,8 @@
                                 <div class="col-md-6 mb-3 mb-sm-6">
                                     <!-- Input -->
                                     <div class="js-form-message">
-                                        <label class="input-label">Last name<span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" placeholder="" maxlength="100" aria-label="" required data-msg="Please enter your last name." value="{{ old('last_name') }}">
+                                        <label class="input-label">Last name</label>
+                                        <input type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" placeholder="" maxlength="100" aria-label="" data-msg="Please enter your last name." value="{{ old('last_name') }}">
                                         @error('last_name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -196,8 +206,8 @@
                                 <div class="col-md-4 mb-3 mb-sm-6">
                                     <!-- Input -->
                                     <div class="js-form-message">
-                                        <label class="input-label">Apt, suite, etc.<span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control @error('apt_name') is-invalid @enderror" name="apt_name" placeholder="" aria-label="" maxlength="100" required data-msg="Please enter a valid suite no." value="{{ old('apt_name') }}">
+                                        <label class="input-label">Door No, Apt, Suite, etc.</label>
+                                        <input type="text" class="form-control @error('apt_name') is-invalid @enderror" name="apt_name" placeholder="" aria-label="" maxlength="100" data-msg="Please enter a valid suite no." value="{{ old('apt_name') }}">
                                         @error('apt_name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -210,8 +220,8 @@
                                 <div class="col-md-8 mb-3 mb-sm-6">
                                     <!-- Input -->
                                     <div class="js-form-message">
-                                        <label class="input-label">Street address<span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control @error('street_address') is-invalid @enderror" name="street_address" placeholder="" aria-label="" maxlength="150" required data-msg="Please enter a valid address." value="{{ old('street_address') }}">
+                                        <label class="input-label">Street address</label>
+                                        <input type="text" class="form-control @error('street_address') is-invalid @enderror" name="street_address" placeholder="" aria-label="" maxlength="150" data-msg="Please enter a valid address." value="{{ old('street_address') }}">
                                         @error('street_address')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -221,12 +231,26 @@
                                     <!-- End Input -->
                                 </div>
 
-                                <div class="col-md-12 mb-3 mb-sm-6">
+                                <div class="col-md-6 mb-3 mb-sm-6">
                                     <!-- Input -->
                                     <div class="js-form-message">
-                                        <label class="input-label">City<span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control @error('city_address') is-invalid @enderror" name="city_address" placeholder="" aria-label="" maxlength="150" required data-msg="Please enter a valid address." value="{{ old('city_address') }}">
-                                        @error('city_address')
+                                        <label class="input-label">City</label>
+                                        <input type="text" class="form-control @error('city') is-invalid @enderror" name="city" placeholder="" aria-label="" maxlength="150" data-msg="Please enter a valid city name." value="{{ old('city') }}">
+                                        @error('city')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                    <!-- End Input -->
+                                </div>
+
+                                <div class="col-md-6 mb-3 mb-sm-6">
+                                    <!-- Input -->
+                                    <div class="js-form-message">
+                                        <label class="input-label">State</label>
+                                        <input type="text" class="form-control @error('state') is-invalid @enderror" name="state" placeholder="" aria-label="" maxlength="150" data-msg="Please enter a valid state name." value="{{ old('state') }}">
+                                        @error('state')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -240,9 +264,8 @@
                                 <div class="col-md-6 mb-3 mb-sm-6">
                                     <!-- Input -->
                                     <div class="js-form-message">
-                                        <label class="input-label">Country<span class="text-danger">*</span></label>
-                                        <select class="form-control custom-select" name="country" required
-                                                data-msg="Please select country.">
+                                        <label class="input-label">Country</label>
+                                        <select class="form-control custom-select" name="country" data-msg="Please select country.">
                                             <option value="">Select country</option>
                                             <option value="AF">Afghanistan</option>
                                             <option value="AX">Åland Islands</option>
@@ -501,8 +524,8 @@
                                 <div class="col-md-6 mb-3 mb-sm-6">
                                     <!-- Input -->
                                     <div class="js-form-message">
-                                        <label class="input-label">Postcode/Zip<span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control @error('postcode') is-invalid @enderror" name="postcode" placeholder="" aria-label="" maxlength="10" required data-msg="Please enter a postcode or zip code." value="{{ old('postcode') }}">
+                                        <label class="input-label">Postcode/Zip</label>
+                                        <input type="text" class="form-control @error('postcode') is-invalid @enderror" name="postcode" placeholder="" aria-label="" maxlength="10" data-msg="Please enter a postcode or zip code." value="{{ old('postcode') }}">
                                         @error('postcode')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -518,11 +541,11 @@
                                     <!-- Checkbox -->
                                     <div class="js-form-message mb-2">
                                         <div class="custom-control custom-checkbox d-flex align-items-center text-muted">
-                                            <input type="checkbox" class="custom-control-input @error('termsCheckbox') is-invalid @enderror" id="termsCheckbox" name="termsCheckbox" required data-msg="Please accept our Terms and Conditions.">
-                                            <label class="custom-control-label" for="termsCheckbox">
-                                                <small>My billing and delivery information are the same.</small>
+                                            <input type="checkbox" class="custom-control-input @error('terms_condition') is-invalid @enderror" id="terms_condition" name="terms_condition" required data-msg="Please accept our Terms and Conditions.">
+                                            <label class="custom-control-label" for="terms_condition">
+                                                <small>I have read and accept the terms & conditions.</small>
                                             </label>
-                                            @error('termsCheckbox')
+                                            @error('terms_condition')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -531,8 +554,8 @@
                                     </div>
 
                                     <div class="custom-control custom-checkbox d-flex align-items-center text-muted">
-                                        <input type="checkbox" class="custom-control-input" id="subscribeCheckbox" name="subscribeCheckbox">
-                                        <label class="custom-control-label" for="subscribeCheckbox">
+                                        <input type="checkbox" class="custom-control-input" id="subscribe_newsletter" name="subscribe_newsletter">
+                                        <label class="custom-control-label" for="subscribe_newsletter">
                                             <small>Please send me emails with exclusive course offers from 21kclass.com</small>
                                         </label>
                                     </div>

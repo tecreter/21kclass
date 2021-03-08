@@ -229,12 +229,14 @@
                                                              }'>
                                 <div id="filterControls" class="nav nav-sm nav-x-0 flex-lg-column">
                                     <div class="cbp-filter-scrollbar">
+                                        @php($i=0)
                                         @foreach($courseCategories as $courseCategory)
                                             <a class="cbp-filter-item cbp-filter d-flex justify-content-between align-items-center-item-active nav-link mx-2 mx-lg-0"
-                                               href="javascript:;" data-filter=".{{ $courseCategory->name }}">
+                                               href="javascript:;" data-filter=".{{ 'course_category_' . $i }}">
                                                 {{ $courseCategory->name }}
-                                                <span class="badge border badge-pill ml-2">{{ $courseCategory->courses->count() }}</span>
+                                                <span class="badge border badge-pill ml-2" style="display:inline-table">{{ $courseCategory->courses->count() }}</span>
                                             </a>
+                                            @php($i++)
                                         @endforeach
                                     </div>
                                 </div>
@@ -243,9 +245,10 @@
 
                         <div class="col-lg-9 pl-xl-0">
                             <div class="cbp mt-n3 mx-n3" data-hs-cbp-options='{"defaultFilter": ".all-course","animationType": "fadeOut","caption": "zoom","gapHorizontal": 0,"gapVertical": 0,"mediaQueries": [{"width": 1500, "cols": 3},{"width": 1100, "cols": 3},{"width": 800, "cols": 3},{"width": 480, "cols": 2},{"width": 380, "cols": 1}]}'>
+                                @php($i=0)
                                 @foreach($courseCategories as $courseCategory)
                                     @foreach($courseCategory->courses as $course)
-                                        <article class="cbp-item all-course {{ $courseCategory->name }}">
+                                        <article class="cbp-item all-course {{ 'course_category_' . $i }}">
                                             <div class="card card-bordered h-100 m-3">
                                                 <a class="card-img-top position-relative" href="/course/{{ $course->slug }}">
                                                     <img class="card-img-top" src="{{ ($course->thumb) ? asset('/storage/'.$course->thumb) : cdn_mix('/images/logos/logo.png') }}" alt="{{ $course->name }}">
@@ -322,6 +325,7 @@
                                             </div>
                                         </article>
                                     @endforeach
+                                    @php($i++)
                                 @endforeach
                             </div>
                         </div>

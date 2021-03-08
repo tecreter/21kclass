@@ -185,7 +185,7 @@ class HomeController extends Controller
 
     public function meetOurFaculty()
     {
-        $tutors = Tutor::with('category')->orderBy('order')->get();
+        $tutors = Tutor::with('category')->get();
         return view('front.pages.meet-our-faculty', [
             'tutors' => $tutors
         ]);
