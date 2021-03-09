@@ -32,11 +32,10 @@
 
                         <p class="font-size-1 text-dark">
                             Popular topics:
-                            <span class="link text-info">NEET,</span>
-                            <span class="link text-info ml-1">JEE,</span>
-                            <span class="link text-info ml-1">NTSE,</span>
-                            <span class="link text-info ml-1">KYVP,</span>
-                            <span class="link text-info ml-1">NSTSE</span>
+                            <span class="link text-info">21K NEET Test Series,</span>
+                            <span class="link text-info ml-1">NEET Extension Course,</span>
+                            <span class="link text-info ml-1">NEET Comprehensive Course,</span>
+                            <span class="link text-info ml-1">CA Foundation Course</span>
                         </p>
                     </div>
 
@@ -134,9 +133,11 @@
                 <div class="mb-5">
                     <h3 class="h2 text-dark">Join your coaching with 21K Class</h3>
                 </div>
-                <a class="btn btn-sm btn-primary" href="javascript:;">Apply now</a>
+                <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#applyNow">Apply now</button>
             </div>
         </div>
+
+        @include('front.layouts.apply')
 
     </main>
 

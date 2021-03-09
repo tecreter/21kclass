@@ -39,7 +39,6 @@
                     <ul class="nav nav-sm nav-x-0 nav-white flex-column">
                         <li class="nav-item"><a class="nav-link" href="{{ route('21k-group') }}">21K Group</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('our-team') }}">Team</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('our-partners') }}">Partners</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('work-with-us') }}">Careers <span class="badge badge-soft-success ml-1">We're hiring</span></a></li>
                     </ul>
                 </div>

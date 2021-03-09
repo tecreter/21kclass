@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Events\OrderCompleted;
 use App\Http\Controllers\Controller;
 use App\Models\Back\Course;
 use App\Models\Front\Customer;
@@ -105,7 +106,7 @@ class PaymentController extends Controller
 
     public function cart()
     {
-        return view('front.pages.cart');
+        return view('front.pages.payment.cart');
     }
 
 
@@ -135,7 +136,12 @@ class PaymentController extends Controller
                 ]
             ]);
 
-            // Step 1. Make transaction data to PayU Payment Gateway Server
+            // Step 1. Generate Order Number :: LBCH00001 - Coaching | LBTU00001 - Tutoring | LBCM00001 - Commerce
+            $lastOrderNoInfo = Customer::select('order_no')->orderBy('id', 'desc')->take(1)->first();
+            $old_order_no = $lastOrderNoInfo ? substr($lastOrderNoInfo->order_no, -5) : 0 . '<br>';
+            $new_order_no = 'LBCH' . str_pad((int) $old_order_no + 1, 5, 0, STR_PAD_LEFT);
+
+            // Step 2. Make transaction data to PayU Payment Gateway Server
             $customer = PayUCustomer::make()
                 ->firstName($request->first_name)
                 ->lastName(($request->last_name) ? $request->last_name : '')
@@ -158,7 +164,8 @@ class PaymentController extends Controller
                 ->udf1($course_details[0]['name'])
                 ->udf2($request->email_address)
                 ->udf3((string)$request->phone_number)
-                ->udf4((($request->apt_name) ? $request->apt_name : '') . ' ' . (($request->address) ? $request->address : ''));
+                ->udf4((($request->apt_name) ? $request->apt_name : '') . ' ' . (($request->address) ? $request->address : ''))
+                ->udf5($new_order_no);
 
             $transaction = Transaction::make()
                 ->charge($checkout_price)
@@ -166,8 +173,8 @@ class PaymentController extends Controller
                 ->with($attributes)
                 ->to($customer);
 
-
-            // Step 2. Create customer information record into table for backoffice team
+            // Step 3. Create customer information record into table for backoffice team
+            $customer_info['order_no'] = $new_order_no;
             $customer_info['transaction_id'] = $transaction->transactionId;
             $customer_info['cart_amount'] = $checkout_price;
             $customer_info['terms_condition'] = (isset($request->terms_condition) && $request->terms_condition === 'on') ? 1 : 0;
@@ -176,7 +183,7 @@ class PaymentController extends Controller
             $customer_info['updated_at'] = now();
             Customer::insert($customer_info);
 
-            // Step 3. Initiate payment
+            // Step 4. Initiate payment
             return Payu::initiate($transaction)->redirect(route('checkout-status'));
 
         }
@@ -184,10 +191,10 @@ class PaymentController extends Controller
 
         // Check if cart is empty and redirect to cart page
         if (count(session('SESSION_TOC_CART_COURSE_IDS', [])) < 1) {
-            return view('front.pages.cart');
+            return view('front.pages.payment.cart');
         }
 
-        return view('front.pages.checkout');
+        return view('front.pages.payment.checkout');
     }
 
 
@@ -198,7 +205,7 @@ class PaymentController extends Controller
         if ($transaction->successful()) {
 
             // Step 1. Update Customer table payment status information
-            $customer = \App\Models\Front\Customer::where('transaction_id', $transaction['transaction_id'])->firstOrFail();
+            $customer = \App\Models\Front\Customer::where('order_no', $transaction->response('udf5'))->where('transaction_id', $transaction['transaction_id'])->firstOrFail();
             $customer->payment_status = 'success';
             $customer->save();
 
@@ -206,11 +213,19 @@ class PaymentController extends Controller
             $request->session()->forget(['SESSION_TOC_CART_COURSE_IDS', 'SESSION_TOC_CART_COURSE_DETAILS']);
 
             // Step 3. Update Customer table payment status information
-            // Todo - Send Thank you email to Customer after transaction completed
-            //event(new TransactionInitiated($payload['transaction']));
+            $customer = array(
+                'name' => $transaction->response('firstname') . ' ' . $transaction->response('lastname'),
+                'email' => $transaction->response('email'),
+                'amount' => $transaction->response('amount'),
+                'order_no' => $transaction->response('udf5')
+            );
+            // event(new OrderCompleted((object) $customer)); // TODO - Uncomment this link to send email for Customer
 
             // Step 4. Show order completed page
-            return view('front.pages.order-completed');
+            return view('front.pages.payment.order-completed', [
+                'order_no' => $transaction->response('udf5'), // LBCH00001 - Coaching | LBTU00001 - Tutoring | LBCM00001 - Commerce
+                'amount' => number_format($transaction->response('amount'), 2)
+            ]);
         }
 
         return redirect()->route('index');

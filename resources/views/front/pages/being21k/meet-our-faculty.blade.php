@@ -10,7 +10,7 @@
             <div class="border-bottom">
                 <div class="w-lg-75 text-center mx-lg-auto">
                     <div class="mb-9">
-                        <h1 class="display-4 mb-4">Our Faculties</h1>
+                        <h1 class="display-4 mb-4">Our Team of Faculty Members</h1>
                         <p class="lead">Talent wins games, but teamwork and intelligence win championships.</p>
                     </div>
 
@@ -52,7 +52,7 @@
 
         <div class="container space-2">
             <div class="w-md-80 w-lg-60 text-center mx-md-auto mb-5 mb-md-9">
-                <span class="d-block small font-weight-bold text-cap mb-2">Our Faculties</span>
+                <span class="d-block small font-weight-bold text-cap mb-2">Our Faculty Members</span>
                 <h2>Creative mind by people like you</h2>
             </div>
 

@@ -1,3 +1,4 @@
+
 @extends('front.layouts.app')
 
 @section('content')
@@ -13,10 +14,6 @@
                         <h1>Values & Ethos</h1>
                         <p>Our motto is student first in all our thoughts and deeds. The benefits that could facilitate better learning for the student in a remote corner of the state is the driving value of the 21K Class. </p>
                     </div>
-
-                    <div class="mb-3">
-                        <a class="btn btn-primary btn-wide transition-3d-hover mb-2 mb-sm-0 mr-3" href="#">Get Started</a>
-                    </div>
                 </div>
 
                 <div class="col-md-6 d-none d-md-inline-block">
@@ -28,14 +25,14 @@
         </div>
 
         <div class="container">
-            <div class="w-lg-65 mx-lg-auto">
+            <div class="w-lg-6 mx-lg-auto">
                 <hr class="my-0">
             </div>
         </div>
 
         <div class="container space-2">
             <div class="row justify-content-lg-between align-items-lg-center">
-                <div class="col-lg-5 order-lg-2 mb-9 mb-lg-0">
+                <div class="col-lg-8 order-lg-2 mb-9 mb-lg-0 mx-auto">
                     <div class="mb-4">
                         <h2>Our Values</h2>
                     </div>
@@ -60,20 +57,7 @@
                         <i class="fas fa-check fa-xs"></i>
                     </span>
                         <div class="media-body">
-                            <p>21K Class envisions to reimagine the Educational Experience for the stakeholders.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 order-lg-1">
-                    <div class="position-relative max-w-50rem mx-auto">
-                        <div class="device device-iphone-x w-75 mx-auto">
-                            <img class="device-iphone-x-frame" src="{{ cdn_mix('/svg/components/iphone-x.svg') }}" alt="Image Description">
-                            <img class="device-iphone-x-screen" src="{{ cdn_mix('/images/407x867/img9.jpg') }}" alt="Image Description">
-                        </div>
-
-                        <div class="position-absolute bottom-0 right-0 max-w-50rem w-100 z-index-n1 mx-auto">
-                            <img class="img-fluid" src="{{ cdn_mix('/svg/components/abstract-shapes-3.svg') }}" alt="Image Description">
+                            <p>21K Class envisions to redefine the educational experience of the new generation learners.</p>
                         </div>
                     </div>
                 </div>
@@ -90,7 +74,7 @@
             <div class="container space-2 space-lg-3">
                 <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
                     <span class="d-block small font-weight-bold text-cap mb-2">What's Front?</span>
-                    <h2>An expandable model worth experimenting in different contexts</h2>
+                    <h2>An expandable model worth attempting by different types of learners.</h2>
                 </div>
 
                 <div class="row">
@@ -158,31 +142,37 @@
                                             <div class="media text-body mb-3">
                                                 <i class="fas fa-check-circle text-success mt-1 mr-2"></i>
                                                 <div class="media-body">
-                                                    Anytime, anywhere learning
+                                                    Learn from Anywhere – Geography is no barrier to quality education.
                                                 </div>
                                             </div>
                                             <div class="media text-body mb-3">
                                                 <i class="fas fa-check-circle text-success mt-1 mr-2"></i>
                                                 <div class="media-body">
-                                                    Real-world education delivered by high-quality teachers
+                                                    Real-world education delivered by high-quality teachers.
                                                 </div>
                                             </div>
                                             <div class="media text-body mb-3">
                                                 <i class="fas fa-check-circle text-success mt-1 mr-2"></i>
                                                 <div class="media-body">
-                                                    No more rote learning or learning by heart
+                                                    No more rote learning or learning by heart.
                                                 </div>
                                             </div>
                                             <div class="media text-body mb-3">
                                                 <i class="fas fa-check-circle text-success mt-1 mr-2"></i>
                                                 <div class="media-body">
-                                                    A positive relationship with teachers
+                                                    A positive relationship with teachers.
                                                 </div>
                                             </div>
                                             <div class="media text-body mb-3">
                                                 <i class="fas fa-check-circle text-success mt-1 mr-2"></i>
                                                 <div class="media-body">
-                                                    Attend your classes from the comfort of your home
+                                                    Study from the comfort of your home from the expert faculty and be a part of latest technology.
+                                                </div>
+                                            </div>
+                                            <div class="media text-body mb-3">
+                                                <i class="fas fa-check-circle text-success mt-1 mr-2"></i>
+                                                <div class="media-body">
+                                                    For the first time in the Class Room Teaching you can revisit the class done earlier and watch again the entire class or a partial class.
                                                 </div>
                                             </div>
                                         </div>
@@ -200,31 +190,37 @@
                                             <div class="media text-body mb-3">
                                                 <i class="fas fa-check-circle text-success mt-1 mr-2"></i>
                                                 <div class="media-body">
-                                                    Greater involvement in student’s progress
+                                                    Greater involvement in student’s progress.
                                                 </div>
                                             </div>
                                             <div class="media text-body mb-3">
                                                 <i class="fas fa-check-circle text-success mt-1 mr-2"></i>
                                                 <div class="media-body">
-                                                    Better relationship and nurturing of students
+                                                    Better relationship and nurturing of students.
                                                 </div>
                                             </div>
                                             <div class="media text-body mb-3">
                                                 <i class="fas fa-check-circle text-success mt-1 mr-2"></i>
                                                 <div class="media-body">
-                                                    Information on student’s progress available easily
+                                                    Information on student’s progress available easily.
                                                 </div>
                                             </div>
                                             <div class="media text-body mb-3">
                                                 <i class="fas fa-check-circle text-success mt-1 mr-2"></i>
                                                 <div class="media-body">
-                                                    Less anxiety and better understanding of their wards
+                                                    Less anxiety and better understanding of their wards.
                                                 </div>
                                             </div>
                                             <div class="media text-body mb-3">
                                                 <i class="fas fa-check-circle text-success mt-1 mr-2"></i>
                                                 <div class="media-body">
-                                                    High value delivered at an affordable price
+                                                    High value delivered at an affordable price.
+                                                </div>
+                                            </div>
+                                            <div class="media text-body mb-3">
+                                                <i class="fas fa-check-circle text-success mt-1 mr-2"></i>
+                                                <div class="media-body">
+                                                    Fulfill your Child's aspirations and track their progress.
                                                 </div>
                                             </div>
                                         </div>
@@ -242,25 +238,31 @@
                                             <div class="media text-body mb-3">
                                                 <i class="fas fa-check-circle text-success mt-1 mr-2"></i>
                                                 <div class="media-body">
-                                                    Great education, made easy
+                                                    Great education, made easy.
                                                 </div>
                                             </div>
                                             <div class="media text-body mb-3">
                                                 <i class="fas fa-check-circle text-success mt-1 mr-2"></i>
                                                 <div class="media-body">
-                                                    Better access to high-quality education across geography
+                                                    Better access to high-quality education across geography.
                                                 </div>
                                             </div>
                                             <div class="media text-body mb-3">
                                                 <i class="fas fa-check-circle text-success mt-1 mr-2"></i>
                                                 <div class="media-body">
-                                                    Overcomes the challenge of lack of good teachers
+                                                    Overcomes the challenge of lack of good teachers.
                                                 </div>
                                             </div>
                                             <div class="media text-body mb-3">
                                                 <i class="fas fa-check-circle text-success mt-1 mr-2"></i>
                                                 <div class="media-body">
-                                                    Less carbon footprint and environmentally sustainable
+                                                    Less carbon footprint and environmentally sustainable.
+                                                </div>
+                                            </div>
+                                            <div class="media text-body mb-3">
+                                                <i class="fas fa-check-circle text-success mt-1 mr-2"></i>
+                                                <div class="media-body">
+                                                    Providing equal opportunity to learners, irrespective of the location and back ground they come from.
                                                 </div>
                                             </div>
                                         </div>
@@ -274,7 +276,7 @@
         </div>
 
         <div class="position-relative text-center">
-            <div class="container space-2 space-bottom-lg-4">
+            <div class="container space-2 space-bottom-lg-3">
                 <div class="w-md-60 mx-md-auto mb-5 mb-md-7">
                     <h2 class="h1">Stay in the know</h2>
                     <p>Get offers on our latest programs from 21K Class.</p>
@@ -283,22 +285,11 @@
                 <div class="w-md-75 w-lg-50 mx-md-auto">
                     <form class="js-validate mb-3">
                         <div class="form-row">
-                            <div class="col-sm-8 mb-2">
-                                <div class="js-form-message">
-                                    <label class="sr-only" for="signupSrEmailExample3">Your email</label>
-                                    <div class="input-group input-group-pill">
-                                        <input type="email" class="form-control" name="email" id="signupSrEmailExample3" placeholder="Your email" aria-label="Your email" required data-msg="Please enter a valid email address.">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-4">
-                                <button type="submit" class="btn btn-primary btn-pill btn-wide">Get Started</button>
+                            <div class="col-sm-12">
+                                <button type="button" class="btn btn-primary btn-pill btn-wide" data-toggle="modal" data-target="#applyNow">Apply now</button>
                             </div>
                         </div>
                     </form>
-
-                    <p>See Help Front in action. <a class="font-weight-bold" href="#">Get a Demo <i class="fas fa-angle-right ml-1"></i></a></p>
                 </div>
 
                 <div class="d-none d-lg-block position-absolute bottom-0 left-0 max-w-35rem w-100">
@@ -306,6 +297,8 @@
                 </div>
             </div>
         </div>
+
+        @include('front.layouts.apply')
 
     </main>
 

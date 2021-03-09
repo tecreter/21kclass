@@ -70,6 +70,30 @@
                         <p class="text-dark mb-0">Parents who look for an economically viable proposition to coach their wards for competitive examination.</p>
                     </div>
                 </div>
+                <div class="media py-3">
+                    <span class="icon icon-xs icon-indigo icon-circle mr-3">
+                      <i class="fas fa-angle-right"></i>
+                    </span>
+                    <div class="media-body">
+                        <p class="text-dark mb-0">Parents who are worried about the safety of their children to travel long distance or at late hours.</p>
+                    </div>
+                </div>
+                <div class="media py-3">
+                    <span class="icon icon-xs icon-indigo icon-circle mr-3">
+                      <i class="fas fa-angle-right"></i>
+                    </span>
+                    <div class="media-body">
+                        <p class="text-dark mb-0">Parents who would like to monitor their child’s progress in the coaching class on a regular basis.</p>
+                    </div>
+                </div>
+                <div class="media py-3">
+                    <span class="icon icon-xs icon-indigo icon-circle mr-3">
+                      <i class="fas fa-angle-right"></i>
+                    </span>
+                    <div class="media-body">
+                        <p class="text-dark mb-0">Physically Challenged Children – to study without worrying about moving around out of their homes.</p>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -79,11 +103,13 @@
                     <h2>Find the right learning path for you</h2>
                     <p>Answer a few questions and match your goals to our programs.</p>
                     <span class="d-block mt-5">
-                      <a class="btn btn-primary transition-3d-hover" href="#">Explore by Category</a>
+                      <a class="btn btn-primary transition-3d-hover" data-toggle="modal" data-target="#applyNow">Explore by Category</a>
                     </span>
                 </div>
             </div>
         </div>
+
+        @include('front.layouts.apply')
 
     </main>
 

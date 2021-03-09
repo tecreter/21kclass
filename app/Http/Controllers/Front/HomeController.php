@@ -17,11 +17,6 @@ class HomeController extends Controller
     // About us
     public function index()
     {
-
-//        if (session()->get('SESSION_TOC_CART_COURSE_IDS')) {
-//            dd( session()->all() );
-//        }
-
         $courseCategories = CourseCategory::with('courses')->where('enable_flag', 1)->get();
         return view('front.pages.index', [
             'courseCategories' => $courseCategories
@@ -30,34 +25,28 @@ class HomeController extends Controller
 
     public function whatSetsUsApart()
     {
-        return view('front.pages.what-sets-us-apart');
+        return view('front.pages.about-us.what-sets-us-apart');
     }
 
     public function valuesAndEthos()
     {
-        return view('front.pages.values-and-ethos');
+        return view('front.pages.about-us.values-and-ethos');
     }
 
     public function tocGroup()
     {
-        return view('front.pages.21k-group');
+        return view('front.pages.about-us.21k-group');
     }
 
     public function ourTeam()
     {
-        return view('front.pages.our-team');
-    }
-
-    public function ourPartners()
-    {
-        return view('front.pages.our-partners');
+        return view('front.pages.about-us.our-team');
     }
 
     public function policyAndGovernance()
     {
-        return view('front.pages.policy-and-governance');
+        return view('front.pages.about-us.policy-and-governance');
     }
-
 
 
 
@@ -65,32 +54,76 @@ class HomeController extends Controller
     // Academics
     public function neetTestSeries()
     {
-        return view('front.pages.neet-test-series');
+        return view('front.pages.courses.neet-test-series');
     }
 
-    public function neet2021PersonalCoaching()
+    public function neetExtensionCourse()
     {
-        return view('front.pages.neet-2021-personal-coaching');
+        return view('front.pages.courses.neet-extension-course');
     }
 
-    public function neet2022FullYear()
+    public function neetComprehensiveCourse()
     {
-        return view('front.pages.neet-2022-full-year');
+        return view('front.pages.courses.neet-comprehensive-course');
     }
 
-    public function iitJee2022FullYear()
+    public function neetCrashCourse()
     {
-        return view('front.pages.iit-jee-2022-full-year');
+        return view('front.pages.courses.neet-crash-course');
     }
 
+    public function neetRepeaterCourse()
+    {
+        return view('front.pages.courses.neet-repeater-course');
+    }
+
+    public function jeeExtensionCourse()
+    {
+        return view('front.pages.courses.jee-extension-course');
+    }
+
+    public function jeeComprehensiveCourse()
+    {
+        return view('front.pages.courses.jee-comprehensive-course');
+    }
+
+    public function jeeCrashCourse()
+    {
+        return view('front.pages.courses.jee-crash-course');
+    }
+
+    public function jeeTestSeries()
+    {
+        return view('front.pages.courses.jee-test-series');
+    }
+
+    public function classPreFoundationCourse()
+    {
+        return view('front.pages.courses.class-pre-foundation-course');
+    }
+
+    public function classPreparatoryCourse()
+    {
+        return view('front.pages.courses.class-preparatory-course');
+    }
+
+
+
+
+
+
+
+
+
+    // Excellence
     public function olympiads()
     {
-        return view('front.pages.olympiads');
+        return view('front.pages.excellence.olympiads');
     }
 
     public function nationalTalentExam()
     {
-        return view('front.pages.national-talent-exam');
+        return view('front.pages.excellence.national-talent-exam');
     }
 
 
@@ -99,27 +132,27 @@ class HomeController extends Controller
     // Admissions
     public function howToApply()
     {
-        return view('front.pages.how-to-apply');
+        return view('front.pages.admissions.how-to-apply');
     }
 
     public function keyDates()
     {
-        return view('front.pages.key-dates');
+        return view('front.pages.admissions.key-dates');
     }
 
-    public function feesFinanceAndScholarships()
+    public function feesAndScholarships()
     {
-        return view('front.pages.fees-finance-and-scholarships');
+        return view('front.pages.admissions.fees-and-scholarships');
     }
 
     public function whoShouldEnrol()
     {
-        return view('front.pages.who-should-enrol');
+        return view('front.pages.admissions.who-should-enrol');
     }
 
     public function processAndRequirements()
     {
-        return view('front.pages.process-and-requirements');
+        return view('front.pages.admissions.process-and-requirements');
     }
 
 
@@ -129,43 +162,34 @@ class HomeController extends Controller
     // How it works
     public function howDoesItWork()
     {
-        return view('front.pages.how-does-it-work');
+        return view('front.pages.how-it-works.how-does-it-work');
     }
 
     public function technology()
     {
-        return view('front.pages.technology');
+        return view('front.pages.how-it-works.technology');
     }
 
     public function whyOnlineOnly()
     {
-        return view('front.pages.why-online-only');
+        return view('front.pages.how-it-works.why-online-only');
     }
 
     public function whoIs21kClass()
     {
-        return view('front.pages.who-is-21k-class');
+        return view('front.pages.how-it-works.who-is-21k-class');
     }
 
     public function faq()
     {
-        return view('front.pages.faq');
-    }
-
-    public function healthAndWealthness()
-    {
-        return view('front.pages.health-and-wealthness');
+        return view('front.pages.how-it-works.faq');
     }
 
     public function yourPrivacy()
     {
-        return view('front.pages.your-privacy');
+        return view('front.pages.how-it-works.your-privacy');
     }
 
-    public function safetyAndSecurity()
-    {
-        return view('front.pages.safety-and-security');
-    }
 
 
 
@@ -175,35 +199,35 @@ class HomeController extends Controller
     // #Being21k
     public function studentWork()
     {
-        return view('front.pages.student-work');
+        return view('front.pages.being21k.student-work');
     }
 
     public function parentsSpeak()
     {
-        return view('front.pages.parents-speak');
+        return view('front.pages.being21k.parents-speak');
     }
 
     public function meetOurFaculty()
     {
         $tutors = Tutor::with('category')->get();
-        return view('front.pages.meet-our-faculty', [
+        return view('front.pages.being21k.meet-our-faculty', [
             'tutors' => $tutors
         ]);
     }
 
     public function events()
     {
-        return view('front.pages.events');
+        return view('front.pages.being21k.events');
     }
 
     public function mediaHub()
     {
-        return view('front.pages.media-hub');
+        return view('front.pages.being21k.media-hub');
     }
 
     public function insights()
     {
-        return view('front.pages.insights');
+        return view('front.pages.being21k.insights');
     }
 
 
@@ -214,27 +238,27 @@ class HomeController extends Controller
     // Connect
     public function contactUs()
     {
-        return view('front.pages.contact-us');
+        return view('front.pages.connect.contact-us');
     }
 
     public function workWithUs()
     {
-        return view('front.pages.work-with-us');
+        return view('front.pages.connect.work-with-us');
     }
 
     public function careerIntern()
     {
-        return view('front.pages.career-intern');
+        return view('front.pages.connect.career-intern');
     }
 
     public function careerSoftwareEngineer()
     {
-        return view('front.pages.career-software-engineer');
+        return view('front.pages.connect.career-software-engineer');
     }
 
     public function social()
     {
-        return view('front.pages.social');
+        return view('front.pages.connect.social');
     }
 
 }

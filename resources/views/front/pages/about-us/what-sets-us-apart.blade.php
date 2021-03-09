@@ -163,7 +163,7 @@
                 </div>
                 <div class="text-center" data-aos="fade-up" data-aos-delay="500">
                     <div class="d-inline-block font-size-1 border bg-white text-center rounded-pill py-3 px-4">
-                        All the above will be available to the student at an affordable price. <a class="font-weight-bold" href="javascript:;">Join Now <i class="fas fa-angle-right ml-1"></i></a>
+                        All the above will be available to the student at an affordable price. <a class="font-weight-bold" data-toggle="modal" data-target="#applyNow">Join now <i class="fas fa-angle-right ml-1"></i></a>
                     </div>
                 </div>
             </div>
@@ -176,7 +176,7 @@
         </div>
 
         <div class="position-relative text-center">
-            <div class="container space-2 space-bottom-lg-4">
+            <div class="container space-2 space-bottom-lg-3">
                 <div class="w-md-60 mx-md-auto mb-5 mb-md-7">
                     <h2 class="h1">Stay in the know</h2>
                     <p>Get offers on our latest programs from 21K Class.</p>
@@ -185,22 +185,11 @@
                 <div class="w-md-75 w-lg-50 mx-md-auto">
                     <form class="js-validate mb-3">
                         <div class="form-row">
-                            <div class="col-sm-8 mb-2">
-                                <div class="js-form-message">
-                                    <label class="sr-only" for="signupSrEmailExample3">Your email</label>
-                                    <div class="input-group input-group-pill">
-                                        <input type="email" class="form-control" name="email" id="signupSrEmailExample3" placeholder="Your email" aria-label="Your email" required data-msg="Please enter a valid email address.">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-4">
-                                <button type="submit" class="btn btn-primary btn-pill btn-wide">Get Started</button>
+                            <div class="col-sm-12">
+                                <button type="button" class="btn btn-primary btn-pill btn-wide" data-toggle="modal" data-target="#applyNow">Apply now</button>
                             </div>
                         </div>
                     </form>
-
-                    <p>See Help Front in action. <a class="font-weight-bold" href="#">Get a Demo <i class="fas fa-angle-right ml-1"></i></a></p>
                 </div>
 
                 <div class="d-none d-lg-block position-absolute bottom-0 left-0 max-w-35rem w-100">
@@ -208,6 +197,8 @@
                 </div>
             </div>
         </div>
+
+        @include('front.layouts.apply')
 
     </main>
 

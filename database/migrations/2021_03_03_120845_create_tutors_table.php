@@ -17,9 +17,9 @@ class CreateTutorsTable extends Migration
             $table->id();
             $table->integer('type_id');
             $table->string('honorifics')->nullable();
-            $table->string('first_name');
-            $table->string('last_name')->nullable();
-            $table->string('qualification');
+            $table->string('first_name', 100);
+            $table->string('last_name', 100)->nullable();
+            $table->string('qualification', 50);
             $table->string('position', 50)->nullable();
             $table->text('excerpt')->nullable();
             $table->string('profile_picture')->nullable();

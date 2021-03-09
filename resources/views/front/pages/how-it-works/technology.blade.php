@@ -29,7 +29,7 @@
                             Play Video
                         </a>
 
-                        <a class="btn btn-link" href="javascript:;">Learn More <i class="fas fa-angle-right fa-sm ml-1"></i></a>
+                        <a class="btn btn-link" data-toggle="modal" data-target="#applyNow">Learn More <i class="fas fa-angle-right fa-sm ml-1"></i></a>
                     </div>
 
                     <div class="col-md-6">
@@ -191,9 +191,11 @@
                 <div class="mb-5">
                     <h3 class="h2 text-dark">Join your coaching with 21K Class</h3>
                 </div>
-                <a class="btn btn-sm btn-primary" href="javascript:;">Apply now</a>
+                <a class="btn btn-sm btn-primary" data-toggle="modal" data-target="#applyNow">Apply now</a>
             </div>
         </div>
+
+        @include('front.layouts.apply')
 
     </main>
 

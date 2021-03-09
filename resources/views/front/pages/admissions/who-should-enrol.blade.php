@@ -6,7 +6,8 @@
 
     <main id="content" role="main">
 
-        <div class="gradient-y-gray position-relative">
+
+        <div class="position-relative bg-img-hero" style="background-image: url({{ cdn_mix('/svg/components/abstract-shapes-12.svg') }});">
             <div class="space-top-3 space-bottom-2 space-bottom-lg-3">
                 <div class="container mt-lg-11">
                     <div class="row">
@@ -15,24 +16,8 @@
                                 <h1 class="display-4">Who should enroll the class?</h1>
                                 <p class="lead">Get enrolled and Succeed with 21K Class.</p>
                             </div>
-                            <a class="btn btn-primary btn-wide transition-3d-hover" href="javascript:;">Enroll Now</a>
+                            <button type="button" class="btn btn-primary btn-wide transition-3d-hover" data-toggle="modal" data-target="#applyNow">Enroll now</button>
                         </div>
-                    </div>
-                </div>
-
-                <div class="transform-rotate-5">
-                    <div class="d-none d-lg-flex flex-lg-wrap align-items-lg-end position-absolute top-0 left-50 transform-rotate-6" style="width: 35rem;">
-                        <div style="width: 35rem;" data-aos="fade-up" data-aos-delay="150" data-aos-offset="-300">
-                            <div class="shadow-none rounded bg-soft-info text-indigo p-4 p-lg-7 mb-3 mb-sm-5 mb-lg-11" href="#">
-                                <img class="img-fluid mb-7" src="{{ cdn_mix('/images/mockups/img13.png') }}" alt="Image Description">
-                            </div>
-                        </div>
-
-                        <figure class="max-w-23rem w-100 position-absolute bottom-0 left-0 z-index-n1" data-aos="fade-up" data-aos-delay="300" data-aos-offset="-400">
-                            <div class="mb-n7 ml-n11">
-                                <img class="img-fluid" src="{{ cdn_mix('/svg/components/abstract-shapes-10.svg') }}" alt="Image Description">
-                            </div>
-                        </figure>
                     </div>
                 </div>
             </div>
@@ -44,9 +29,9 @@
             </figure>
         </div>
 
-        <div class="container space-3">
+        <div class="container space-0 space-bottom-3">
             <div class="mb-5">
-                <h3>21K NEET Test Series 2021</h3>
+                <h2>21K NEET Test Series 2021</h2>
             </div>
             <div class="media font-size-1 text-body mb-3">
                 <i class="fas fa-check-circle text-success mt-1 mr-2"></i>
@@ -62,14 +47,16 @@
             </div>
         </div>
 
-        <div class="bg-soft-primary text-center bg-img-hero" style="background-image: url(./assets/svg/components/abstract-shapes-19.svg);">
+        <div class="bg-soft-primary text-center bg-img-hero" style="background-image: url({{ cdn_mix('/svg/components/abstract-shapes-19.svg') }});">
             <div class="container space-2">
                 <div class="mb-5">
                     <h3 class="h2 text-dark">Enrol your class with 21K Class</h3>
                 </div>
-                <a class="btn btn-sm btn-primary" href="javascript:;">Apply course</a>
+                <button type="button" class="btn btn-primary btn-wide transition-3d-hover" data-toggle="modal" data-target="#applyNow">Apply now</button>
             </div>
         </div>
+
+        @include('front.layouts.apply')
 
     </main>
 

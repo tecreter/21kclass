@@ -33,6 +33,7 @@ mix
     .copy('resources/images/1920x800/*.*', 'public/images/1920x800')
     .copy('resources/images/logos/*.*', 'public/images/logos')
     .copy('resources/images/mockups/*.*', 'public/images/mockups')
+    .copy('resources/images/banners/*.*', 'public/images/banners')
     .copy('resources/images/others/*.*', 'public/images/others')
 
     .copy('resources/svg/brands/*.*', 'public/svg/brands')

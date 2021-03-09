@@ -25,7 +25,7 @@
                             <div class="card shadow-none mb-3">
                                 <div class="card-header card-collapse" id="basicsHeadingOne">
                                     <a class="btn btn-link btn-block d-flex justify-content-between card-btn collapsed bg-white px-0" href="javascript:;" role="button" data-toggle="collapse" data-target="#basicsCollapseOne" aria-expanded="false" aria-controls="basicsCollapseOne">
-                                        What will the medium of instruction be?
+                                        What will the medium of instruction be in Tamil Nadu?
 
                                         <span class="card-btn-toggle">
                                           <span class="card-btn-toggle-default">&plus;</span>
@@ -35,7 +35,7 @@
                                 </div>
                                 <div id="basicsCollapseOne" class="collapse" aria-labelledby="basicsHeadingOne" data-parent="#basicsAccordion">
                                     <div class="card-body px-0">
-                                        <p>English and vernacular language(Tamil in Tamil Nadu)</p>
+                                        <p>English and Tamil</p>
                                     </div>
                                 </div>
                             </div>
@@ -111,6 +111,23 @@
                             <div class="card shadow-none mb-3">
                                 <div class="card-header card-collapse" id="basicsHeadingSix">
                                     <a class="btn btn-link btn-block d-flex justify-content-between card-btn collapsed bg-white px-0" href="javascript:;" role="button" data-toggle="collapse" data-target="#basicsCollapseSix" aria-expanded="false" aria-controls="basicsCollapseSix">
+                                        I currently attend on-line classes through my Mobile Phone and have limited Internet Data. Can I use it?
+                                        <span class="card-btn-toggle">
+                                          <span class="card-btn-toggle-default">&plus;</span>
+                                          <span class="card-btn-toggle-active">&minus;</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div id="basicsCollapseSix" class="collapse" aria-labelledby="basicsHeadingSix" data-parent="#basicsAccordion">
+                                    <div class="card-body px-0">
+                                        <p>Do not worry. We will provide you with a Tablet with a data card for Internet connectivity and data card paid for the duration of the course.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card shadow-none mb-3">
+                                <div class="card-header card-collapse" id="basicsHeadingSix">
+                                    <a class="btn btn-link btn-block d-flex justify-content-between card-btn collapsed bg-white px-0" href="javascript:;" role="button" data-toggle="collapse" data-target="#basicsCollapseSix" aria-expanded="false" aria-controls="basicsCollapseSix">
                                         Can we download the videos and watch offline?
                                         <span class="card-btn-toggle">
                                           <span class="card-btn-toggle-default">&plus;</span>
@@ -154,24 +171,7 @@
                                 </div>
                                 <div id="basicsCollapseEight" class="collapse" aria-labelledby="basicsHeadingEight" data-parent="#basicsAccordion">
                                     <div class="card-body px-0">
-                                        <p>Yes, Demo session will be provided</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card shadow-none mb-3">
-                                <div class="card-header card-collapse" id="basicsHeadingNine">
-                                    <a class="btn btn-link btn-block d-flex justify-content-between card-btn collapsed bg-white px-0" href="javascript:;" role="button" data-toggle="collapse" data-target="#basicsCollapseNine" aria-expanded="false" aria-controls="basicsCollapseNine">
-                                        Contact Details
-                                        <span class="card-btn-toggle">
-                                          <span class="card-btn-toggle-default">&plus;</span>
-                                          <span class="card-btn-toggle-active">&minus;</span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div id="basicsCollapseNine" class="collapse" aria-labelledby="basicsHeadingNine" data-parent="#basicsAccordion">
-                                    <div class="card-body px-0">
-                                        <p><a href="mailto:hello@21kclass.com">hello@21kclass.com</a></p>
+                                        <p>Yes, Demo session will be provided. Click to register for a Demo (the click to take it to the Demo registration form in the Stay in Know section of Values and Ethos Page.</p>
                                     </div>
                                 </div>
                             </div>
@@ -188,7 +188,7 @@
                             <p class="text-white-70 mb-0">We'd love to talk about how we can help you.</p>
                         </div>
                         <div class="col-md-3 text-md-right">
-                            <a class="btn btn-light transition-3d-hover" href="{{ route('contact-us') }}">Contact Us</a>
+                            <a class="btn btn-light transition-3d-hover" data-toggle="modal" data-target="#applyNow">Contact Us</a>
                         </div>
                     </div>
 
@@ -198,6 +198,8 @@
                 </div>
             </div>
         </div>
+
+        @include('front.layouts.apply')
 
     </main>
 

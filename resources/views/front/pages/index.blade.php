@@ -30,8 +30,7 @@
                                     Tuition Classes for various boards.</p>
                             </div>
 
-                            <a class="btn btn-primary btn-wide transition-3d-hover" href="javascript:;">Get Started</a>
-                            <a class="btn btn-link btn-wide" href="javascript:;">Learn More <i class="fas fa-angle-right fa-sm ml-1"></i></a>
+                            <button type="button" class="btn btn-primary btn-wide transition-3d-hover" data-toggle="modal" data-target="#applyNow">Apply now</button>
                         </div>
                     </div>
                 </div>
@@ -132,7 +131,7 @@
                                 <div class="row">
                                     <div class="col-lg-8 mb-3 mb-lg-0">
                                         <div class="pr-lg-5">
-                                            <blockquote class="h3 font-weight-normal mb-4">I have coached students for the last 15 years for JEE & Medical Entrance (NEET) Exams. Have enabled 100s of students to clear the exams. Come join our On-Line Live Classes to learn with us and be a part of the success story..</blockquote>
+                                            <blockquote class="h3 font-weight-normal mb-4">I have coached students for the last 15 years for JEE & Medical Entrance (NEET) Exams. Have enabled 100s of students to clear the exams. Come join our On-Line Live Classes to learn with us and be a part of the success story.</blockquote>
                                             <div class="media">
                                                 <div class="avatar avatar-xs avatar-circle d-lg-none mr-2">
                                                     <img class="avatar-img" src="{{ cdn_mix('/images/160x160/img39.jpg') }}" alt="Image Description">
@@ -231,7 +230,7 @@
                                     <div class="cbp-filter-scrollbar">
                                         @php($i=0)
                                         @foreach($courseCategories as $courseCategory)
-                                            <a class="cbp-filter-item nav-link d-flex align-items-center mx-2 mx-lg-0" href="javascript:;" data-filter=".account">
+                                            <a class="cbp-filter-item nav-link d-flex align-items-center mx-2 mx-lg-0" href="javascript:;" data-filter=".{{ 'course_category_' . $i }}">
                                                 {{ $courseCategory->name }} {!! ($courseCategory->is_new == 1) ? '<span class="badge badge-success ml-2 mr-2">New</span>' : '' !!}
                                                 <span class="badge border badge-pill ml-auto">{{ $courseCategory->courses->count() }}</span>
                                             </a>
@@ -433,6 +432,8 @@
             </div>
         </div>
 
+            @include('front.layouts.apply')
+
     </main>
 
     @include('front.layouts.footer')
@@ -472,6 +473,7 @@
                     }, 200);
                 });
             }
+
 
         });
     </script>

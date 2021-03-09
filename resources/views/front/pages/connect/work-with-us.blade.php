@@ -219,10 +219,6 @@
                   </span>
                 </div>
             </a>
-
-            <div class="text-center mt-5">
-                <p>Can't find a position that suits you? <a class="font-weight-bold text-nowrap" href="{{ route('contact-us') }}">Contact us <i class="fas fa-angle-right fa-sm ml-1"></i></a></p>
-            </div>
         </div>
 
     </main>

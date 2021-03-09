@@ -47,52 +47,58 @@
             </div>
 
             <div class="w-lg-80 mx-auto">
-                <form class="js-validate">
-                    <div class="row">
-                        <div class="col-sm-6 mb-4">
-                            <div class="js-form-message">
-                                <label class="input-label">Your name</label>
-                                <input type="text" class="form-control" name="name" placeholder="Enter your name" aria-label="Enter your name" required data-msg="Please enter your name.">
-                            </div>
-                        </div>
+{{--                <form class="js-validate">--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-sm-6 mb-4">--}}
+{{--                            <div class="js-form-message">--}}
+{{--                                <label class="input-label">Your name</label>--}}
+{{--                                <input type="text" class="form-control" name="name" placeholder="Enter your name" aria-label="Enter your name" required data-msg="Please enter your name.">--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                        <div class="col-sm-6 mb-4">
-                            <div class="js-form-message">
-                                <label class="input-label">Your email address</label>
-                                <input type="email" class="form-control" name="email" placeholder="Enter your email address" aria-label="Enter your email address" required data-msg="Please enter a valid email address.">
-                            </div>
-                        </div>
+{{--                        <div class="col-sm-6 mb-4">--}}
+{{--                            <div class="js-form-message">--}}
+{{--                                <label class="input-label">Your email address</label>--}}
+{{--                                <input type="email" class="form-control" name="email" placeholder="Enter your email address" aria-label="Enter your email address" required data-msg="Please enter a valid email address.">--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                        <div class="w-100"></div>
+{{--                        <div class="w-100"></div>--}}
 
-                        <div class="col-sm-6 mb-4">
-                            <div class="js-form-message">
-                                <label class="input-label">Subject</label>
-                                <input type="text" class="form-control" name="subject" placeholder="Enter message title" aria-label="Enter message title" required data-msg="Please enter a subject.">
-                            </div>
-                        </div>
+{{--                        <div class="col-sm-6 mb-4">--}}
+{{--                            <div class="js-form-message">--}}
+{{--                                <label class="input-label">Subject</label>--}}
+{{--                                <input type="text" class="form-control" name="subject" placeholder="Enter message title" aria-label="Enter message title" required data-msg="Please enter a subject.">--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                        <div class="col-sm-6 mb-4">
-                            <div class="js-form-message">
-                                <label class="input-label">Your phone number</label>
-                                <input type="number" class="form-control" name="phone" placeholder="Enter your phone number" aria-label="Enter your phone number" required data-msg="Please enter a valid phone number.">
-                            </div>
-                        </div>
-                    </div>
+{{--                        <div class="col-sm-6 mb-4">--}}
+{{--                            <div class="js-form-message">--}}
+{{--                                <label class="input-label">Your phone number</label>--}}
+{{--                                <input type="number" class="form-control" name="phone" placeholder="Enter your phone number" aria-label="Enter your phone number" required data-msg="Please enter a valid phone number.">--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
-                    <div class="js-form-message mb-6">
-                        <label class="input-label">How can we help you?</label>
-                        <div class="input-group">
-              <textarea class="form-control" rows="4" name="text" placeholder="Hi there, I would like to ..." aria-label="Hi there, I would like to ..." required
-                        data-msg="Please enter a reason."></textarea>
-                        </div>
-                    </div>
+{{--                    <div class="js-form-message mb-6">--}}
+{{--                        <label class="input-label">How can we help you?</label>--}}
+{{--                        <div class="input-group">--}}
+{{--              <textarea class="form-control" rows="4" name="text" placeholder="Hi there, I would like to ..." aria-label="Hi there, I would like to ..." required--}}
+{{--                        data-msg="Please enter a reason."></textarea>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary btn-wide transition-3d-hover mb-4">Submit</button>
-                        <p class="small">We'll get back to you in 1-2 business days.</p>
-                    </div>
-                </form>
+{{--                    <div class="text-center">--}}
+{{--                        <button type="submit" class="btn btn-primary btn-wide transition-3d-hover mb-4">Submit</button>--}}
+{{--                        <p class="small">We'll get back to you in 1-2 business days.</p>--}}
+{{--                    </div>--}}
+{{--                </form>--}}
+
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-wide transition-3d-hover mb-4" data-toggle="modal" data-target="#applyNow">Get in touch</button>
+                    <p class="small">We'll get back to you in 1-2 business days.</p>
+                </div>
             </div>
         </div>
 
@@ -166,6 +172,8 @@
                 </div>
             </div>
         </div>
+
+        @include('front.layouts.apply')
 
     </main>
 
