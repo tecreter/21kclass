@@ -317,10 +317,10 @@
                                                 <div class="card-footer border-0 pt-0">
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <div class="mr-2">
+                                                            <span class="d-block h5 text-lh-sm mb-0 text-danger">₹{{ number_format($course->price) }}</span>
                                                             @if($course->original_price > 0)
                                                                 <small class="d-block text-muted text-lh-sm"><del>₹{{ number_format($course->original_price) }}</del></small>
                                                             @endif
-                                                            <span class="d-block h5 text-lh-sm mb-0 text-danger">₹{{ number_format($course->price) }}</span>
                                                         </div>
                                                         <a class="btn btn-sm btn-info transition-3d-hover" href="/course/{{ $course->slug }}">Course details</a>
                                                     </div>

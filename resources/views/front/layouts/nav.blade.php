@@ -57,19 +57,17 @@
                                                     $course_details = session('SESSION_TOC_CART_COURSE_DETAILS', null);
                                                 @endphp
                                                 @foreach($course_details as $course)
-                                                    <div class="list-group-item">
+                                                    <div class="list-group-item p-3">
                                                         <div class="media">
-                                                            <img  class="img img-fluid" width="50" src="{{ ($course['thumb']) ? asset('/storage/'.$course['thumb']) : cdn_mix('/images/logos/logo.png') }}" alt="{{ $course['name'] }}">
+                                                            <div class="avatar avatar-lg mr-2">
+                                                                <img class="img img-fluid" src="{{ ($course['thumb']) ? asset('/storage/'.$course['thumb']) : cdn_mix('/images/logos/logo.png') }}" alt="{{ $course['name'] }}">
+                                                            </div>
                                                             <div class="media-body">
-                                                                <div class="row align-items-left">
-                                                                    <div class="col-sm mb-1 mb-sm-0">
-                                                                        <h6 class="mb-0">{{ $course['name'] }}</h6>
-                                                                        <small class="d-block h6 text-lh-sm mb-0 text-danger mt-1"><strong>₹{{ number_format($course['price']) }}</strong></small>
-                                                                        @if($course['original_price'] > 0)
-                                                                            <small class="d-block text-muted text-lh-sm"><del>₹{{ number_format($course['original_price']) }}</del></small>
-                                                                        @endif
-                                                                    </div>
-                                                                </div>
+                                                                <h6 class="mb-0">{{ $course['name'] }}</h6>
+                                                                <small class="d-block h6 text-lh-sm mb-0 text-danger mt-1"><strong>₹{{ number_format($course['price']) }}</strong></small>
+                                                                @if($course['original_price'] > 0)
+                                                                    <small class="d-block text-muted text-lh-sm"><del>₹{{ number_format($course['original_price']) }}</del></small>
+                                                                @endif
                                                             </div>
                                                         </div>
                                                     </div>

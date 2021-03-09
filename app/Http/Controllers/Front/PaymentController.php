@@ -200,32 +200,39 @@ class PaymentController extends Controller
 
     public function checkoutStatus(Request $request)
     {
-        $transaction = Payu::capture();
+        // Check if the referer is from PayU
+        if (strpos(request()->headers->get('referer'), "payu") !== false) {
 
-        if ($transaction->successful()) {
+            $transaction = Payu::capture();
 
-            // Step 1. Update Customer table payment status information
-            $customer = \App\Models\Front\Customer::where('order_no', $transaction->response('udf5'))->where('transaction_id', $transaction['transaction_id'])->firstOrFail();
-            $customer->payment_status = 'success';
-            $customer->save();
+            if ($transaction->successful()) {
 
-            // Step 2. Clear cart session value
-            $request->session()->forget(['SESSION_TOC_CART_COURSE_IDS', 'SESSION_TOC_CART_COURSE_DETAILS']);
+                // Step 1. Update Customer table payment status information
+                $customer = \App\Models\Front\Customer::where('order_no', $transaction->response('udf5'))->where('transaction_id', $transaction['transaction_id'])->firstOrFail();
+                $customer->payment_status = 'success';
+                $customer->save();
 
-            // Step 3. Update Customer table payment status information
-            $customer = array(
-                'name' => $transaction->response('firstname') . ' ' . $transaction->response('lastname'),
-                'email' => $transaction->response('email'),
-                'amount' => $transaction->response('amount'),
-                'order_no' => $transaction->response('udf5')
-            );
-            // event(new OrderCompleted((object) $customer)); // TODO - Uncomment this link to send email for Customer
+                // Step 2. Clear cart session value
+                $request->session()->forget(['SESSION_TOC_CART_COURSE_IDS', 'SESSION_TOC_CART_COURSE_DETAILS']);
 
-            // Step 4. Show order completed page
-            return view('front.pages.payment.order-completed', [
-                'order_no' => $transaction->response('udf5'), // LBCH00001 - Coaching | LBTU00001 - Tutoring | LBCM00001 - Commerce
-                'amount' => number_format($transaction->response('amount'), 2)
-            ]);
+                // Step 3. Update Customer table payment status information
+                $customer = array(
+                    'name' => $transaction->response('firstname') . ' ' . $transaction->response('lastname'),
+                    'email' => $transaction->response('email'),
+                    'amount' => $transaction->response('amount'),
+                    'order_no' => $transaction->response('udf5')
+                );
+                // event(new OrderCompleted((object) $customer)); // TODO - Uncomment this link to send email for Customer
+
+                // Step 4. Show order completed page
+                return view('front.pages.payment.order-completed', [
+                    'order_no' => $transaction->response('udf5'), // LBCH00001 - Coaching | LBTU00001 - Tutoring | LBCM00001 - Commerce
+                    'amount' => number_format($transaction->response('amount'), 2)
+                ]);
+            }
+        }
+        else {
+            abort(403, 'NOT HAVING ACCESS PERMISSION TO THIS PAGE.');
         }
 
         return redirect()->route('index');

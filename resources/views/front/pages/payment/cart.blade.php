@@ -19,29 +19,29 @@
                 </div>
             </div>
 
-            <div class="bg-light">
-                <div class="container space-2">
-                    <div class="row justify-content-center">
-                        <div class="col-md-9 col-lg-6">
-                            <div class="text-center mb-4">
-                                <h2 class="h1">Stay in the know</h2>
-                                <p>Get to know about our latest courses from 21kclass.com</p>
-                            </div>
+            <div class="position-relative text-center border-top">
+                <div class="container space-2 space-bottom-lg-3">
+                    <div class="w-md-60 mx-md-auto mb-5 mb-md-7">
+                        <h2 class="h1">Stay in the know</h2>
+                        <p>Get offers on our latest programs from 21K Class.</p>
+                    </div>
 
-                            <form class="js-validate js-form-message w-lg-85 mx-lg-auto">
-                                <label class="sr-only" for="subscribeSrEmail">Email address</label>
-                                <div class="input-group input-group-pill">
-                                    <input type="email" class="form-control" name="email" id="subscribeSrEmail" placeholder="Email address" aria-label="Email address" aria-describedby="subscribeButton" required
-                                           data-msg="Please enter a valid email address.">
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-primary px-6" id="subscribeButton">Join</button>
-                                    </div>
+                    <div class="w-md-75 w-lg-50 mx-md-auto">
+                        <form class="js-validate mb-3">
+                            <div class="form-row">
+                                <div class="col-sm-12">
+                                    <button type="button" class="btn btn-info btn-sm btn-wide" data-toggle="modal" data-target="#applyNow">Apply now</button>
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="d-none d-lg-block position-absolute bottom-0 left-0 max-w-35rem w-100">
+                        <img class="img-fluid" src="{{ cdn_mix('/svg/illustrations/mobile-article.svg') }}" alt="Image Description">
                     </div>
                 </div>
             </div>
+            @include('front.layouts.apply')
         @else
             <div class="container space-1 space-md-2">
                 <div class="row">
