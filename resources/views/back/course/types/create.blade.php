@@ -61,7 +61,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-md-3 col-form-label" for="name">{{ __('Course Name') }}<span class="text-danger">*</span></label>
                                                             <div class="col-md-9">
-                                                                <input class="form-control @error('name') is-invalid @enderror" name="name" id="name" type="text" value="{{ old('name') }}" required>
+                                                                <input class="form-control @error('name') is-invalid @enderror" name="name" id="name" type="text" maxlength="50" value="{{ old('name') }}" required>
                                                                 @error('name')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
@@ -77,7 +77,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-md-3 col-form-label" for="name">{{ __('Price') }}<span class="text-danger">*</span></label>
                                                             <div class="col-md-9">
-                                                                <input class="form-control @error('price') is-invalid @enderror" name="price" id="price" type="text" value="{{ old('price') }}" required>
+                                                                <input class="form-control @error('price') is-invalid @enderror" name="price" id="price" maxlength="10" type="text" value="{{ old('price') }}" required>
                                                                 @error('price')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
@@ -93,7 +93,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-md-3 col-form-label" for="name">{{ __('Original Price') }}<span class="text-danger">*</span></label>
                                                             <div class="col-md-9">
-                                                                <input class="form-control @error('original_price') is-invalid @enderror" name="original_price" id="original_price" type="text" value="{{ old('original_price') }}" required>
+                                                                <input class="form-control @error('original_price') is-invalid @enderror" name="original_price" maxlength="10" id="original_price" type="text" value="{{ old('original_price') }}" required>
                                                                 @error('original_price')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
@@ -109,7 +109,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-md-3 col-form-label" for="name">{{ __('Short Description') }}<span class="text-danger">*</span></label>
                                                             <div class="col-md-9">
-                                                                <textarea class="form-control @error('excerpt') is-invalid @enderror" name="excerpt" id="excerpt" cols="30" rows="7" required>{{ old('excerpt') }}</textarea>
+                                                                <textarea class="form-control @error('excerpt') is-invalid @enderror" name="excerpt" id="excerpt" cols="30" rows="7" required maxlength="100">{{ old('excerpt') }}</textarea>
                                                                 @error('excerpt')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
@@ -165,7 +165,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-md-3 col-form-label" for="name">{{ __('Rating') }}<span class="text-danger">*</span></label>
                                                             <div class="col-md-9">
-                                                                <input class="form-control @error('rating') is-invalid @enderror" name="rating" id="rating" type="text" value="{{ old('rating') }}">
+                                                                <input class="form-control @error('rating') is-invalid @enderror" name="rating" id="rating" maxlength="4" type="text" value="{{ old('rating') }}">
                                                                 @error('rating')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
@@ -182,12 +182,12 @@
                                                             <label class="col-md-3 col-form-label" for="is_new">{{ __('New Course') }}<span class="text-danger">*</span></label>
                                                             <div class="col-md-9 col-form-label">
                                                                 <div class="form-check form-check-inline mr-1">
-                                                                    <input class="form-check-input @error('is_new') is-invalid @enderror" id="course_new_yes" type="radio" value="1" name="is_new" required>
+                                                                    <input class="form-check-input @error('is_new') is-invalid @enderror" id="course_new_yes" type="radio" value="1" name="is_new" required {{ (old('is_new') == 1) ? 'checked' : '' }}>
                                                                     <label class="form-check-label" for="course_new_yes">Yes</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline mr-1">
-                                                                    <input class="form-check-input" id="course_new_no" type="radio" value="0" name="is_new">
-                                                                    <label class="form-check-label" for="course_new_no">No</label>
+                                                                    <input class="form-check-input" id="course_new_no" type="radio" value="0" name="is_new" {{ (!is_null(old('is_new')) && old('is_new') == 0) ? 'checked' : '' }}>
+                                                                    <label class="form-check-label" for="course_new_no">No{{ old('is_new') }}</label>
                                                                 </div>
                                                                 @error('is_new')
                                                                 <span class="invalid-feedback" role="alert">
@@ -202,9 +202,9 @@
                                                 <div class="row">
                                                     <div class="offset-lg-2 col-md-8 col-lg-6">
                                                         <div class="form-group row">
-                                                            <label class="col-md-3 col-form-label" for="name">{{ __('Thumbnail Image') }}<span class="text-danger">*</span></label>
+                                                            <label class="col-md-3 col-form-label" for="name">{{ __('Thumbnail Image') }}<span class="text-danger">*</span><br><small class="text-info">Make sure 500x300 ratio</small></label>
                                                             <div class="col-md-9">
-                                                                <input type="file" class="@error('thumb') is-invalid @enderror" name="thumb" id="thumb" accept="image/gif,image/bmp,image/x-png,image/gif,image/jpeg,image/jpg">
+                                                                <input type="file" class="@error('thumb') is-invalid @enderror" name="thumb" id="thumb" accept="image/gif,image/bmp,image/x-png,image/gif,image/jpeg,image/jpg,image/svg+xml">
                                                                 {{ old('thumb') }}
                                                                 @error('thumb')
                                                                 <span class="invalid-feedback" role="alert">

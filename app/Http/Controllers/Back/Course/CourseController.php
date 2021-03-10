@@ -41,10 +41,10 @@ class CourseController extends Controller
     {
         $request->validate([
             'category_id' => 'required|exists:course_categories,id',
-            'name' => 'required|unique:courses|max:255',
+            'name' => 'required|unique:courses|max:50',
             'price' => 'required|numeric|between:0,9999999.99',
             'original_price' => 'required|numeric|between:0,9999999.99|gte:price',
-            'excerpt' => 'required|max:255',
+            'excerpt' => 'required|max:100',
             'description' => 'required',
             'features' => 'nullable',
             'rating' => 'required|numeric|between:0,5.00',
@@ -52,7 +52,10 @@ class CourseController extends Controller
                 'required',
                 Rule::in([0, 1]),
             ],
-            'thumb' => 'required|image|mimes:gif,jpeg,jpg,bmp,png|max:2048',
+            'thumb' => [
+                'required',
+                Rule::dimensions()->minWidth(500)->minHeight(300)->maxWidth(500)->maxHeight(300)->ratio(3 / 2),
+            ],
         ]);
 
         if (!$request->hasFile('thumb')) {
@@ -93,10 +96,10 @@ class CourseController extends Controller
     {
         $request->validate([
             'category_id' => 'required|exists:course_categories,id',
-            'name' => 'required|min:2|max:255|unique:App\Models\Back\Course,name,' . $id,
+            'name' => 'required|min:2|max:50|unique:App\Models\Back\Course,name,' . $id,
             'price' => 'required|numeric|between:0,9999999.99',
             'original_price' => 'required|numeric|between:0,9999999.99|gte:price',
-            'excerpt' => 'required|max:255',
+            'excerpt' => 'required|max:100',
             'description' => 'required',
             'features' => 'nullable',
             'rating' => 'required|numeric|between:0,5.00',
@@ -104,7 +107,10 @@ class CourseController extends Controller
                 'required',
                 Rule::in([0, 1]),
             ],
-            'thumb' => 'nullable|image|mimes:gif,jpeg,jpg,bmp,png|max:2048',
+            'thumb' => [
+                'nullable',
+                Rule::dimensions()->minWidth(500)->minHeight(300)->maxWidth(500)->maxHeight(300)->ratio(3 / 2),
+            ],
         ]);
 
         $course = Course::findOrFail($id);

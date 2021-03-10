@@ -63,7 +63,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-md-3 col-form-label" for="name">{{ __('Course Name') }}<span class="text-danger">*</span></label>
                                                             <div class="col-md-9">
-                                                                <input class="form-control @error('name') is-invalid @enderror" name="name" id="name" type="text" value="{{ old('name', $course->name) }}">
+                                                                <input class="form-control @error('name') is-invalid @enderror" name="name" id="name" type="text" maxlength="50" value="{{ old('name', $course->name) }}">
                                                                 @error('name')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
@@ -79,7 +79,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-md-3 col-form-label" for="name">{{ __('Price') }}<span class="text-danger">*</span></label>
                                                             <div class="col-md-9">
-                                                                <input class="form-control @error('price') is-invalid @enderror" name="price" id="price" type="text" value="{{ old('price', $course->price) }}">
+                                                                <input class="form-control @error('price') is-invalid @enderror" name="price" id="price" maxlength="10" type="text" value="{{ old('price', $course->price) }}">
                                                                 @error('price')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
@@ -95,7 +95,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-md-3 col-form-label" for="name">{{ __('Original Price') }}<span class="text-danger">*</span></label>
                                                             <div class="col-md-9">
-                                                                <input class="form-control @error('original_price') is-invalid @enderror" name="original_price" id="original_price" type="text" value="{{ old('original_price', $course->original_price) }}">
+                                                                <input class="form-control @error('original_price') is-invalid @enderror" name="original_price" maxlength="10" id="original_price" type="text" value="{{ old('original_price', $course->original_price) }}">
                                                                 @error('original_price')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
@@ -111,7 +111,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-md-3 col-form-label" for="name">{{ __('Short Description') }}<span class="text-danger">*</span></label>
                                                             <div class="col-md-9">
-                                                                <input class="form-control @error('excerpt') is-invalid @enderror" name="excerpt" id="excerpt" type="text" value="{{ old('excerpt', $course->excerpt) }}">
+                                                                <input class="form-control @error('excerpt') is-invalid @enderror" name="excerpt" id="excerpt" type="text" maxlength="100" value="{{ old('excerpt', $course->excerpt) }}">
                                                                 @error('excerpt')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
@@ -167,7 +167,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-md-3 col-form-label" for="name">{{ __('Rating') }}<span class="text-danger">*</span></label>
                                                             <div class="col-md-9">
-                                                                <input class="form-control @error('rating') is-invalid @enderror" name="rating" id="rating" type="text" value="{{ old('rating', number_format($course->rating, 2)) }}">
+                                                                <input class="form-control @error('rating') is-invalid @enderror" name="rating" id="rating" maxlength="4" type="text" value="{{ old('rating', number_format($course->rating, 2)) }}">
                                                                 @error('rating')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
@@ -204,14 +204,14 @@
                                                 <div class="row">
                                                     <div class="offset-lg-2 col-md-8 col-lg-6">
                                                         <div class="form-group row">
-                                                            <label class="col-md-3 col-form-label" for="name">{{ __('Thumbnail') }}<span class="text-danger">*</span></label>
+                                                            <label class="col-md-3 col-form-label" for="name">{{ __('Thumbnail Image') }}<span class="text-danger">*</span><br><small class="text-info">Make sure 500x300 ratio</small></label>
                                                             <div class="col-md-9">
                                                                 @if(isset($course->thumb))
                                                                     <p class="row col-md-9">
                                                                         <img src="{{ asset('/storage/'.$course->thumb) }}" width="100" alt="">
                                                                     </p>
                                                                 @endif
-                                                                <input type="file" class="@error('thumb') is-invalid @enderror" name="thumb" id="thumb" accept="image/gif,image/bmp,image/x-png,image/gif,image/jpeg,image/jpg" value="{{ old('thumb', $course->thumb) }}">
+                                                                <input type="file" class="@error('thumb') is-invalid @enderror" name="thumb" id="thumb" accept="image/gif,image/bmp,image/x-png,image/gif,image/jpeg,image/jpg,image/svg+xml" value="{{ old('thumb', $course->thumb) }}">
                                                                 @error('thumb')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>

@@ -17,6 +17,7 @@ mix
 
     .copy('resources/css/vendor.min.css', 'public/css')
     .copy('resources/css/theme.min.css', 'public/css')
+    .copy('resources/css/custom.css', 'public/css')
     .copy('resources/webfonts/*.*', 'public/webfonts')
 
     .copy('resources/images/100x100/*.*', 'public/images/100x100')

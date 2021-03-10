@@ -242,29 +242,29 @@
                         </div>
 
                         <div class="col-lg-9 pl-xl-0">
-                            <div class="cbp mt-n3 mx-n3" data-hs-cbp-options='{"defaultFilter": ".all-course","animationType": "fadeOut","caption": "zoom","gapHorizontal": 0,"gapVertical": 0,"mediaQueries": [{"width": 1500, "cols": 3},{"width": 1100, "cols": 3},{"width": 800, "cols": 3},{"width": 480, "cols": 2},{"width": 380, "cols": 1}]}'>
+                            <div class="cbp mt-n3 mx-n3" data-hs-cbp-options='{"defaultFilter": ".all_course","animationType": "fadeOut","caption": "zoom","gapHorizontal": 0,"gapVertical": 0,"mediaQueries": [{"width": 1500, "cols": 3},{"width": 1100, "cols": 3},{"width": 800, "cols": 3},{"width": 480, "cols": 2},{"width": 380, "cols": 1}]}'>
                                 @php($i=0)
                                 @foreach($courseCategories as $courseCategory)
                                     @foreach($courseCategory->courses as $course)
-                                        <article class="cbp-item all-course {{ 'course_category_' . $i }}">
+                                        <article class="cbp-item all_course {{ 'course_category_' . $i }}">
                                             <div class="card card-bordered h-100 m-3">
                                                 <a class="card-img-top position-relative" href="/course/{{ $course->slug }}">
                                                     <img class="card-img-top" src="{{ ($course->thumb) ? asset('/storage/'.$course->thumb) : cdn_mix('/images/logos/logo.png') }}" alt="{{ $course->name }}">
                                                 </a>
-                                                <div class="card-body">
+                                                <div class="card-body p-3" style="min-height:155px;">
                                                     @if($course->is_new == 1)
                                                     <div class="position-absolute top-0 left-0 mt-3 ml-3">
                                                         <small class="btn btn-xs btn-success btn-pill text-uppercase shadow-soft mb-3 rounded">New</small>
                                                     </div>
                                                     @endif
-                                                    <div class="mb-3">
-                                                        <h3>
+                                                    <div class="mb-0">
+                                                        <h4 class="pgm-card-title">
                                                             <a class="text-inherit" href="/course/{{ $course->slug }}">{{ $course->name }}</a>
-                                                        </h3>
+                                                        </h4>
                                                     </div>
-                                                    <p class="mb-0">{{ $course->excerpt }}</p>
+                                                    <span class="font-size-1 mb-1 pgm-card-title">{{ $course->excerpt }}</span>
                                                     <div class="d-flex align-items-center">
-                                                        <div class="bottom-0 left-0 mb-3">
+                                                        <div class="bottom-0 left-0">
                                                             <div class="d-flex align-items-center flex-wrap">
                                                                 <ul class="list-inline mt-b2 mb-0 mr-2">
                                                                     @if ($course->rating >= 1)
@@ -314,7 +314,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="card-footer border-0 pt-0">
+                                                <div class="card-footer border-0 p-0 px-3 pb-3">
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <div class="mr-2">
                                                             <span class="d-block h5 text-lh-sm mb-0 text-danger">₹{{ number_format($course->price) }}</span>
