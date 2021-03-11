@@ -5,17 +5,6 @@
     @include('front.layouts.nav')
 
     <main id="content" role="main">
-
-{{--        @if ($errors->any())--}}
-{{--            <div class="alert alert-danger">--}}
-{{--                <ul>--}}
-{{--                    @foreach ($errors->all() as $error)--}}
-{{--                        <li>{{ $error }}</li>--}}
-{{--                    @endforeach--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--        @endif--}}
-
         <div class="container space-1 space-md-2">
             <div class="row">
                 <div class="col-lg-4 order-lg-2 mb-7 mb-lg-0">
@@ -28,7 +17,6 @@
                             </div>
                             <!-- End Title -->
 
-
                             @php
                                 $course_details = session('SESSION_TOC_CART_COURSE_DETAILS', []);
                             @endphp
@@ -40,7 +28,7 @@
                                             <img  class="avatar-img" src="{{ ($course['thumb']) ? asset('/storage/'.$course['thumb']) : cdn_mix('/images/logos/logo.png') }}" alt="{{ $course['name'] }}">
                                         </div>
                                         <div class="media-body">
-                                            <a class="h6 d-block" href="{{ route('course-details', ['course'=>$course['slug']]) }}">{{ $course['name'] }}</a>
+                                            <a class="h6 d-block" href="{{ route(strtolower($course['site_type']) . '.course-details', ['course'=>$course['slug']]) }}">{{ $course['name'] }}</a>
                                             <div class="text-body" style="line-height:1;">
                                                 <small>{{ $course['excerpt'] }}</small>
                                             </div>
@@ -84,49 +72,6 @@
                             <!-- End Total -->
                         </div>
                         <!-- End Order Summary -->
-
-                        <!-- Accordion -->
-{{--                        <div id="shopCartAccordion" class="accordion card shadow-soft mb-4">--}}
-{{--                            <!-- Card -->--}}
-{{--                            <div class="card">--}}
-{{--                                <div class="card-header card-collapse" id="shopCartHeadingOne">--}}
-{{--                                    <h3 class="mb-0">--}}
-{{--                                        <a class="btn btn-link btn-block card-btn font-weight-bold collapsed" href="javascript:;" role="button"--}}
-{{--                                           data-toggle="collapse"--}}
-{{--                                           data-target="#shopCartOne"--}}
-{{--                                           aria-expanded="false"--}}
-{{--                                           aria-controls="shopCartOne">--}}
-{{--                                            Promo code?--}}
-{{--                                            <i class="far fa-question-circle text-body ml-1" data-container="body" data-toggle="popover" data-placement="top" data-trigger="hover" title="Promo code" data-content="Valid on full priced items only. Some products maybe excluded."></i>--}}
-{{--                                        </a>--}}
-{{--                                    </h3>--}}
-{{--                                </div>--}}
-{{--                                <div id="shopCartOne" class="collapse" aria-labelledby="shopCartHeadingOne" data-parent="#shopCartAccordion">--}}
-{{--                                    <form class="js-validate p-4">--}}
-{{--                                        <div class="input-group input-group-pill mb-3">--}}
-{{--                                            <input type="text" class="form-control" name="name" placeholder="Promo code" aria-label="Promo code">--}}
-{{--                                            <div class="input-group-append">--}}
-{{--                                                <button type="submit" class="btn btn-block btn-primary btn-pill">Apply</button>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </form>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <!-- End Card -->--}}
-{{--                        </div>--}}
-                        <!-- End Accordion -->
-
-                        <!-- Help Link -->
-{{--                        <div class="media align-items-center">--}}
-{{--                            <figure class="w-100 max-w-6rem mr-2">--}}
-{{--                                <img class="img-fluid" src="./assets/svg/icons/icon-4.svg" alt="SVG">--}}
-{{--                            </figure>--}}
-{{--                            <div class="media-body text-body small">--}}
-{{--                                <span class="font-weight-bold mr-1">Need Help?</span>--}}
-{{--                                <a class="link-underline" href="#">Chat now</a>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-                        <!-- End Help Link -->
                     </div>
                 </div>
 
@@ -586,10 +531,6 @@
 
 @section('script')
     <script type="text/javascript">
-        $('.js-sticky-block').each(function () {
-            var stickyBlock = new HSStickyBlock($(this)).init();
-        });
-
         $(function () {
             $('#header').removeAttr('class').attr('class', 'header');
         });

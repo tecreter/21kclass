@@ -8,6 +8,13 @@ courseCategory.categoryListFormInit = function () {
 };
 
 courseCategory.getCourseCategoriesList = function () {
+
+    let site_type = {
+        1 : 'Coaching',
+        2 : 'Tutoring',
+        3 : 'Commerce'
+    };
+
     $('#category_list').dataTable({
         "destroy": true,
         "pageLength": 10,
@@ -27,6 +34,7 @@ courseCategory.getCourseCategoriesList = function () {
             { "data": null },
             { "data": null },
             { "data": null },
+            { "data": null },
         ],
         "order": [ [3, 'asc'] ],
         "columnDefs": [
@@ -35,7 +43,7 @@ courseCategory.getCourseCategoriesList = function () {
                 "orderable": false
             },
             {
-                "targets" : [ 1, 2, 3 ],
+                "targets" : [ 0, 1, 2, 3 ],
                 "className": 'text-center',
             },
             {
@@ -52,6 +60,12 @@ courseCategory.getCourseCategoriesList = function () {
             },
             {
                 "targets" : [ 3 ],
+                "render" : function(data) {
+                    return (site_type[data.type_id] != null) ? site_type[data.type_id] : '';
+                }
+            },
+            {
+                "targets" : [ 4 ],
                 "className": 'text-center',
                 "render" : function(data) {
                     return '<a class="btn btn-info" href="/backoffice/course/category/' + data.id + '/edit"><i class="far fa-edit"></i></a> <span class="btn btn-danger" onclick="window.deleteCourseCategory('+data.id+')"><i class="far fa-trash-alt"></i></span>';

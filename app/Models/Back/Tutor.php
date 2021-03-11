@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tutor extends Model
 {
-    public const TUTOR_TYPE = [
+    public const SITE_TYPE = [
         1 => 'Coaching',
         2 => 'Tutoring',
         3 => 'Commerce'

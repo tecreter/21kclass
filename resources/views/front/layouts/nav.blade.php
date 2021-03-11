@@ -92,7 +92,7 @@
                                         </div>
 
                                         <div class="card-footer">
-                                            <a href="{{ route('index') }}" class="text-primary font-size-1">Keep shopping</a>
+                                            <a href="{{ route('coaching.index') }}" class="text-primary font-size-1">Keep shopping</a>
                                         </div>
                                     </div>
                                 </div>
@@ -105,7 +105,7 @@
 
         <div id="logoAndNav" class="container">
             <nav class="js-mega-menu navbar navbar-expand-xl">
-                <a class="navbar-brand" href="{{ route('index') }}" aria-label="Front">
+                <a class="navbar-brand" href="{{ route('coaching.index') }}" aria-label="Front">
                     <img src="{{ cdn_mix('/images/logos/logo.png') }}" alt="Logo">
                 </a>
 
@@ -134,89 +134,114 @@
                         <ul class="navbar-nav">
 
                             <li class="hs-has-sub-menu navbar-nav-item">
-                                <a id="aboutusMegaMenu" class="hs-mega-menu-invoker nav-link nav-link-toggle {{ (request()->routeIs('what-sets-us-apart') || request()->routeIs('values-and-ethos') || request()->routeIs('21k-group') || request()->routeIs('our-team') || request()->routeIs('policy-and-governance')) ?? true ? 'active' : '' }}" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false" aria-labelledby="aboutusSubMenu">About Us</a>
+                                <a id="aboutusMegaMenu" class="hs-mega-menu-invoker nav-link nav-link-toggle {{ request()->routeIs('coaching.about-us.*') ?? true ? 'active' : '' }}" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false" aria-labelledby="aboutusSubMenu">About Us</a>
 
                                 <div id="aboutusSubMenu" class="hs-sub-menu dropdown-menu" aria-labelledby="aboutusMegaMenu" style="min-width: 230px;">
-                                    <a class="dropdown-item{{ request()->routeIs('what-sets-us-apart') ?? true ? ' active' : '' }}" href="{{ route('what-sets-us-apart') }}">What sets us apart?</a>
-                                    <a class="dropdown-item{{ request()->routeIs('values-and-ethos') ?? true ? ' active' : '' }}" href="{{ route('values-and-ethos') }}">Values & Ethos</a>
-                                    <a class="dropdown-item{{ request()->routeIs('21k-group') ?? true ? ' active' : '' }}" href="{{ route('21k-group') }}">21K Group</a>
-                                    <a class="dropdown-item{{ request()->routeIs('our-team') ?? true ? ' active' : '' }}" href="{{ route('our-team') }}">Our Team</a>
-                                    <a class="dropdown-item{{ request()->routeIs('policy-and-governance') ?? true ? ' active' : '' }}" href="{{ route('policy-and-governance') }}">Policy & Governance</a>
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.about-us.what-sets-us-apart') ?? true ? ' active' : '' }}" href="{{ route('coaching.about-us.what-sets-us-apart') }}">What sets us apart?</a>
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.about-us.values-and-ethos') ?? true ? ' active' : '' }}" href="{{ route('coaching.about-us.values-and-ethos') }}">Values & Ethos</a>
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.about-us.21k-group') ?? true ? ' active' : '' }}" href="{{ route('coaching.about-us.21k-group') }}">21K Group</a>
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.about-us.our-team') ?? true ? ' active' : '' }}" href="{{ route('coaching.about-us.our-team') }}">Our Team</a>
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.about-us.policy-and-governance') ?? true ? ' active' : '' }}" href="{{ route('coaching.about-us.policy-and-governance') }}">Policy & Governance</a>
                                 </div>
                             </li>
 
                             <li class="hs-has-sub-menu navbar-nav-item">
-                                <a id="blogMegaMenu" class="hs-mega-menu-invoker nav-link nav-link-toggle {{ (request()->routeIs('21k-neet-test-series') || request()->routeIs('21k-neet-extension-course') || request()->routeIs('21k-neet-comprehensive-course') || request()->routeIs('21k-neet-crash-course') || request()->routeIs('21k-neet-repeater-course') || request()->routeIs('21k-jee-extension-course') || request()->routeIs('21k-jee-comprehensive-course') || request()->routeIs('21k-jee-crash-course') || request()->routeIs('21k-jee-test-series') || request()->routeIs('21k-class-pre-foundation-course') || request()->routeIs('21k-class-preparatory-course')) ?? true ? 'active' : '' }}" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">Courses</a>
-                                <div id="blogSubMenu" class="hs-sub-menu dropdown-menu" aria-labelledby="blogMegaMenu" style="min-width: 230px;">
-                                    <a class="dropdown-item{{ request()->routeIs('21k-neet-test-series') ?? true ? ' active' : '' }}" href="{{ route('21k-neet-test-series') }}">21K NEET Test Series</a>
-                                    <a class="dropdown-item{{ request()->routeIs('21k-neet-extension-course') ?? true ? ' active' : '' }}" href="{{ route('21k-neet-extension-course') }}">21K NEET Extension Course</a>
-                                    <a class="dropdown-item{{ request()->routeIs('21k-neet-comprehensive-course') ?? true ? ' active' : '' }}" href="{{ route('21k-neet-comprehensive-course') }}">21K NEET Comprehensive Course</a>
-                                    <a class="dropdown-item{{ request()->routeIs('21k-neet-crash-course') ?? true ? ' active' : '' }}" href="{{ route('21k-neet-crash-course') }}">21K NEET Crash Course</a>
-                                    <a class="dropdown-item{{ request()->routeIs('21k-neet-repeater-course') ?? true ? ' active' : '' }}" href="{{ route('21k-neet-repeater-course') }}">21K NEET Repeater Course</a>
-                                    <a class="dropdown-item{{ request()->routeIs('21k-jee-extension-course') ?? true ? ' active' : '' }}" href="{{ route('21k-jee-extension-course') }}">21K JEE Extension Course</a>
-                                    <a class="dropdown-item{{ request()->routeIs('21k-jee-comprehensive-course') ?? true ? ' active' : '' }}" href="{{ route('21k-jee-comprehensive-course') }}">21K JEE Comprehensive Course</a>
-                                    <a class="dropdown-item{{ request()->routeIs('21k-jee-crash-course') ?? true ? ' active' : '' }}" href="{{ route('21k-jee-crash-course') }}">21K JEE Crash Course</a>
-                                    <a class="dropdown-item{{ request()->routeIs('21k-jee-test-series') ?? true ? ' active' : '' }}" href="{{ route('21k-jee-test-series') }}">21K JEE Test Series</a>
-                                    <a class="dropdown-item{{ request()->routeIs('21k-class-pre-foundation-course') ?? true ? ' active' : '' }}" href="{{ route('21k-class-pre-foundation-course') }}">21K Class Pre Foundation Course (Class VIII)</a>
-                                    <a class="dropdown-item{{ request()->routeIs('21k-class-preparatory-course') ?? true ? ' active' : '' }}" href="{{ route('21k-class-preparatory-course') }}">21K Class Preparatory Course (Class IX & X)</a>
+                                <a id="blogMegaMenu" class="hs-mega-menu-invoker nav-link nav-link-toggle {{ (request()->routeIs('coaching.academics.*')) ?? true ? 'active' : '' }}" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">Academics</a>
+
+                                <div id="pagesSubMenu" class="hs-sub-menu dropdown-menu hs-sub-menu-desktop-lg fadeOut animated" aria-labelledby="pagesMegaMenu" style="min-width: 230px; display: none; animation-duration: 300ms;">
+                                    <div class="hs-has-sub-menu">
+                                        <a id="navLinkNeetCoaching" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle {{ (request()->routeIs('coaching.academics.neet.*')) ?? true ? 'active' : '' }}" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navSubmenuNeetCoaching">NEET Coaching</a>
+                                        <div id="navSubmenuNeetCoaching" class="hs-sub-menu dropdown-menu hs-sub-menu-desktop-lg fadeOut animated" aria-labelledby="navLinkNeetCoaching" style="min-width: 230px; display: none; animation-duration: 300ms;">
+                                            <a class="dropdown-item{{ request()->routeIs('coaching.academics.neet.introduction') ?? true ? ' active' : '' }}" href="{{ route('coaching.academics.neet.introduction') }}">21K NEET Introduction</a>
+                                            <a class="dropdown-item{{ request()->routeIs('coaching.academics.neet.extension-course') ?? true ? ' active' : '' }}" href="{{ route('coaching.academics.neet.extension-course') }}">21K NEET Extension Course</a>
+                                            <a class="dropdown-item{{ request()->routeIs('coaching.academics.neet.comprehensive-course') ?? true ? ' active' : '' }}" href="{{ route('coaching.academics.neet.comprehensive-course') }}">21K NEET Comprehensive Course</a>
+                                            <a class="dropdown-item{{ request()->routeIs('coaching.academics.neet.crash-course') ?? true ? ' active' : '' }}" href="{{ route('coaching.academics.neet.crash-course') }}">21K NEET Crash Course</a>
+                                            <a class="dropdown-item{{ request()->routeIs('coaching.academics.neet.repeater-course') ?? true ? ' active' : '' }}" href="{{ route('coaching.academics.neet.repeater-course') }}">21K NEET Repeater Course </a>
+                                            <a class="dropdown-item{{ request()->routeIs('coaching.academics.neet.test-series') ?? true ? ' active' : '' }}" href="{{ route('coaching.academics.neet.test-series') }}">21K NEET Test Series</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="hs-has-sub-menu">
+                                        <a id="navLinkJeeCoaching" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle {{ (request()->routeIs('coaching.academics.jee.*')) ?? true ? 'active' : '' }}" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navSubmenuJeeCoaching">JEE Coaching</a>
+                                        <div id="navSubmenuJeeCoaching" class="hs-sub-menu dropdown-menu hs-sub-menu-desktop-lg fadeOut animated" aria-labelledby="navLinkJeeCoaching" style="min-width: 230px; display: none; animation-duration: 300ms;">
+                                            <a class="dropdown-item{{ request()->routeIs('coaching.academics.jee.introduction') ?? true ? ' active' : '' }}" href="{{ route('coaching.academics.jee.introduction') }}">21K JEE Coaching</a>
+                                            <a class="dropdown-item{{ request()->routeIs('coaching.academics.jee.extension-course') ?? true ? ' active' : '' }}" href="{{ route('coaching.academics.jee.extension-course') }}">21K JEE Extension Course</a>
+                                            <a class="dropdown-item{{ request()->routeIs('coaching.academics.jee.comprehensive-course') ?? true ? ' active' : '' }}" href="{{ route('coaching.academics.jee.comprehensive-course') }}">21K JEE Comprehensive Course</a>
+                                            <a class="dropdown-item{{ request()->routeIs('coaching.academics.jee.crash-course') ?? true ? ' active' : '' }}" href="{{ route('coaching.academics.jee.crash-course') }}">21K JEE Crash Course</a>
+                                            <a class="dropdown-item{{ request()->routeIs('coaching.academics.jee.test-series') ?? true ? ' active' : '' }}" href="{{ route('coaching.academics.jee.test-series') }}">21K JEE Test Series </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="hs-has-sub-menu">
+                                        <a id="navLinkFoundationCourse" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle {{ (request()->routeIs('coaching.academics.foundation-course.*')) ?? true ? 'active' : '' }}" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navSubmenuFoundationCourse">21K Class Foundation Courses</a>
+                                        <div id="navSubmenuFoundationCourse" class="hs-sub-menu dropdown-menu hs-sub-menu-desktop-lg fadeOut animated" aria-labelledby="navLinkFoundationCourse" style="min-width: 230px; display: none; animation-duration: 300ms;">
+                                            <a class="dropdown-item{{ request()->routeIs('coaching.academics.foundation-course.introduction') ?? true ? ' active' : '' }}" href="{{ route('coaching.academics.foundation-course.introduction') }}">21K Class Foundation Courses Coaching</a>
+                                            <a class="dropdown-item{{ request()->routeIs('coaching.academics.foundation-course.pre-foundation-course') ?? true ? ' active' : '' }}"  href="{{ route('coaching.academics.foundation-course.pre-foundation-course') }}">21K Class Pre Foundation Course (Class VIII)</a>
+                                            <a class="dropdown-item{{ request()->routeIs('coaching.academics.foundation-course.preparatory-foundation-course') ?? true ? ' active' : '' }}"  href="{{ route('coaching.academics.foundation-course.preparatory-foundation-course') }}">21K Class Preparatory Course (Class IX & X)</a>
+                                        </div>
+                                    </div>
+
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.academics.competitive-examination') ?? true ? ' active' : '' }}" href="{{ route('coaching.academics.competitive-examination') }}">21K Competitive Examination Practice Programs</a>
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.academics.ce-test-series') ?? true ? ' active' : '' }}" href="{{ route('coaching.academics.ce-test-series') }}">21K CE Test Series</a>
                                 </div>
                             </li>
 
+
                             <li class="hs-has-sub-menu navbar-nav-item">
-                                <a id="admissionsMegaMenu" class="hs-mega-menu-invoker nav-link nav-link-toggle {{ (request()->routeIs('olympiads') || request()->routeIs('national-talent-exam')) ?? true ? 'active' : '' }}" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false" aria-labelledby="admissionsSubMenu">Excellence</a>
+                                <a id="admissionsMegaMenu" class="hs-mega-menu-invoker nav-link nav-link-toggle {{ request()->routeIs('coaching.excellence.*') ?? true ? 'active' : '' }}" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false" aria-labelledby="admissionsSubMenu">Excellence</a>
 
                                 <div id="admissionsSubMenu" class="hs-sub-menu dropdown-menu" aria-labelledby="admissionsMegaMenu" style="min-width: 230px;">
-                                    <a class="dropdown-item{{ request()->routeIs('olympiads') ?? true ? ' active' : '' }}" href="{{ route('olympiads') }}">Olympiads</a>
-                                    <a class="dropdown-item{{ request()->routeIs('national-talent-exam') ?? true ? ' active' : '' }}" href="{{ route('national-talent-exam') }}">National Talent Exam</a>
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.excellence.olympiads') ?? true ? ' active' : '' }}" href="{{ route('coaching.excellence.olympiads') }}">Olympiads</a>
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.excellence.national-talent-exam') ?? true ? ' active' : '' }}" href="{{ route('coaching.excellence.national-talent-exam') }}">National Talent Exam</a>
                                 </div>
                             </li>
 
 
                             <li class="hs-has-sub-menu navbar-nav-item">
-                                <a id="admissionsMegaMenu" class="hs-mega-menu-invoker nav-link nav-link-toggle {{ (request()->routeIs('how-to-apply') || request()->routeIs('key-dates') || request()->routeIs('fees-and-scholarships') || request()->routeIs('who-should-enrol') || request()->routeIs('process-and-requirements')) ?? true ? 'active' : '' }}" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false" aria-labelledby="admissionsSubMenu">Admissions</a>
+                                <a id="admissionsMegaMenu" class="hs-mega-menu-invoker nav-link nav-link-toggle {{ request()->routeIs('coaching.admission.*') ?? true ? 'active' : '' }}" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false" aria-labelledby="admissionsSubMenu">Admissions</a>
 
                                 <div id="admissionsSubMenu" class="hs-sub-menu dropdown-menu" aria-labelledby="admissionsMegaMenu" style="min-width: 230px;">
-                                    <a class="dropdown-item{{ request()->routeIs('how-to-apply') ?? true ? ' active' : '' }}" href="{{ route('how-to-apply') }}">How to apply?</a>
-                                    <a class="dropdown-item{{ request()->routeIs('key-dates') ?? true ? ' active' : '' }}" href="{{ route('key-dates') }}">Key Dates</a>
-                                    <a class="dropdown-item{{ request()->routeIs('fees-and-scholarships') ?? true ? ' active' : '' }}" href="{{ route('fees-and-scholarships') }}">Fees & Scholarships </a>
-                                    <a class="dropdown-item{{ request()->routeIs('who-should-enrol') ?? true ? ' active' : '' }}" href="{{ route('who-should-enrol') }}">Who should enrol?</a>
-                                    <a class="dropdown-item{{ request()->routeIs('process-and-requirements') ?? true ? ' active' : '' }}" href="{{ route('process-and-requirements') }}">Process & Requirements</a>
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.admission.how-to-apply') ?? true ? ' active' : '' }}" href="{{ route('coaching.admission.how-to-apply') }}">How to apply?</a>
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.admission.key-dates') ?? true ? ' active' : '' }}" href="{{ route('coaching.admission.key-dates') }}">Key Dates</a>
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.admission.fees-and-scholarships') ?? true ? ' active' : '' }}" href="{{ route('coaching.admission.fees-and-scholarships') }}">Fees & Scholarships </a>
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.admission.who-should-enrol') ?? true ? ' active' : '' }}" href="{{ route('coaching.admission.who-should-enrol') }}">Who should enrol?</a>
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.admission.process-and-requirements') ?? true ? ' active' : '' }}" href="{{ route('coaching.admission.process-and-requirements') }}">Process & Requirements</a>
                                 </div>
                             </li>
 
                             <li class="hs-has-sub-menu navbar-nav-item">
-                                <a id="howitworksMegaMenu" class="hs-mega-menu-invoker nav-link nav-link-toggle {{ (request()->routeIs('how-does-it-work') || request()->routeIs('technology') || request()->routeIs('why-online-only') || request()->routeIs('who-is-21k-class') || request()->routeIs('faq') || request()->routeIs('your-privacy') || request()->routeIs('safety-and-security')) ?? true ? 'active' : '' }}" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false" aria-labelledby="howitworksSubMenu">How it works?</a>
+                                <a id="howitworksMegaMenu" class="hs-mega-menu-invoker nav-link nav-link-toggle {{ request()->routeIs('coaching.how-it-works.*') ?? true ? 'active' : '' }}" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false" aria-labelledby="howitworksSubMenu">How it works?</a>
 
                                 <div id="howitworksSubMenu" class="hs-sub-menu dropdown-menu" aria-labelledby="howitworksMegaMenu" style="min-width: 230px;">
-                                    <a class="dropdown-item{{ request()->routeIs('how-does-it-work') ?? true ? ' active' : '' }}" href="{{ route('how-does-it-work') }}">How does it work?</a>
-                                    <a class="dropdown-item{{ request()->routeIs('technology') ?? true ? ' active' : '' }}" href="{{ route('technology') }}">Technology</a>
-                                    <a class="dropdown-item{{ request()->routeIs('why-online-only') ?? true ? ' active' : '' }}" href="{{ route('why-online-only') }}">Why Online only?</a>
-                                    <a class="dropdown-item{{ request()->routeIs('who-is-21k-class') ?? true ? ' active' : '' }}" href="{{ route('who-is-21k-class') }}">Who is 21K Class for?</a>
-                                    <a class="dropdown-item{{ request()->routeIs('faq') ?? true ? ' active' : '' }}" href="{{ route('faq') }}">FAQ</a>
-                                    <a class="dropdown-item{{ request()->routeIs('your-privacy') ?? true ? ' active' : '' }}" href="{{ route('your-privacy') }}">Your Privacy</a>
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.how-it-works.how-does-it-work') ?? true ? ' active' : '' }}" href="{{ route('coaching.how-it-works.how-does-it-work') }}">How does it work?</a>
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.how-it-works.technology') ?? true ? ' active' : '' }}" href="{{ route('coaching.how-it-works.technology') }}">Technology</a>
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.how-it-works.why-online-only') ?? true ? ' active' : '' }}" href="{{ route('coaching.how-it-works.why-online-only') }}">Why Online only?</a>
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.how-it-works.who-is-21k-class') ?? true ? ' active' : '' }}" href="{{ route('coaching.how-it-works.who-is-21k-class') }}">Who is 21K Class for?</a>
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.how-it-works.faq') ?? true ? ' active' : '' }}" href="{{ route('coaching.how-it-works.faq') }}">FAQ</a>
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.how-it-works.your-privacy') ?? true ? ' active' : '' }}" href="{{ route('coaching.how-it-works.your-privacy') }}">Your Privacy</a>
                                 </div>
                             </li>
 
                             <li class="hs-has-sub-menu navbar-nav-item">
-                                <a id="being21kMegaMenu" class="hs-mega-menu-invoker nav-link nav-link-toggle {{ (request()->routeIs('student-work') || request()->routeIs('parents-speak') || request()->routeIs('meet-our-faculty') || request()->routeIs('events') || request()->routeIs('media-hub') || request()->routeIs('insights')) ?? true ? 'active' : '' }}" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false"  aria-labelledby="being21kSubMenu">#Being21K</a>
+                                <a id="being21kMegaMenu" class="hs-mega-menu-invoker nav-link nav-link-toggle {{ request()->routeIs('coaching.being21k.*') ?? true ? 'active' : '' }}" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false"  aria-labelledby="being21kSubMenu">#Being21K</a>
 
                                 <div id="being21kSubMenu" class="hs-sub-menu dropdown-menu" aria-labelledby="being21kMegaMenu" style="min-width: 230px;">
-                                    <a class="dropdown-item{{ request()->routeIs('student-work') ?? true ? ' active' : '' }}" href="{{ route('student-work') }}">Student Work</a>
-                                    <a class="dropdown-item{{ request()->routeIs('parents-speak') ?? true ? ' active' : '' }}" href="{{ route('parents-speak') }}">Parent's Speak</a>
-                                    <a class="dropdown-item{{ request()->routeIs('meet-our-faculty') ?? true ? ' active' : '' }}" href="{{ route('meet-our-faculty') }}">Meet our Faculty</a>
-                                    <a class="dropdown-item{{ request()->routeIs('events') ?? true ? ' active' : '' }}" href="{{ route('events') }}">Events</a>
-                                    <a class="dropdown-item{{ request()->routeIs('media-hub') ?? true ? ' active' : '' }}" href="{{ route('media-hub') }}">Media Hub</a>
-                                    <a class="dropdown-item{{ request()->routeIs('insights') ?? true ? ' active' : '' }}" href="{{ route('insights') }}">Insights</a>
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.being21k.student-work') ?? true ? ' active' : '' }}" href="{{ route('coaching.being21k.student-work') }}">Student Work</a>
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.being21k.parents-speak') ?? true ? ' active' : '' }}" href="{{ route('coaching.being21k.parents-speak') }}">Parent's Speak</a>
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.being21k.meet-our-faculty') ?? true ? ' active' : '' }}" href="{{ route('coaching.being21k.meet-our-faculty') }}">Meet our Faculty</a>
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.being21k.events') ?? true ? ' active' : '' }}" href="{{ route('coaching.being21k.events') }}">Events</a>
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.being21k.media-hub') ?? true ? ' active' : '' }}" href="{{ route('coaching.being21k.media-hub') }}">Media Hub</a>
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.being21k.insights') ?? true ? ' active' : '' }}" href="{{ route('coaching.being21k.insights') }}">Insights</a>
                                 </div>
                             </li>
 
                             <li class="hs-has-sub-menu navbar-nav-item">
-                                <a id="connectMegaMenu" class="hs-mega-menu-invoker nav-link nav-link-toggle {{ (request()->routeIs('contact-us') || request()->routeIs('work-with-us') || request()->routeIs('social') || request()->routeIs('career-intern') || request()->routeIs('career-software-engineer')) ?? true ? 'active' : '' }}" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false" aria-labelledby="connectSubMenu">Connect</a>
+                                <a id="connectMegaMenu" class="hs-mega-menu-invoker nav-link nav-link-toggle {{ request()->routeIs('coaching.connect.*') ?? true ? 'active' : '' }}" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false" aria-labelledby="connectSubMenu">Connect</a>
 
                                 <div id="connectSubMenu" class="hs-sub-menu dropdown-menu" aria-labelledby="connectMegaMenu" style="min-width: 230px;">
-                                    <a class="dropdown-item{{ request()->routeIs('contact-us') ?? true ? ' active' : '' }}" href="{{ route('contact-us') }}">Contact Us</a>
-                                    <a class="dropdown-item{{ (request()->routeIs('work-with-us') || request()->routeIs('career-intern') || request()->routeIs('career-software-engineer')) ?? true ? ' active' : '' }}" href="{{ route('work-with-us') }}">Work with us</a>
-                                    <a class="dropdown-item{{ request()->routeIs('social') ?? true ? ' active' : '' }}" href="{{ route('social') }}">Social</a>
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.connect.contact-us') ?? true ? ' active' : '' }}" href="{{ route('coaching.connect.contact-us') }}">Contact Us</a>
+                                    <a class="dropdown-item{{ (request()->routeIs('coaching.connect.work-with-us') || request()->routeIs('coaching.connect.career-intern') || request()->routeIs('coaching.connect.career-software-engineer')) ?? true ? ' active' : '' }}" href="{{ route('coaching.connect.work-with-us') }}">Work with us</a>
+                                    <a class="dropdown-item{{ request()->routeIs('coaching.connect.social') ?? true ? ' active' : '' }}" href="{{ route('coaching.connect.social') }}">Social</a>
                                 </div>
                             </li>
                         </ul>

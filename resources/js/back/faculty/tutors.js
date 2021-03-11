@@ -9,7 +9,7 @@ tutors.tutorsListFormInit = function () {
 
 tutors.getTutorsList = function () {
 
-    let type = {
+    let site_type = {
         1 : 'Coaching',
         2 : 'Tutoring',
         3 : 'Commerce'
@@ -79,7 +79,7 @@ tutors.getTutorsList = function () {
             {
                 "targets" : [ 4 ],
                 "render" : function(data) {
-                    return (type[data.type_id] != null) ? type[data.type_id] : '';
+                    return (site_type[data.type_id] != null) ? site_type[data.type_id] : '';
                 }
             },
             {

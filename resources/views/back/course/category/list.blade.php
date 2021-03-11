@@ -44,6 +44,7 @@
                                                 <th>Name</th>
                                                 <th>Courses Count</th>
                                                 <th>New</th>
+                                                <th>Type</th>
                                                 <th>Actions</th>
                                             </tr>
                                             </thead>

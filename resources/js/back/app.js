@@ -26,7 +26,7 @@ import Admin from "./admin";
 import CourseCategory from "./course/category";
 import CourseType from "./course/types";
 import Tutor from "./faculty/tutors";
-import Customer from "./customer/customer";
+import Invoice from "./invoice/invoice";
 
-window.TocAdmin = {Admin, CourseCategory, CourseType, Tutor, Customer};
+window.TocAdmin = {Admin, CourseCategory, CourseType, Tutor, Invoice};
 

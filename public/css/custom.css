@@ -8,3 +8,7 @@
     line-height: 1.3;
     letter-spacing: -.02rem;
 }
+
+.header.scrolled .header-section {
+    box-shadow: 0 2px 16px 0 rgb(0 0 0 / 10%);
+}

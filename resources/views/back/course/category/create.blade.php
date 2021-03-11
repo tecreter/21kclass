@@ -36,6 +36,27 @@
                                                 <div class="row">
                                                     <div class="offset-lg-2 col-md-8 col-lg-6">
                                                         <div class="form-group row">
+                                                            <label class="col-md-3 col-form-label" for="name">{{ __('Type') }}<span class="text-danger">*</span></label>
+                                                            <div class="col-md-9">
+                                                                <select name="type_id" id="type_id" class="form-control @error('type_id') is-invalid @enderror" autofocus required>
+                                                                    <option value="">- Select a Type -</option>
+                                                                    <option value="1" {{ (old('type_id') == 1) ? ' selected' : '' }}>Coaching</option>
+{{--                                                                    <option value="2" {{ (old('type_id') == 2) ? ' selected' : '' }}>Tutoring</option>--}}
+{{--                                                                    <option value="3" {{ (old('type_id') == 3) ? ' selected' : '' }}>Commerce</option>--}}
+                                                                </select>
+                                                                @error('type_id')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="offset-lg-2 col-md-8 col-lg-6">
+                                                        <div class="form-group row">
                                                             <label class="col-md-3 col-form-label" for="name">{{ __('Category Name') }}<span class="text-danger">*</span></label>
                                                             <div class="col-md-9">
                                                                 <input class="form-control @error('name') is-invalid @enderror" name="name" id="name" type="text" value="{{ old('name') }}" autofocus required>

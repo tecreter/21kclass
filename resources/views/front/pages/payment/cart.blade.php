@@ -1,3 +1,4 @@
+
 @extends('front.layouts.app')
 
 @section('content')
@@ -64,7 +65,7 @@
                                     <div class="media-body">
                                         <div class="row">
                                             <div class="col-md-7 mb-3 mb-md-0">
-                                                <a class="h5 d-block" href="{{ route('course-details', ['course'=>$course['slug']]) }}">{{ $course['name'] }}</a>
+                                                <a class="h5 d-block" href="{{ route(strtolower($course['site_type']) . '.course-details', ['course'=>$course['slug']]) }}">{{ $course['name'] }}</a>
 
                                                 <div class="d-block d-md-none">
                                                     <span class="h5 d-block mb-1">₹{{ number_format($course['price']) }}</span>
@@ -157,33 +158,6 @@
                                     </div>
                                 </div>
                             </div>
-
-{{--                            <div id="shopCartAccordion" class="accordion card shadow-soft mb-4">--}}
-{{--                                <div class="card">--}}
-{{--                                    <div class="card-header card-collapse" id="shopCartHeadingOne">--}}
-{{--                                        <h3 class="mb-0">--}}
-{{--                                            <a class="btn btn-link btn-block card-btn font-weight-bold collapsed" href="javascript:;" role="button"--}}
-{{--                                               data-toggle="collapse"--}}
-{{--                                               data-target="#shopCartOne"--}}
-{{--                                               aria-expanded="false"--}}
-{{--                                               aria-controls="shopCartOne">--}}
-{{--                                                Promo code?--}}
-{{--                                                <i class="far fa-question-circle text-body ml-1" data-container="body" data-toggle="popover" data-placement="top" data-trigger="hover" title="Promo code" data-content="Valid on full priced items only. Some products maybe excluded."></i>--}}
-{{--                                            </a>--}}
-{{--                                        </h3>--}}
-{{--                                    </div>--}}
-{{--                                    <div id="shopCartOne" class="collapse" aria-labelledby="shopCartHeadingOne" data-parent="#shopCartAccordion">--}}
-{{--                                        <form class="js-validate p-4">--}}
-{{--                                            <div class="input-group input-group-pill mb-3">--}}
-{{--                                                <input type="text" class="form-control" name="name" placeholder="Promo code" aria-label="Promo code">--}}
-{{--                                                <div class="input-group-append">--}}
-{{--                                                    <button type="submit" class="btn btn-block btn-primary btn-pill">Apply</button>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </form>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
                         </div>
                     </div>
                 </div>
@@ -198,10 +172,6 @@
 
 @section('script')
     <script type="text/javascript">
-        $('.js-sticky-block').each(function () {
-            var stickyBlock = new HSStickyBlock($(this)).init();
-        });
-
         $(function () {
             $('#header').removeAttr('class').attr('class', 'header');
         });

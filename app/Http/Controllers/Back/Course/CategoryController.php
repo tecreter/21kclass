@@ -31,6 +31,10 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'type_id' => [
+                'required',
+                Rule::in([1, 2, 3]),
+            ],
             'name'=> 'required|min:2|max:255|unique:App\Models\Back\CourseCategory,name,' . request('name'), // unique:table,column,except,idColumn
             'is_new' => [
                 'required',
@@ -40,6 +44,7 @@ class CategoryController extends Controller
 
         $courseCategory = new CourseCategory();
         $courseCategory->name = request('name');
+        $courseCategory->type_id = request('type_id');
         $courseCategory->is_new = request('is_new');
 
         $courseCategory->save();
@@ -57,6 +62,10 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'type_id' => [
+                'required',
+                Rule::in([1, 2, 3]),
+            ],
             'name'=> 'required|min:2|max:255|unique:App\Models\Back\CourseCategory,name,' . $id, // unique:table,column,except,idColumn
             'is_new' => [
                 'required',
@@ -65,6 +74,7 @@ class CategoryController extends Controller
         ]);
 
         $courseCategory = CourseCategory::findOrFail($id);
+        $courseCategory->type_id = request('type_id');
         $courseCategory->name =  $request->get('name');
         $courseCategory->is_new = request('is_new');
         $courseCategory->save();

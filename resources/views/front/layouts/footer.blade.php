@@ -4,7 +4,7 @@
             <div class="row justify-content-lg-between">
                 <div class="col-lg-3 ml-lg-auto mb-5 mb-lg-0">
                     <div class="mb-4">
-                        <a href="{{ route('index') }}" aria-label="Front">
+                        <a href="{{ route('coaching.index') }}" aria-label="Front">
                             <img src="{{ cdn_mix('/images/logos/logo.png') }}" alt="Logo" width="120" height="49">
                         </a>
                     </div>
@@ -37,9 +37,9 @@
                     <h5 class="text-white font-size-1 text-cap">About Us</h5>
 
                     <ul class="nav nav-sm nav-x-0 nav-white flex-column">
-                        <li class="nav-item"><a class="nav-link" href="{{ route('21k-group') }}">21K Group</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('our-team') }}">Team</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('work-with-us') }}">Careers <span class="badge badge-soft-success ml-1">We're hiring</span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('coaching.about-us.21k-group') }}">21K Group</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('coaching.about-us.our-team') }}">Team</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('coaching.connect.work-with-us') }}">Careers <span class="badge badge-soft-success ml-1">We're hiring</span></a></li>
                     </ul>
                 </div>
 
@@ -47,9 +47,9 @@
                     <h5 class="text-white font-size-1 text-cap">Admissions</h5>
 
                     <ul class="nav nav-sm nav-x-0 nav-white flex-column">
-                        <li class="nav-item"><a class="nav-link" href="{{ route('how-to-apply') }}">How to Apply?</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('key-dates') }}">Key Dates</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('process-and-requirements') }}">Process & Requirements</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('coaching.admission.how-to-apply') }}">How to Apply?</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('coaching.admission.key-dates') }}">Key Dates</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('coaching.admission.process-and-requirements') }}">Process & Requirements</a></li>
                     </ul>
                 </div>
 
@@ -57,11 +57,11 @@
                     <h5 class="text-white font-size-1 text-cap">#Being21K</h5>
 
                     <ul class="nav nav-sm nav-x-0 nav-white flex-column">
-                        <li class="nav-item"><a class="nav-link" href="{{ route('student-work') }}">Student Work</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('parents-speak') }}">Parent's Speak</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('meet-our-faculty') }}">Faculties</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('events') }}">Events</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('insights') }}">Insights</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('coaching.being21k.student-work') }}">Student Work</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('coaching.being21k.parents-speak') }}">Parent's Speak</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('coaching.being21k.meet-our-faculty') }}">Faculties</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('coaching.being21k.events') }}">Events</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('coaching.being21k.insights') }}">Insights</a></li>
                     </ul>
                 </div>
 
@@ -70,7 +70,7 @@
 
                     <ul class="nav nav-sm nav-x-0 nav-white flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('contact-us') }}">
+                            <a class="nav-link" href="{{ route('coaching.connect.contact-us') }}">
                                 <span class="media align-items-center">
                                   <i class="fa fa-address-card mr-2"></i>
                                   <span class="media-body">Contact Us</span>
@@ -78,7 +78,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('faq') }}">
+                            <a class="nav-link" href="{{ route('coaching.how-it-works.faq') }}">
                                 <span class="media align-items-center">
                                   <i class="fa fa-question-circle mr-2"></i>
                                   <span class="media-body">FAQ</span>
@@ -97,7 +97,7 @@
                 <div class="col-md-6 mb-4 mb-md-0">
                     <ul class="nav nav-sm nav-white nav-x-sm align-items-center">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('your-privacy') }}">Privacy & Policy</a>
+                            <a class="nav-link" href="{{ route('coaching.how-it-works.your-privacy') }}">Privacy & Policy</a>
                         </li>
                         <li class="nav-item opacity mx-3">&#47;</li>
                         <li class="nav-item">

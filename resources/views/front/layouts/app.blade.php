@@ -46,10 +46,9 @@
 
 <script type="text/javascript">
 
-
     $(function () {
 
-
+        // TODO - check and confirm below line with Front Theme
         @if(!Request::is('course/*'))
             var header = new HSHeader($('#header')).init();
         @endif
