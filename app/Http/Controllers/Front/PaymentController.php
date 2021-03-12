@@ -230,8 +230,7 @@ class PaymentController extends Controller
             $transaction = Payu::capture();
 
             // Step 2. Update Invoices table about payment status information
-            //$invoice = \App\Models\Back\Invoice::where('order_no', $transaction->response('udf5'))->where('transaction_id', $transaction['transaction_id'])->firstOrFail();
-            $invoice = Invoice::find($transaction->paidFor->id);
+            $invoice = \App\Models\Back\Invoice::where('order_no', $transaction->response('udf5'))->where('transaction_id', $transaction['transaction_id'])->firstOrFail();
             $invoice->payment_status = $transaction->response('status');
             $invoice->save();
 
@@ -290,6 +289,7 @@ class PaymentController extends Controller
             }
 
             // Step 5. Get the transactions that are pending in status and verify with PayU
+            $invoice = Invoice::find($transaction->paidFor->id);
             $transactions = $invoice->transactions()->pending()->get();
             $transactions->each->verifyAsync();
 
