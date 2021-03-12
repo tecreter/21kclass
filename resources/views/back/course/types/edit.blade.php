@@ -8,7 +8,9 @@
     <div class="c-wrapper">
         @include('back.layouts.header')
         <link rel="stylesheet" href="//cdn.quilljs.com/1.3.6/quill.snow.css" />
-        <style type="text/css">#description {height: 250px;}#features {height: 250px;}</style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/github.min.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+        <script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/xml.min.js"></script>
         <div class="c-body">
             <main class="c-main">
                 <div class="container-fluid">
@@ -128,7 +130,7 @@
                                                             <label class="col-md-3 col-form-label" for="name">{{ __('Course Description') }}<span class="text-danger">*</span></label>
                                                             <div class="col-md-9"></div>
                                                             <div class="col-xs-12">
-                                                                <div id="description" class="@error('description') is-invalid @enderror">
+                                                                <div id="ql_description" class="@error('description') is-invalid @enderror">
                                                                     {!! old('description', $course->description) !!}
                                                                 </div>
                                                                 <textarea style="display: none" class="form-control @error('description') is-invalid @enderror" name="description" id="description-textarea" cols="30" rows="7">{{ old('description', $course->description) }}</textarea>
@@ -148,7 +150,7 @@
                                                             <label class="col-md-3 col-form-label" for="name">{{ __('Course Features') }}</label>
                                                             <div class="col-md-9"></div>
                                                             <div class="col-xs-12">
-                                                                <div id="features" class="@error('features') is-invalid @enderror">
+                                                                <div id="ql_features" class="@error('features') is-invalid @enderror">
                                                                     {!! old('features', $course->features) !!}
                                                                 </div>
                                                                 <textarea style="display: none" class="form-control @error('features') is-invalid @enderror" name="features" id="features-textarea" cols="30" rows="7">{{ old('description', $course->description) }}</textarea>
@@ -244,15 +246,27 @@
 
 @section('script')
     <script src="//cdn.quilljs.com/1.3.7/quill.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/xml.min.js"></script>
+    <script src="//benwinding.github.io/quill-html-edit-button/dist/quill.htmlEditButton.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+
+            Quill.register("modules/htmlEditButton", htmlEditButton);
 
             var toolbarOptions = [['bold', 'italic', 'underline', 'strike'], ['blockquote', 'code-block'], [{'header': 1}, {'header': 2}], [{'list': 'ordered'}, {'list': 'bullet'}], [{'script': 'sub'}, {'script': 'super'}], [{'indent': '-1'}, {'indent': '+1'}], [{'direction': 'rtl'}], [{'size': ['small', false, 'large', 'huge']}], [{'header': [1, 2, 3, 4, 5, 6, false]}], [{'color': []}, {'background': []}], [{'font': []}], [{'align': []}], ['clean']];
 
             var quill = new Quill(
-                '#description', {
+                '#ql_description', {
                     modules: {
-                        toolbar: toolbarOptions
+                        toolbar: toolbarOptions,
+                        htmlEditButton: {
+                            syntax: true,
+                            buttonHTML: "<>",
+                            buttonTitle: "Show HTML source",
+                            msg: 'Edit HTML here, when you click "OK" the course description will be replaced.',
+                            okText: "Submit",
+                            cancelText: "Cancel",
+                        },
                     },
                     theme: 'snow'
                 });
@@ -264,9 +278,17 @@
             });
 
             var quill2 = new Quill(
-                '#features', {
+                '#ql_features', {
                     modules: {
-                        toolbar: toolbarOptions
+                        toolbar: toolbarOptions,
+                        htmlEditButton: {
+                            syntax: true,
+                            buttonHTML: "<>",
+                            buttonTitle: "Show HTML source",
+                            msg: 'Edit HTML here, when you click "OK" the course description will be replaced.',
+                            okText: "Submit",
+                            cancelText: "Cancel",
+                        },
                     },
                     theme: 'snow'
                 });

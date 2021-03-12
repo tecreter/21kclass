@@ -63,7 +63,7 @@
                                                                 <img class="img img-fluid" src="{{ ($course['thumb']) ? asset('/storage/'.$course['thumb']) : cdn_mix('/images/logos/logo.png') }}" alt="{{ $course['name'] }}">
                                                             </div>
                                                             <div class="media-body">
-                                                                <h6 class="mb-0">{{ $course['name'] }}</h6>
+                                                                <h6 class="mb-0 pgm-card-title">{{ $course['name'] }}</h6>
                                                                 <small class="d-block h6 text-lh-sm mb-0 text-danger mt-1"><strong>₹{{ number_format($course['price']) }}</strong></small>
                                                                 @if($course['original_price'] > 0)
                                                                     <small class="d-block text-muted text-lh-sm"><del>₹{{ number_format($course['original_price']) }}</del></small>

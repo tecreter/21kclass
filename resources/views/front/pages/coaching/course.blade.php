@@ -113,7 +113,7 @@
 
                             <h2 class="h4">This course includes</h2>
 
-                            <div class="media text-body font-size-1 mb-2">
+                            <div class="text-body font-size-1 mb-2">
                                 {!! $course->features !!}
                             </div>
 

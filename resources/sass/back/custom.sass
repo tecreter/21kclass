@@ -102,3 +102,76 @@ div.dataTables_scrollBody table tbody tr th, div.dataTables_scrollBody table tbo
 
 .dataTables_wrapper .dt-buttons .btn-secondary
     border-color: #858585
+
+.ql-html-overlayContainer
+    background: #0000007d
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 9999
+
+.ql-html-popupContainer
+    background: #ddd
+    position: absolute
+    top: 5%
+    left: 5%
+    right: 5%
+    bottom: 5%
+    border-radius: 10px
+
+.ql-html-textContainer
+    position: relative
+    height: calc(100% - 40px)
+    padding: 20px
+
+.ql-html-textArea
+    background: #fff
+    position: absolute
+    left: 15px
+    width: calc(100% - 30px)
+    height: calc(100% - 30px) !important
+
+.ql-html-textArea .ql-syntax
+    word-break: break-all
+    white-space: pre-wrap
+
+.ql-html-buttonCancel, .ql-html-buttonOk
+    margin-right: 10px !important
+    color: #4f5d73
+    background-color: #ced2d8
+    font-size: 0.6rem
+    padding: 0.2rem 0.6rem 0.1rem
+    display: inline-block
+    font-weight: 400
+    cursor: pointer
+    text-align: center
+    vertical-align: middle
+    -webkit-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+    border: 1px solid #ced2d8
+    line-height: 1.5
+    border-radius: 0.25rem
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out
+
+.ql-html-buttonOk
+    color: #fff
+    background-color: #321fdb
+    border-color: #321fdb
+
+.ql-html-popupTitle
+    margin: 0
+    display: block
+    font-style: italic
+
+.ql-html-buttonGroup
+    position: absolute
+    bottom: -15px !important
+    transform: scale(1.5)
+    left: calc(50% - 60px)
+
+#ql_description, #ql_features
+    height: 250px

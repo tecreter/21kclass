@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return redirect()->route('back.faculty.tutor.index');
+        return redirect()->route('back.course.types.index');
     }
 
     public function settings(Request $request)

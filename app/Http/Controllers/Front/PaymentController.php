@@ -8,12 +8,14 @@ use App\Models\Back\Course;
 use App\Models\Back\Invoice;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rule;
 use Tzsk\Payu\Concerns\Attributes;
 use Tzsk\Payu\Concerns\Customer;
 use Tzsk\Payu\Concerns\Transaction;
 use Tzsk\Payu\Facades\Payu;
 use Tzsk\Payu\Jobs\VerifyTransaction;
+use Tzsk\Payu\Models\PayuTransaction;
 
 class PaymentController extends Controller
 {
@@ -139,10 +141,10 @@ class PaymentController extends Controller
                 ]
             ]);
 
-            // Step 1. Generate Order Number :: LBCH00001 - Coaching | LBTU00001 - Tutoring | LBCM00001 - Commerce
+            // Step 1. Generate Order Number
             $lastOrderNoInfo = Invoice::select('order_no')->orderBy('id', 'desc')->take(1)->first();
             $old_order_no = $lastOrderNoInfo ? substr($lastOrderNoInfo->order_no, -5) : 0 . '<br>';
-            $new_order_no = 'LBCH' . str_pad((int) $old_order_no + 1, 5, 0, STR_PAD_LEFT);
+            $new_order_no = 'LB' . str_pad((int) $old_order_no + 1, 5, 0, STR_PAD_LEFT);
 
             // Step 2. Calculate Checkout Price
             $course_details = session('SESSION_TOC_CART_COURSE_DETAILS', []);
@@ -224,38 +226,83 @@ class PaymentController extends Controller
         // Check if the referer is from PayU
         if (strpos(request()->headers->get('referer'), "payu") !== false) {
 
+            // Step 1. Capture payment response from PayU
             $transaction = Payu::capture();
 
+            // Step 2. Update Invoices table about payment status information
+            //$invoice = \App\Models\Back\Invoice::where('order_no', $transaction->response('udf5'))->where('transaction_id', $transaction['transaction_id'])->firstOrFail();
+            $invoice = Invoice::find($transaction->paidFor->id);
+            $invoice->payment_status = $transaction->response('status');
+            $invoice->save();
+
+            // Step 3. Clear cart session value
+            $request->session()->forget(['SESSION_TOC_CART_COURSE_IDS', 'SESSION_TOC_CART_COURSE_DETAILS']);
+
+            // Step 4. Show order status page to Customer based on PayU response
             if ($transaction->successful()) {
 
-                // Step 1. Update Invoices table about payment status information
-                $customer = \App\Models\Back\Invoice::where('order_no', $transaction->response('udf5'))->where('transaction_id', $transaction['transaction_id'])->firstOrFail();
-                $customer->payment_status = 'success';
-                $customer->save();
+                // --------- Start - Verify Payment ---------
+                $key = env('PAYU_BIZ_KEY');
+                $salt = env('PAYU_BIZ_SALT');
+                $command = "verify_payment";
+                $var1 = $transaction['transaction_id'];
+                $hash_str = $key  . '|' . $command . '|' . $var1 . '|' . $salt ;
+                $hash = strtolower(hash('sha512', $hash_str));
 
-                // Step 2. Clear cart session value
-                $request->session()->forget(['SESSION_TOC_CART_COURSE_IDS', 'SESSION_TOC_CART_COURSE_DETAILS']);
+                $r = array('key' => $key , 'hash' =>$hash , 'var1' => $var1, 'command' => $command);
+                $qs= http_build_query($r);
+                $wsUrl = "https://test.payu.in/merchant/postservice.php?form=1";
+                //$wsUrl = 'https://' . (app()->environment('production') ? 'info' : 'test') . '.payu.in/merchant/postservice.php?form=1'; // TODO for Production Server
 
-                // Step 3. Send email to Customer
-                $customer = array(
+                Log::info("------------ /verify_payment/request -----------\n" . json_encode($qs, JSON_UNESCAPED_UNICODE));
+
+                $c = curl_init();
+                curl_setopt($c, CURLOPT_URL, $wsUrl);
+                curl_setopt($c, CURLOPT_POST, 1);
+                curl_setopt($c, CURLOPT_POSTFIELDS, $qs);
+                curl_setopt($c, CURLOPT_CONNECTTIMEOUT, 30);
+                curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($c, CURLOPT_SSL_VERIFYHOST, 0);
+                curl_setopt($c, CURLOPT_SSL_VERIFYPEER, 0);
+                $o = curl_exec($c);
+                if (curl_errno($c)) {
+                    $sad = curl_error($c);
+                    throw new Exception($sad);
+                }
+                curl_close($c);
+
+                $valueSerialized = @unserialize($o);
+                if($o === 'b:0;' || $valueSerialized !== false) {
+                    print_r($valueSerialized);
+                }
+
+                Log::info("------------ /verify_payment/response -----------\n" . $o);
+                // --------- End - Verify Payment ---------
+
+                // Step 4.1. Send email to Customer for successful payment
+                $invoice = array(
                     'name' => $transaction->response('firstname') . ' ' . $transaction->response('lastname'),
                     'email' => $transaction->response('email'),
                     'amount' => $transaction->response('amount'),
                     'order_no' => $transaction->response('udf5')
                 );
-                // event(new OrderCompleted((object) $customer)); // TODO - Uncomment this link to send email for Customer
-
-                // Step 4. Get the transactions that are pending in status and verify with PayU
-                $invoice = Invoice::find($transaction->paidFor->id);
-                $transactions = $invoice->transactions()->pending()->get();
-                $transactions->each->verifyAsync();
-
-                // Step 5. Show order completed page
-                return view('front.pages.payment.order-completed', [
-                    'order_no' => $transaction->response('udf5'), // LBCH00001 - Coaching | LBTU00001 - Tutoring | LBCM00001 - Commerce
-                    'amount' => number_format($transaction->response('amount'), 2)
-                ]);
+                // event(new OrderCompleted((object) $invoice)); // TODO for Production Server
             }
+
+            // Step 5. Get the transactions that are pending in status and verify with PayU
+            $transactions = $invoice->transactions()->pending()->get();
+            $transactions->each->verifyAsync();
+
+            // Step 6. Show order complete page
+            return view('front.pages.payment.order-completed', [
+                'status' => $transaction->response('status'),
+                'order_no' => $transaction->response('udf5'),
+                'trans_id' => $transaction['transaction_id'],
+                'trans_datetime' => date('Y-m-d H:i:s'),
+                'amount' => number_format($transaction->response('amount'), 2),
+                'error_no' => $transaction->response('error'),
+                'error_msg' => $transaction->response('error_Message'),
+            ]);
         }
         else {
             abort(403, 'NOT HAVING ACCESS PERMISSION TO THIS PAGE.');

@@ -54,7 +54,7 @@ class CourseController extends Controller
             ],
             'thumb' => [
                 'required',
-                Rule::dimensions()->minWidth(500)->minHeight(300)->maxWidth(500)->maxHeight(300)->ratio(3 / 2),
+                Rule::dimensions()->minWidth(500)->minHeight(300)->maxWidth(500)->maxHeight(300),
             ],
         ]);
 
@@ -109,7 +109,7 @@ class CourseController extends Controller
             ],
             'thumb' => [
                 'nullable',
-                Rule::dimensions()->minWidth(500)->minHeight(300)->maxWidth(500)->maxHeight(300)->ratio(3 / 2),
+                Rule::dimensions()->minWidth(500)->minHeight(300)->maxWidth(500)->maxHeight(300),
             ],
         ]);
 
