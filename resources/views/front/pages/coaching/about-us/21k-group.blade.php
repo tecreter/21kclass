@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @include('front.layouts.nav')
+    @include('front.layouts.nav-coaching')
 
     <main id="content" role="main">
         <div class="bg-img-hero-center" style="background-image: url('/images/banners/21kgroup-banner.jpeg');background-color: rgba(0, 0, 0, 0.4)">
@@ -39,7 +39,8 @@
         </div>
     </main>
 
-    @include('front.layouts.footer')
+    @include('front.layouts.footer-coaching')
+
 
 @endsection
 

@@ -4,7 +4,7 @@
         <i class="fas fa-bars"></i>
     </button>
     <a class="c-header-brand d-lg-none c-header-brand-sm-up-center" href="{{ route('back.home') }}">
-        <img class="navbar-brand-full" src="{{ cdn_mix('/images/logos/logo.png') }}" alt="logo" width="100">
+        <img class="navbar-brand-full" src="/images/logos/logo.png" alt="logo" width="100">
     </a>
     <button class="c-header-toggler c-class-toggler mfs-0 d-md-down-none" type="button" data-target="#sidebar" data-class="c-sidebar-lg-show" responsive="true">
         <i class="fas fa-bars"></i>

@@ -17,16 +17,16 @@
                         </a>
 
                         <div id="jumpToDropdown" class="hs-unfold-content dropdown-menu">
-                            <a class="dropdown-item active" href="javascript:void(0);">Coaching</a>
-                            <a class="dropdown-item" href="javascript:void(0);">Tutoring</a>
-                            <a class="dropdown-item" href="javascript:void(0);">Commerce</a>
+                            <a class="dropdown-item{{ request()->routeIs('coaching.*') ?? true ? ' active' : '' }}" href="{{ route('coaching.index') }}">Coaching</a>
+                            <a class="dropdown-item{{ request()->routeIs('tutoring.*') ?? true ? ' active' : '' }}" href="{{ route('tutoring.index') }}">Tutoring</a>
+                            <a class="dropdown-item{{ request()->routeIs('commerce.*') ?? true ? ' active' : '' }}" href="{{ route('commerce.index') }}">Commerce</a>
                         </div>
                     </div>
 
                     <div class="nav nav-sm nav-y-0 d-none d-sm-flex ml-sm-auto">
-                        <a class="nav-link active" href="javascript:void(0);">Coaching</a>
-                        <a class="nav-link" href="javascript:void(0);">Tutoring</a>
-                        <a class="nav-link" href="javascript:void(0);">Commerce</a>
+                        <a class="nav-link{{ request()->routeIs('coaching.*') ?? true ? ' active' : '' }}" href="{{ route('coaching.index') }}">Coaching</a>
+                        <a class="nav-link{{ request()->routeIs('tutoring.*') ?? true ? ' active' : '' }}" href="{{ route('tutoring.index') }}">Tutoring</a>
+                        <a class="nav-link{{ request()->routeIs('commerce.*') ?? true ? ' active' : '' }}" href="{{ route('commerce.index') }}">Commerce</a>
                     </div>
                 </div>
 

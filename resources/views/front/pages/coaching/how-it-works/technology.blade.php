@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @include('front.layouts.nav')
+    @include('front.layouts.nav-coaching')
 
     <main id="content" role="main">
 
@@ -54,7 +54,7 @@
                         <div class="row">
                             <div class="col-3 offset-1 my-4">
                                 <div class="d-block bg-white avatar avatar-xl shadow-sm rounded-circle p-4 ml-auto" data-aos="fade-up" data-aos-delay="200">
-                                    <img class="avatar-img" src="/imagescoaching//160x160/img8.jpg" alt="Image Description">
+                                    <img class="avatar-img" src="/images/coaching//160x160/img8.jpg" alt="Image Description">
                                 </div>
                             </div>
                             <div class="col-3 offset-2 my-4">
@@ -199,7 +199,8 @@
 
     </main>
 
-    @include('front.layouts.footer')
+    @include('front.layouts.footer-coaching')
+
 
 @endsection
 

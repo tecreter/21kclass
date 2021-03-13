@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @include('front.layouts.nav')
+    @include('front.layouts.nav-coaching')
 
     <main id="content" role="main">
 
@@ -221,7 +221,8 @@
 
     </main>
 
-    @include('front.layouts.footer')
+    @include('front.layouts.footer-coaching')
+
 
 @endsection
 

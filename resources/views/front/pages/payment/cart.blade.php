@@ -3,7 +3,7 @@
 
 @section('content')
 
-    @include('front.layouts.nav')
+    @include('front.layouts.nav-coaching')
 
     <main id="content" role="main">
         @if(count(session('SESSION_TOC_CART_COURSE_IDS', [])) < 1)
@@ -166,7 +166,7 @@
 
     </main>
 
-    @include('front.layouts.footer')
+    @include('front.layouts.footer-coaching')
 
 @endsection
 

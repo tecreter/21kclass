@@ -43,6 +43,7 @@
                                                 <th>Email</th>
                                                 <th>Phone</th>
                                                 <th>Amount Paid</th>
+                                                <th>Transaction ID</th>
                                                 <th>Payment Status</th>
                                                 <th>Paid On</th>
                                             </tr>

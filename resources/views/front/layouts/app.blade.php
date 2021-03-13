@@ -26,7 +26,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
     <link href="/css/vendor.min.css" rel="stylesheet">
-    <link href="/css/coaching-theme.min.css" rel="stylesheet">
+    @if(request()->routeIs('tutoring.*'))
+        <link href="/css/tutoring-theme.min.css" rel="stylesheet">
+    @elseif(request()->routeIs('commerce.*'))
+        <link href="/css/commerce-theme.min.css" rel="stylesheet">
+    @else
+        <link href="/css/coaching-theme.min.css" rel="stylesheet">
+    @endif
     <link href="/css/custom.css" rel="stylesheet">
 
     @yield('css')
@@ -37,7 +43,13 @@
     </div>
 </noscript>
 <body>
-@yield('nav')
+@if(request()->routeIs('tutoring.*'))
+    @yield('nav-tutoring')
+@elseif(request()->routeIs('commerce.*'))
+    @yield('nav-commerce')
+@else
+    @yield('nav-coaching')
+@endif
 @yield('content')
 
 <script src="/js/vendor.min.js"></script>
@@ -92,6 +104,47 @@
         });
     });
 
+</script>
+
+<style>
+    .wh-svg-icon{margin-bottom:0 !important;}
+    #wa-widget-send-button{right:15px !important;margin-bottom:65px !important;}
+</style>
+<script>
+    var url = 'https://wati-integration-service.clare.ai/ShopifyWidget/shopifyWidget.js?70576';
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = url;
+    var options = {
+        "enabled":true,
+        "chatButtonSetting":{
+            "backgroundColor":"#4dc247",
+            "ctaText":"",
+            "borderRadius":"25",
+            "marginLeft":"0",
+            "marginBottom":"50",
+            "marginRight":"50",
+            "position":"right"
+        },
+        "brandSetting":{
+            "brandName":"21K Class",
+            "brandSubTitle":"Typically replies within few hours",
+            "brandImg":"https://www.21kclass.in/css/themes/1/152744538_104126428396092_118279928940288905_n.png",
+            "welcomeText":"Hey, there! 👋 \n\nWelcome to 21K Class. How can we help you?",
+            "messageText":"Hello, I have a question about {{ Request::fullurl() }}",
+            "backgroundColor":"#0a5f54",
+            "ctaText":"Start Chat",
+            "borderRadius":"25",
+            "autoShow":false,
+            "phoneNumber":"919741133636"
+        }
+    };
+    s.onload = function() {
+        CreateWhatsappChatWidget(options);
+    };
+    var x = document.getElementsByTagName('script')[0];
+    x.parentNode.insertBefore(s, x);
 </script>
 
 @yield('script')

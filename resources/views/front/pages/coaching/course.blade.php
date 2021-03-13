@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @include('front.layouts.nav')
+    @include('front.layouts.nav-coaching')
 
     <div class="position-relative">
         <div class="bg-dark space-2" style="background-image: url('/images/coaching/svg/components/abstract-shapes-20.svg');">
@@ -246,7 +246,8 @@
         </div>
     </div>
 
-    @include('front.layouts.footer')
+    @include('front.layouts.footer-coaching')
+
 
 @endsection
 

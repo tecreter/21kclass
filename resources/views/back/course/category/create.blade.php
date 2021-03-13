@@ -41,8 +41,8 @@
                                                                 <select name="type_id" id="type_id" class="form-control @error('type_id') is-invalid @enderror" autofocus required>
                                                                     <option value="">- Select a Type -</option>
                                                                     <option value="1" {{ (old('type_id') == 1) ? ' selected' : '' }}>Coaching</option>
-{{--                                                                    <option value="2" {{ (old('type_id') == 2) ? ' selected' : '' }}>Tutoring</option>--}}
-{{--                                                                    <option value="3" {{ (old('type_id') == 3) ? ' selected' : '' }}>Commerce</option>--}}
+                                                                    <option value="2" {{ (old('type_id') == 2) ? ' selected' : '' }}>Tutoring</option>
+                                                                    <option value="3" {{ (old('type_id') == 3) ? ' selected' : '' }}>Commerce</option>
                                                                 </select>
                                                                 @error('type_id')
                                                                 <span class="invalid-feedback" role="alert">

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @include('front.layouts.nav')
+    @include('front.layouts.nav-coaching')
 
     <main id="content" role="main">
         <div class="container space-1 space-md-2">
@@ -525,7 +525,7 @@
 
     </main>
 
-    @include('front.layouts.footer')
+    @include('front.layouts.footer-coaching')
 
 @endsection
 

@@ -19,6 +19,8 @@ Route::namespace('Front')->group(function () {
 
     // Coaching
     require __DIR__.'/coaching.php';
+    require __DIR__.'/tutoring.php';
+    require __DIR__.'/commerce.php';
 
 
 

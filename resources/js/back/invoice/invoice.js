@@ -63,21 +63,23 @@ invoice.getCourseTypesList = function () {
             { "data": null },
             { "data": null },
             { "data": null },
+            { "data": null },
         ],
         "order": [ [4, 'asc'] ],
         "columnDefs": [
             { // Order
-                "targets": [ 1, 2, 3, 5 ],
+                "targets": [ 1, 2, 3, 5, 6 ],
                 "orderable": false
             },
             {
-                "targets" : [ 2, 3, 4, 5 ],
+                "targets" : [ 2, 3, 4, 5, 6 ],
                 "className": 'text-center',
             },
             {
                 "targets" : [ 0 ],
                 "render" : function(data) {
-                    return data.first_name + ' ' + data.last_name;
+                    let lName = (data.last_name != null) ? ' ' + data.last_name : '';
+                    return data.first_name + lName;
                 }
             },
             {
@@ -101,11 +103,17 @@ invoice.getCourseTypesList = function () {
             {
                 "targets" : [ 4 ],
                 "render" : function(data) {
-                    return data.payment_status;
+                    return data.transaction_id;
                 }
             },
             {
                 "targets" : [ 5 ],
+                "render" : function(data) {
+                    return data.payment_status;
+                }
+            },
+            {
+                "targets" : [ 6 ],
                 "render" : function(data) {
                     if (data.payment_status == 'success') return moment(data.updated_at).format('YYYY.MM.DD h:mm a');
                     else return '';
