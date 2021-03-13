@@ -16,7 +16,7 @@
                 </div>
 
                 <div class="col-lg-7">
-                    <img class="img-fluid" src="{{ cdn_mix('/svg/illustrations/we-are-in-office-1.svg') }}" alt="Image Description">
+                    <img class="img-fluid" src="/images/coaching/svg/illustrations/we-are-in-office-1.svg" alt="Image Description">
                 </div>
             </div>
         </div>
@@ -148,7 +148,7 @@
                                         <use xlink:href="#circleImgID2"/>
                                     </clipPath>
                                     <g clip-path="url(#circleImgID1)">
-                                        <image width="450" height="450" xlink:href="{{ cdn_mix('/images/450x450/img1.jpg') }}" ></image>
+                                        <image width="450" height="450" xlink:href="/images/coaching/450x450/img1.jpg" ></image>
                                     </g>
                                 </g>
                             </svg>
@@ -171,7 +171,7 @@
                                         <use xlink:href="#circleImgID4"/>
                                     </clipPath>
                                     <g clip-path="url(#circleImgID3)">
-                                        <image width="515" height="515" xlink:href="{{ cdn_mix('/images/515x515/img1.jpg') }}" transform="matrix(1 0 0 1 1.639390e-02 2.880859e-02)"></image>
+                                        <image width="515" height="515" xlink:href="/images/coaching/515x515/img1.jpg" transform="matrix(1 0 0 1 1.639390e-02 2.880859e-02)"></image>
                                     </g>
                                 </g>
                             </svg>
@@ -200,7 +200,7 @@
                                         <use xlink:href="#circleImgID6"/>
                                     </clipPath>
                                     <g clip-path="url(#circleImgID5)">
-                                        <image width="900" height="900" xlink:href="{{ cdn_mix('/images/900x900/img2.jpg') }}" transform="matrix(1 0 0 1 -64.8123 -64.8055)"></image>
+                                        <image width="900" height="900" xlink:href="/images/coaching/900x900/img2.jpg" transform="matrix(1 0 0 1 -64.8123 -64.8055)"></image>
                                     </g>
                                 </g>
                             </svg>
@@ -321,7 +321,7 @@
         </div>
 
         <div class="position-relative">
-            <div class="bg-img-hero" style="background-image: url({{ cdn_mix('/svg/components/abstract-shapes-12.svg') }});">
+            <div class="bg-img-hero" style="background-image: url('/images/coaching/svg/components/abstract-shapes-12.svg');">
                 <div class="container space-top-2 space-bottom-3 position-relative z-index-2">
                     <div class="w-md-80 w-lg-60 text-center mx-md-auto mb-5 mb-md-9">
                         <h2>Components of Test Series</h2>
@@ -332,7 +332,7 @@
                             <div class="card text-center h-100 transition-3d-hover">
                                 <div class="card-body p-lg-5">
                                     <figure class="max-w-8rem w-100 mx-auto mb-4">
-                                        <img class="img-fluid" src="{{ cdn_mix('/svg/icons/icon-26.svg') }}" alt="SVG">
+                                        <img class="img-fluid" src="/images/coaching/svg/icons/icon-26.svg" alt="SVG">
                                     </figure>
                                     <h3 class="h4">Chapter Test</h3>
                                     <p class="text-body mb-0">A student can choose a chapter and take a test from the topics and sub topics.</p>
@@ -344,7 +344,7 @@
                             <div class="card text-center h-100 transition-3d-hover">
                                 <div class="card-body p-lg-5">
                                     <figure class="max-w-8rem w-100 mx-auto mb-4">
-                                        <img class="img-fluid" src="{{ cdn_mix('/svg/icons/icon-29.svg') }}" alt="SVG">
+                                        <img class="img-fluid" src="/images/coaching/svg/icons/icon-29.svg" alt="SVG">
                                     </figure>
                                     <h3 class="h4">Subject Test</h3>
                                     <p class="text-body mb-0">A student can take a test a full subject test independently for 3 subjects.</p>
@@ -356,7 +356,7 @@
                             <div class="card text-center h-100 transition-3d-hover">
                                 <div class="card-body p-lg-5">
                                     <figure class="max-w-8rem w-100 mx-auto mb-4">
-                                        <img class="img-fluid" src="{{ cdn_mix('/svg/icons/icon-24.svg') }}" alt="SVG">
+                                        <img class="img-fluid" src="/images/coaching/svg/icons/icon-24.svg" alt="SVG">
                                     </figure>
                                     <h3 class="h4">Whole Syllabus Test</h3>
                                     <p class="text-body mb-0">As per NEET syllabus.</p>
@@ -467,7 +467,7 @@
                         <div class="row justify-content-sm-center align-items-sm-center mb-5">
                             <div class="col-sm-3">
                                 <figure class="max-w-8rem mx-auto mb-2">
-                                    <img class="img-fluid" src="{{ cdn_mix('/svg/illustrations/diversity.svg') }}" alt="SVG">
+                                    <img class="img-fluid" src="/images/coaching/svg/illustrations/diversity.svg" alt="SVG">
                                 </figure>
                                 <h4>Skills</h4>
                             </div>
@@ -478,7 +478,7 @@
 
                             <div class="col-sm-3">
                                 <figure class="max-w-8rem mx-auto mb-2">
-                                    <img class="img-fluid" src="{{ cdn_mix('/svg/illustrations/growth.svg') }}" alt="SVG">
+                                    <img class="img-fluid" src="/images/coaching/svg/illustrations/growth.svg" alt="SVG">
                                 </figure>
                                 <h4>Confidence</h4>
                             </div>
@@ -489,7 +489,7 @@
 
                             <div class="col-sm-3">
                                 <figure class="max-w-8rem mx-auto mb-2">
-                                    <img class="img-fluid" src="{{ cdn_mix('/svg/illustrations/medal.svg') }}" alt="SVG">
+                                    <img class="img-fluid" src="/images/coaching/svg/illustrations/medal.svg" alt="SVG">
                                 </figure>
                                 <h4>Future</h4>
                             </div>
@@ -594,7 +594,7 @@
             <div class="w-lg-75 mx-lg-auto">
                 <div class="media d-block d-sm-flex">
                     <figure class="w-100 max-w-15rem mr-4 mb-3 mb-sm-0">
-                        <img class="img-fluid" src="{{ cdn_mix('/svg/illustrations/referral.svg') }}" alt="SVG">
+                        <img class="img-fluid" src="/images/coaching/svg/illustrations/referral.svg" alt="SVG">
                     </figure>
                     <div class="media-body">
                         <h4>Scholarship Programme</h4>
@@ -654,7 +654,7 @@
             </ul>
         </div>
 
-        <div class="space-bottom-2 space-bottom-lg-3" style="background: url({{ cdn_mix('/svg/components/abstract-shapes-9.svg') }}) center no-repeat;">
+        <div class="space-bottom-2 space-bottom-lg-3" style="background: url('/images/coaching/svg/components/abstract-shapes-9.svg') center no-repeat;">
             <div class="position-relative">
                 <div class="container space-2">
                     <div class="row align-items-md-center mb-7">
@@ -692,7 +692,7 @@
                                                          }]
                                                        }'>
                         <article class="js-slide pt-2">
-                            <div class="card bg-img-hero w-100 min-h-270rem transition-3d-hover" style="background-image: url({{ cdn_mix('/images/400x500/img14.jpg') }});">
+                            <div class="card bg-img-hero w-100 min-h-270rem transition-3d-hover" style="background-image: url('/images/coaching/400x500/img14.jpg');">
                                 <div class="card-body">
                                     <span class="d-block small text-white-70 font-weight-bold text-cap mb-2">NEET</span>
                                     <h3 class="text-white">NEET 2022 – One Year Course</h3>
@@ -701,7 +701,7 @@
                         </article>
 
                         <article class="js-slide pt-2">
-                            <div class="card bg-img-hero w-100 min-h-270rem transition-3d-hover" style="background-image: url({{ cdn_mix('/images/400x500/img15.jpg') }});">
+                            <div class="card bg-img-hero w-100 min-h-270rem transition-3d-hover" style="background-image: url('/images/coaching/400x500/img15.jpg');">
                                 <div class="card-body">
                                     <span class="d-block small text-white-70 font-weight-bold text-cap mb-2">NEET</span>
                                     <h3 class="text-white">NEET 2023 – Two Year Course</h3>
@@ -710,7 +710,7 @@
                         </article>
 
                         <article class="js-slide pt-2">
-                            <div class="card bg-img-hero w-100 min-h-270rem transition-3d-hover" style="background-image: url({{ cdn_mix('/images/400x500/img16.jpg') }});">
+                            <div class="card bg-img-hero w-100 min-h-270rem transition-3d-hover" style="background-image: url('/images/coaching/400x500/img16.jpg');">
                                 <div class="card-body">
                                     <span class="d-block small text-white-70 font-weight-bold text-cap mb-2">JEE</span>
                                     <h3 class="text-white">JEE 2022 – One Year Course</h3>
@@ -719,7 +719,7 @@
                         </article>
 
                         <article class="js-slide pt-2">
-                            <div class="card bg-img-hero w-100 min-h-270rem transition-3d-hover" style="background-image: url({{ cdn_mix('/images/400x500/img18.jpg') }});">
+                            <div class="card bg-img-hero w-100 min-h-270rem transition-3d-hover" style="background-image: url('/images/coaching/400x500/img18.jpg');">
                                 <div class="card-body">
                                     <span class="d-block small text-white-70 font-weight-bold text-cap mb-2">JEE</span>
                                     <h3 class="text-white">JEE 2023 – Two Year Course</h3>
@@ -735,7 +735,7 @@
 
         <div class="border-top">
             <div class="container space-2">
-                <div class="text-center" style="background: url({{ cdn_mix('/svg/components/abstract-shapes-19.svg') }}) center no-repeat;">
+                <div class="text-center" style="background: url('/images/coaching/svg/components/abstract-shapes-19.svg') center no-repeat;">
                     <h2>Find the right learning path for you</h2>
                     <p>Answer a few questions and match your goals to our programs.</p>
                     <span class="d-block mt-5">

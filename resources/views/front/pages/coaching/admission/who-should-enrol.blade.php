@@ -7,7 +7,7 @@
     <main id="content" role="main">
 
 
-        <div class="position-relative bg-img-hero" style="background-image: url({{ cdn_mix('/svg/components/abstract-shapes-12.svg') }});">
+        <div class="position-relative bg-img-hero" style="background-image: url('/images/coaching/svg/components/abstract-shapes-12.svg');">
             <div class="space-top-3 space-bottom-2 space-bottom-lg-3">
                 <div class="container mt-lg-11">
                     <div class="row">
@@ -118,7 +118,7 @@
             </table>
         </div>
 
-        <div class="bg-soft-primary text-center bg-img-hero" style="background-image: url({{ cdn_mix('/svg/components/abstract-shapes-19.svg') }});">
+        <div class="bg-soft-primary text-center bg-img-hero" style="background-image: url('/images/coaching/svg/components/abstract-shapes-19.svg');">
             <div class="container space-2">
                 <div class="mb-5">
                     <h3 class="h2 text-dark">Enrol your class with 21K Class</h3>

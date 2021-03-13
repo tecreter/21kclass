@@ -20,30 +20,30 @@
             <div class="row mx-n2">
                 <div class="col-6 col-md px-2 mb-3">
                     <div class="h-250rem bg-img-hero"
-                         style="background-image: url({{ cdn_mix('/images/480x320/img17.jpg') }});"></div>
+                         style="background-image: url('/images/coaching/480x320/img17.jpg');"></div>
                 </div>
                 <div class="col-md-3 d-none d-md-block px-2 mb-3">
                     <div class="h-250rem bg-img-hero"
-                         style="background-image: url({{ cdn_mix('/images/480x320/img6.jpg') }});"></div>
+                         style="background-image: url('/images/coaching/480x320/img6.jpg');"></div>
                 </div>
                 <div class="col-6 col-md px-2 mb-3">
                     <div class="h-250rem bg-img-hero"
-                         style="background-image: url({{ cdn_mix('/images/480x320/img14.jpg') }});"></div>
+                         style="background-image: url('/images/coaching/480x320/img14.jpg');"></div>
                 </div>
 
                 <div class="w-100"></div>
 
                 <div class="col-6 col-md px-2 mb-3 mb-md-0">
                     <div class="h-250rem bg-img-hero"
-                         style="background-image: url({{ cdn_mix('/images/480x320/img25.jpg') }});"></div>
+                         style="background-image: url('/images/coaching/480x320/img25.jpg');"></div>
                 </div>
                 <div class="col-md-4 d-none d-md-block px-2 mb-3 mb-md-0">
                     <div class="h-250rem bg-img-hero"
-                         style="background-image: url({{ cdn_mix('/images/480x320/img16.jpg') }});"></div>
+                         style="background-image: url('/images/coaching/480x320/img16.jpg');"></div>
                 </div>
                 <div class="col-6 col-md px-2">
                     <div class="h-250rem bg-img-hero"
-                         style="background-image: url({{ cdn_mix('/images/480x320/img12.jpg') }});"></div>
+                         style="background-image: url('/images/coaching/480x320/img12.jpg');"></div>
                 </div>
             </div>
         </div>
@@ -115,7 +115,7 @@
                 <div class="col-md-6 col-lg-5 mb-3 mb-md-5 mb-lg-7">
                     <div class="media pr-lg-5" data-aos="fade-up">
                         <figure class="w-100 max-w-8rem mr-4">
-                            <img class="img-fluid" src="{{ cdn_mix('/svg/icons/icon-18.svg') }}" alt="SVG">
+                            <img class="img-fluid" src="/images/coaching/svg/icons/icon-18.svg" alt="SVG">
                         </figure>
                         <div class="media-body">
                             <h4>Personalised learning</h4>
@@ -127,7 +127,7 @@
                 <div class="col-md-6 col-lg-5 mb-3 mb-md-5 mb-lg-7">
                     <div class="media pl-lg-5" data-aos="fade-up" data-aos-delay="100">
                         <figure class="w-100 max-w-8rem mr-4">
-                            <img class="img-fluid" src="{{ cdn_mix('/svg/icons/icon-27.svg') }}" alt="SVG">
+                            <img class="img-fluid" src="/images/coaching/svg/icons/icon-27.svg" alt="SVG">
                         </figure>
                         <div class="media-body">
                             <h4>Anytime, anywhere learning</h4>
@@ -141,7 +141,7 @@
                 <div class="col-md-6 col-lg-5 mb-3 mb-md-5 mb-lg-7">
                     <div class="media pr-lg-5" data-aos="fade-up" data-aos-delay="200">
                         <figure class="w-100 max-w-8rem mr-4">
-                            <img class="img-fluid" src="{{ cdn_mix('/svg/icons/icon-24.svg') }}" alt="SVG">
+                            <img class="img-fluid" src="/images/coaching/svg/icons/icon-24.svg" alt="SVG">
                         </figure>
                         <div class="media-body">
                             <h4>Data-driven</h4>
@@ -153,7 +153,7 @@
                 <div class="col-md-6 col-lg-5 mb-3 mb-md-5 mb-lg-7">
                     <div class="media pl-lg-5" data-aos="fade-up" data-aos-delay="300">
                         <figure class="w-100 max-w-8rem mr-4">
-                            <img class="img-fluid" src="{{ cdn_mix('/svg/icons/icon-45.svg') }}" alt="SVG">
+                            <img class="img-fluid" src="/images/coaching/svg/icons/icon-45.svg" alt="SVG">
                         </figure>
                         <div class="media-body">
                             <h4>Structured learning</h4>
@@ -193,7 +193,7 @@
                 </div>
 
                 <div class="d-none d-lg-block position-absolute bottom-0 left-0 max-w-35rem w-100">
-                    <img class="img-fluid" src="{{ cdn_mix('/svg/illustrations/mobile-article.svg') }}" alt="Image Description">
+                    <img class="img-fluid" src="/images/coaching/svg/illustrations/mobile-article.svg" alt="Image Description">
                 </div>
             </div>
         </div>

@@ -5,7 +5,7 @@
                 <div class="col-lg-3 ml-lg-auto mb-5 mb-lg-0">
                     <div class="mb-4">
                         <a href="{{ route('coaching.index') }}" aria-label="Front">
-                            <img src="{{ cdn_mix('/images/logos/logo.png') }}" alt="Logo" width="120" height="49">
+                            <img src="/images/logos/logo.png" alt="Logo" width="120" height="49">
                         </a>
                     </div>
 

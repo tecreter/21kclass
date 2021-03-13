@@ -6,7 +6,7 @@
 
     <main id="content" role="main">
 
-        <div class="bg-img-hero-center" style="background-image: url({{ cdn_mix('/images/banners/banner-jee.jpeg') }});background-color: rgba(0, 0, 0, 0.4)">
+        <div class="bg-img-hero-center" style="background-image: url('/images/banners/banner-jee.jpeg');background-color: rgba(0, 0, 0, 0.4)">
             <div class="container space-2 space-sm-3 space-md-4 min-vw-100" style="background-color: rgba(0, 0, 0, 0.45);">
                 <div class="w-xs-auto text-center">
                     <div class="mb-4">
@@ -113,7 +113,7 @@
                                             <use xlink:href="#circleImgID2"/>
                                         </clipPath>
                                         <g clip-path="url(#circleImgID1)">
-                                            <image width="450" height="450" xlink:href="{{ cdn_mix('/images/450x450/img1.jpg') }}" ></image>
+                                            <image width="450" height="450" xlink:href="/images/coaching/450x450/img1.jpg" ></image>
                                         </g>
                                     </g>
                                 </svg>
@@ -136,7 +136,7 @@
                                             <use xlink:href="#circleImgID4"/>
                                         </clipPath>
                                         <g clip-path="url(#circleImgID3)">
-                                            <image width="515" height="515" xlink:href="{{ cdn_mix('/images/515x515/img1.jpg') }}" transform="matrix(1 0 0 1 1.639390e-02 2.880859e-02)"></image>
+                                            <image width="515" height="515" xlink:href="/images/coaching/515x515/img1.jpg" transform="matrix(1 0 0 1 1.639390e-02 2.880859e-02)"></image>
                                         </g>
                                     </g>
                                 </svg>
@@ -165,7 +165,7 @@
                                             <use xlink:href="#circleImgID6"/>
                                         </clipPath>
                                         <g clip-path="url(#circleImgID5)">
-                                            <image width="900" height="900" xlink:href="{{ cdn_mix('/images/900x900/img2.jpg') }}" transform="matrix(1 0 0 1 -64.8123 -64.8055)"></image>
+                                            <image width="900" height="900" xlink:href="/images/coaching/900x900/img2.jpg" transform="matrix(1 0 0 1 -64.8123 -64.8055)"></image>
                                         </g>
                                     </g>
                                 </svg>
@@ -208,7 +208,7 @@
             </div>
         </div>
 
-        <div class="bg-soft-primary text-center bg-img-hero" style="background-image: url({{ cdn_mix('/svg/components/abstract-shapes-19.svg') }});">
+        <div class="bg-soft-primary text-center bg-img-hero" style="background-image: url('/images/coaching/svg/components/abstract-shapes-19.svg');">
             <div class="container space-2">
                 <div class="mb-5">
                     <h3 class="h2 text-dark">Join your coaching with 21K Class</h3>

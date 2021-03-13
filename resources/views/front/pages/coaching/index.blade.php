@@ -26,8 +26,7 @@
                                               }'></span>
                                       </span>
                                 </h2>
-                                <p class="lead">21K Class offers courses to Coach Students for Competitive Exams &
-                                    Tuition Classes for various boards.</p>
+                                <p class="lead">21K Class offers courses to Coach Students for Competitive Exams & Tuition Classes for various boards.</p>
                             </div>
 
                             <button type="button" class="btn btn-primary btn-wide transition-3d-hover" data-toggle="modal" data-target="#applyNow">Apply now</button>
@@ -46,7 +45,7 @@
                             <use xlink:href="#mainHeroSVG1"/>
                         </clipPath>
                         <g transform="matrix(1 0 0 1 0 0)" clip-path="url(#mainHeroSVG2)">
-                            <image width="750" height="750" xlink:href="{{ cdn_mix('/images/750x750/img2.jpg') }}" transform="matrix(1.4462 0 0 1.4448 52.8755 0)"></image>
+                            <image width="750" height="750" xlink:href="/images/coaching/750x750/img2.jpg" transform="matrix(1.4462 0 0 1.4448 52.8755 0)"></image>
                         </g>
                     </svg>
                 </figure>
@@ -63,7 +62,7 @@
                 <div class="col-md-6 col-lg-5 mb-3 mb-md-5 mb-lg-7">
                     <div class="media pr-lg-5" data-aos="fade-up">
                         <figure class="w-100 max-w-8rem mr-4">
-                            <img class="img-fluid" src="{{ cdn_mix('/svg/icons/icon-18.svg') }}" alt="SVG">
+                            <img class="img-fluid" src="/images/coaching/svg/icons/icon-18.svg" alt="SVG">
                         </figure>
                         <div class="media-body">
                             <h4>Test Series</h4>
@@ -75,7 +74,7 @@
                 <div class="col-md-6 col-lg-5 mb-3 mb-md-5 mb-lg-7">
                     <div class="media pl-lg-5" data-aos="fade-up" data-aos-delay="100">
                         <figure class="w-100 max-w-8rem mr-4">
-                            <img class="img-fluid" src="{{ cdn_mix('/svg/icons/icon-27.svg') }}" alt="SVG">
+                            <img class="img-fluid" src="/images/coaching//svg/icons/icon-27.svg" alt="SVG">
                         </figure>
                         <div class="media-body">
                             <h4>Coaching Classes</h4>
@@ -89,7 +88,7 @@
                 <div class="col-md-6 col-lg-5 mb-3 mb-md-5 mb-lg-7">
                     <div class="media pr-lg-5" data-aos="fade-up" data-aos-delay="200">
                         <figure class="w-100 max-w-8rem mr-4">
-                            <img class="img-fluid" src="{{ cdn_mix('/svg/icons/icon-24.svg') }}" alt="SVG">
+                            <img class="img-fluid" src="/images/coaching//svg/icons/icon-24.svg" alt="SVG">
                         </figure>
                         <div class="media-body">
                             <h4>Tuition Classes</h4>
@@ -107,10 +106,10 @@
                         <div class="col-lg-3 d-none d-lg-block">
                             <div class="dzsparallaxer auto-init height-is-based-on-content use-loading mode-scroll bg-light" data-options='{direction: "reverse"}' style="overflow: visible;">
                                 <div data-parallaxanimation='[{property: "transform", value:" translate3d(0,0.5rem,0)", initial:"4", mid:"0", final:"-4"}]'>
-                                    <img class="img-fluid rounded-lg shadow-lg" src="{{ cdn_mix('/images/160x160/img39.jpg') }}" alt="Image Description">
+                                    <img class="img-fluid rounded-lg shadow-lg" src="/images/coaching/160x160/img39.jpg" alt="Image Description">
                                     <figure class="max-w-15rem w-100 position-absolute bottom-0 left-0 z-index-n1">
                                         <div class="mb-n7 ml-n7">
-                                            <img class="img-fluid" src="{{ cdn_mix('/svg/components/dots-5.svg') }}" alt="Image Description">
+                                            <img class="img-fluid" src="/images/coaching/svg/components/dots-5.svg" alt="Image Description">
                                         </div>
                                     </figure>
                                 </div>
@@ -134,7 +133,7 @@
                                             <blockquote class="h3 font-weight-normal mb-4">I have coached students for the last 15 years for JEE & Medical Entrance (NEET) Exams. Have enabled 100s of students to clear the exams. Come join our On-Line Live Classes to learn with us and be a part of the success story.</blockquote>
                                             <div class="media">
                                                 <div class="avatar avatar-xs avatar-circle d-lg-none mr-2">
-                                                    <img class="avatar-img" src="{{ cdn_mix('/images/160x160/img39.jpg') }}" alt="Image Description">
+                                                    <img class="avatar-img" src="/images/coaching/160x160/img39.jpg" alt="Image Description">
                                                 </div>
                                                 <div class="media-body">
                                                     <!--<span class="text-dark font-weight-bold"></span>-->
@@ -164,7 +163,7 @@
         <div class="container space-2 space-lg-3">
             <div class="row justify-content-lg-between">
                 <div class="col-lg-5 order-lg-2 pl-lg-0">
-                    <div class="bg-img-hero h-100 min-h-450rem rounded-lg" style="background-image: url({{ cdn_mix('/images/900x900/img19.jpg') }});"></div>
+                    <div class="bg-img-hero h-100 min-h-450rem rounded-lg" style="background-image: url('/images/coaching/900x900/img19.jpg');"></div>
                 </div>
 
                 <div class="col-lg-6 order-lg-1">
@@ -379,7 +378,7 @@
                                         <use xlink:href="#SVGID_1_"/>
                                     </clipPath>
                                     <g transform="matrix(1 0 0 1 0 1.907349e-06)" style="clip-path:url(#SVGID_2_);">
-                                        <image width="100" height="100" xlink:href="{{ cdn_mix('/images/100x100/img10.jpg') }}" transform="matrix(0.36 0 0 0.36 32.8571 25.1429)"></image>
+                                        <image width="100" height="100" xlink:href="/images/coaching/100x100/img10.jpg" transform="matrix(0.36 0 0 0.36 32.8571 25.1429)"></image>
                                     </g>
                                     <use xlink:href="#SVGID_1_" fill="none" stroke="#FFFFFF" stroke-width="4"/>
                                     <defs>
@@ -389,7 +388,7 @@
                                         <use xlink:href="#SVGID_3_"/>
                                     </clipPath>
                                     <g style="clip-path:url(#SVGID_4_);">
-                                        <image width="100" height="100" xlink:href="{{ cdn_mix('/images/100x100/img3.jpg') }}" transform="matrix(0.36 0 0 0.36 16.5714 2.8571)"></image>
+                                        <image width="100" height="100" xlink:href="/images/coaching/100x100/img3.jpg" transform="matrix(0.36 0 0 0.36 16.5714 2.8571)"></image>
                                     </g>
                                     <use xlink:href="#SVGID_3_" fill="none" stroke="#FFFFFF" stroke-width="4"/>
                                     <defs>
@@ -399,7 +398,7 @@
                                         <use xlink:href="#SVGID_5_"/>
                                     </clipPath>
                                     <g style="clip-path:url(#SVGID_6_);">
-                                        <image width="100" height="100" xlink:href="{{ cdn_mix('/images/100x100/img2.jpg') }}" transform="matrix(0.3771 0 0 0.3771 2 24.2857)"></image>
+                                        <image width="100" height="100" xlink:href="/images/coaching/100x100/img2.jpg" transform="matrix(0.3771 0 0 0.3771 2 24.2857)"></image>
                                     </g>
                                     <use xlink:href="#SVGID_5_" fill="none" stroke="#FFFFFF" stroke-width="4"/>
                                 </svg>

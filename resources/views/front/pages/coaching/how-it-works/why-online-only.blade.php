@@ -9,7 +9,7 @@
         <div class="container space-top-3 mt-lg-6 space-bottom-2 space-bottom-lg-3">
             <div class="row justify-content-lg-between align-items-lg-center">
                 <div class="col-sm-10 col-lg-5 mb-7 mb-lg-0">
-                    <img class="img-fluid" src="{{ cdn_mix('/svg/illustrations/reading.svg') }}" alt="Image Description">
+                    <img class="img-fluid" src="/images/coaching/svg/illustrations/reading.svg" alt="Image Description">
                 </div>
 
                 <div class="col-md-6">
@@ -58,7 +58,7 @@
             </div>
         </div>
 
-        <div class="bg-soft-primary text-center bg-img-hero" style="background-image: url({{ cdn_mix('/svg/components/abstract-shapes-19.svg') }});">
+        <div class="bg-soft-primary text-center bg-img-hero" style="background-image: url('/images/coaching/svg/components/abstract-shapes-19.svg');">
             <div class="container space-2">
                 <div class="mb-5">
                     <h3 class="h2 text-dark">Join your coaching with 21K Class</h3>

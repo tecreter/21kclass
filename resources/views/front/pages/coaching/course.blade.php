@@ -5,7 +5,7 @@
     @include('front.layouts.nav')
 
     <div class="position-relative">
-        <div class="bg-dark space-2" style="background-image: url({{ cdn_mix('/svg/components/abstract-shapes-20.svg') }});">
+        <div class="bg-dark space-2" style="background-image: url('/images/coaching/svg/components/abstract-shapes-20.svg');">
             <div class="container">
                 <div class="row">
                     <div class="col-md-7 col-lg-8">
@@ -236,7 +236,7 @@
 
     <div class="border-top">
         <div class="container space-2">
-            <div class="text-center" style="background: url({{ cdn_mix('/svg/components/abstract-shapes-19.svg') }}) center no-repeat;">
+            <div class="text-center" style="background: url('/images/coaching/svg/components/abstract-shapes-19.svg') center no-repeat;">
                 <h2>Find the right learning path for you</h2>
                 <p>Answer a few questions and match your goals to our programs.</p>
                 <span class="d-block mt-5">

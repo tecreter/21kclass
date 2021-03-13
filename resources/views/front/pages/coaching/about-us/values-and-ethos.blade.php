@@ -18,7 +18,7 @@
 
                 <div class="col-md-6 d-none d-md-inline-block">
                     <figure class="w-100">
-                        <img class="img-fluid" src="{{ cdn_mix('/svg/illustrations/hiker-man.svg') }}" alt="Image Description">
+                        <img class="img-fluid" src="/images/coaching/svg/illustrations/hiker-man.svg" alt="Image Description">
                     </figure>
                 </div>
             </div>
@@ -84,7 +84,7 @@
                                 <a class="nav-link p-4 active" id="pills-one-code-features-for-students-tab" data-toggle="pill" href="#pills-one-code-features-for-students" role="tab" aria-controls="pills-one-code-features-for-students" aria-selected="true">
                                     <div class="media align-items-center align-items-lg-start">
                                         <figure class="w-100 max-w-6rem mt-2 mr-4">
-                                            <img class="img-fluid" src="{{ cdn_mix('/svg/icons/icon-45.svg') }}" alt="SVG">
+                                            <img class="img-fluid" src="/images/coaching/svg/icons/icon-45.svg" alt="SVG">
                                         </figure>
                                         <div class="media-body">
                                             <h4 class="mb-0">Students</h4>
@@ -100,7 +100,7 @@
                                 <a class="nav-link p-4" id="pills-two-code-features-for-parents-tab" data-toggle="pill" href="#pills-two-code-features-for-parents" role="tab" aria-controls="pills-two-code-features-for-parents" aria-selected="false">
                                     <div class="media align-items-center align-items-lg-start">
                                         <figure class="w-100 max-w-6rem mt-2 mr-4">
-                                            <img class="img-fluid" src="{{ cdn_mix('/svg/icons/icon-23.svg') }}" alt="SVG">
+                                            <img class="img-fluid" src="/images/coaching//svg/icons/icon-23.svg" alt="SVG">
                                         </figure>
                                         <div class="media-body">
                                             <h4 class="mb-0">Parents</h4>
@@ -116,7 +116,7 @@
                                 <a class="nav-link p-4" id="pills-three-code-features-for-society-tab" data-toggle="pill" href="#pills-three-code-features-for-society" role="tab" aria-controls="pills-three-code-features-for-society" aria-selected="false">
                                     <div class="media align-items-center align-items-lg-start">
                                         <figure class="w-100 max-w-6rem mt-2 mr-4">
-                                            <img class="img-fluid" src="{{ cdn_mix('/svg/icons/icon-44.svg') }}" alt="SVG">
+                                            <img class="img-fluid" src="/images/coaching/svg/icons/icon-44.svg" alt="SVG">
                                         </figure>
                                         <div class="media-body">
                                             <h4 class="mb-0">Society</h4>
@@ -293,7 +293,7 @@
                 </div>
 
                 <div class="d-none d-lg-block position-absolute bottom-0 left-0 max-w-35rem w-100">
-                    <img class="img-fluid" src="{{ cdn_mix('/svg/illustrations/mobile-article.svg') }}" alt="Image Description">
+                    <img class="img-fluid" src="/images/coaching/svg/illustrations/mobile-article.svg"" alt="Image Description">
                 </div>
             </div>
         </div>

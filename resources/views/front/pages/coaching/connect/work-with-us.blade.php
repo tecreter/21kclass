@@ -19,12 +19,12 @@
                 <div class="row mx-n1 mx-sm-n2">
                     <div class="col-4 align-self-end px-1 px-sm-2 mb-2 mb-sm-3">
                         <div class="ml-md-8">
-                            <img class="img-fluid rounded-lg" src="{{ cdn_mix('/images/900x900/img1.jpg') }}" alt="Image Description">
+                            <img class="img-fluid rounded-lg" src="/images/coaching/900x900/img1.jpg" alt="Image Description">
                         </div>
                     </div>
                     <div class="col-8 px-1 px-sm-2 mb-2 mb-sm-3">
                         <div id="youTubeVideoPlayer" class="video-player d-none d-md-block rounded-lg" style="background-color: #000;">
-                            <img class="img-fluid video-player-preview rounded-lg" src="{{ cdn_mix('/images/900x450/img14.jpg') }}" alt="Image">
+                            <img class="img-fluid video-player-preview rounded-lg" src="/images/coaching/900x450/img14.jpg" alt="Image">
 
                             <a class="js-inline-video-player video-player-btn video-player-centered" href="javascript:;"
                                data-hs-video-player-options='{
@@ -47,21 +47,21 @@
                         </div>
 
                         <div class="d-md-none">
-                            <img class="img-fluid rounded-lg" src="{{ cdn_mix('/images/900x450/img14.jpg') }}" alt="Image Description">
+                            <img class="img-fluid rounded-lg" src="/images/coaching/900x450/img14.jpg" alt="Image Description">
                         </div>
                     </div>
                     <div class="col-8 px-1 px-sm-2 mb-2 mb-sm-3">
-                        <img class="img-fluid rounded-lg" src="{{ cdn_mix('/images/900x450/img13.jpg') }}" alt="Image Description">
+                        <img class="img-fluid rounded-lg" src="/images/coaching/900x450/img13.jpg" alt="Image Description">
                     </div>
                     <div class="col-4 px-1 px-sm-2 mb-2 mb-sm-3">
                         <div class="mr-md-8">
-                            <img class="img-fluid rounded-lg" src="{{ cdn_mix('/images/750x750/img2.jpg') }}" alt="Image Description">
+                            <img class="img-fluid rounded-lg" src="/images/coaching/750x750/img2.jpg" alt="Image Description">
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="position-absolute top-0 right-0 left-0 w-100 h-100 bg-img-hero mt-n11" style="background-image: url({{ cdn_mix('/svg/components/abstract-shapes-12.svg') }});"></div>
+            <div class="position-absolute top-0 right-0 left-0 w-100 h-100 bg-img-hero mt-n11" style="background-image: url('/images/coaching/svg/components/abstract-shapes-12.svg');"></div>
 
             <figure class="position-absolute bottom-0 right-0 left-0 mb-11">
                 <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1921 273">
@@ -165,7 +165,7 @@
         </div>
 
         <div class="clearfix mx-3 mx-md-11">
-            <img class="img-fluid rounded-lg" src="{{ cdn_mix('/images/1920x800/img2.jpg') }}" alt="Image Description">
+            <img class="img-fluid rounded-lg" src="/images/coaching/1920x800/img2.jpg" alt="Image Description">
         </div>
 
         <div id="openRolesSection" class="container space-2 space-lg-3">

@@ -10,7 +10,7 @@
             <div class="container space-2 space-lg-3">
                 <div class="w-md-80 w-lg-50 text-center mx-md-auto">
                     <figure class="max-w-10rem max-w-sm-15rem mx-auto mb-3">
-                        <img class="img-fluid" src="{{ cdn_mix('/svg/illustrations/empty-cart.svg') }}" alt="SVG">
+                        <img class="img-fluid" src="/images/coaching/svg/illustrations/empty-cart.svg" alt="SVG">
                     </figure>
                     <div class="mb-5">
                         <h1 class="h2">Your cart is currently empty</h1>
@@ -38,7 +38,7 @@
                     </div>
 
                     <div class="d-none d-lg-block position-absolute bottom-0 left-0 max-w-35rem w-100">
-                        <img class="img-fluid" src="{{ cdn_mix('/svg/illustrations/mobile-article.svg') }}" alt="Image Description">
+                        <img class="img-fluid" src="/images/coaching/svg/illustrations/mobile-article.svg" alt="Image Description">
                     </div>
                 </div>
             </div>

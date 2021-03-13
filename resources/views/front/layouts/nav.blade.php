@@ -86,7 +86,7 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <figure class="max-w-9rem mx-auto mb-3">
-                                                <img class="img-fluid" src="{{ cdn_mix('/svg/illustrations/empty-cart.svg') }}" alt="SVG">
+                                                <img class="img-fluid" src="/images/coaching/svg/illustrations/empty-cart.svg" alt="SVG">
                                             </figure>
                                             <span class="d-block">Your cart is empty.</span>
                                         </div>
@@ -106,7 +106,7 @@
         <div id="logoAndNav" class="container">
             <nav class="js-mega-menu navbar navbar-expand-xl">
                 <a class="navbar-brand" href="{{ route('coaching.index') }}" aria-label="Front">
-                    <img src="{{ cdn_mix('/images/logos/logo.png') }}" alt="Logo">
+                    <img src="/images/logos/logo.png" alt="Logo">
                 </a>
 
                 <button type="button" class="navbar-toggler btn btn-icon btn-sm rounded-circle"

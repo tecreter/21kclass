@@ -5,7 +5,7 @@
     @include('front.layouts.nav')
 
     <main id="content" role="main">
-        <div class="bg-img-hero-center" style="background-image: url({{ cdn_mix('/images/banners/21kgroup-banner.jpeg') }});background-color: rgba(0, 0, 0, 0.4)">
+        <div class="bg-img-hero-center" style="background-image: url('/images/banners/21kgroup-banner.jpeg');background-color: rgba(0, 0, 0, 0.4)">
             <div class="container space-2 space-sm-3 space-md-4 min-vw-100" style="background-color: rgba(0, 0, 0, 0.45);">
                 <div class="w-xs-auto text-center">
                     <div class="mb-4">
@@ -51,7 +51,7 @@
                 </div>
 
                 <div class="d-none d-lg-block position-absolute bottom-0 left-0 max-w-35rem w-100">
-                    <img class="img-fluid" src="{{ cdn_mix('/svg/illustrations/mobile-article.svg') }}" alt="Image Description">
+                    <img class="img-fluid" src="/images/coaching/svg/illustrations/mobile-article.svg" alt="Image Description">
                 </div>
             </div>
         </div>

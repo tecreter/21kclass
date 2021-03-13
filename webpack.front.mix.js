@@ -15,32 +15,10 @@ mix
     .copy('resources/js/front/theme.min.js', 'public/js')
     .js('resources/js/front/app.js', 'public/js')
 
-    .copy('resources/css/vendor.min.css', 'public/css')
-    .copy('resources/css/theme.min.css', 'public/css')
-    .copy('resources/css/custom.css', 'public/css')
+    .copy('resources/sass/front/*.*', 'public/css')
     .copy('resources/webfonts/*.*', 'public/webfonts')
 
-    .copy('resources/images/100x100/*.*', 'public/images/100x100')
-    .copy('resources/images/160x160/*.*', 'public/images/160x160')
-    .copy('resources/images/400x500/*.*', 'public/images/400x500')
-    .copy('resources/images/407x867/*.*', 'public/images/407x867')
-    .copy('resources/images/450x450/*.*', 'public/images/450x450')
-    .copy('resources/images/480x320/*.*', 'public/images/480x320')
-    .copy('resources/images/515x515/*.*', 'public/images/515x515')
-    .copy('resources/images/750x600/*.*', 'public/images/750x600')
-    .copy('resources/images/750x750/*.*', 'public/images/750x750')
-    .copy('resources/images/900x450/*.*', 'public/images/900x450')
-    .copy('resources/images/900x900/*.*', 'public/images/900x900')
-    .copy('resources/images/1920x800/*.*', 'public/images/1920x800')
-    .copy('resources/images/logos/*.*', 'public/images/logos')
-    .copy('resources/images/mockups/*.*', 'public/images/mockups')
-    .copy('resources/images/banners/*.*', 'public/images/banners')
-    .copy('resources/images/others/*.*', 'public/images/others')
-
-    .copy('resources/svg/brands/*.*', 'public/svg/brands')
-    .copy('resources/svg/components/*.*', 'public/svg/components')
-    .copy('resources/svg/icons/*.*', 'public/svg/icons')
-    .copy('resources/svg/illustrations/*.*', 'public/svg/illustrations')
+    .copy('resources/images/', 'public/images/', false)
 
     .webpackConfig({
         plugins: webpackPlugins,

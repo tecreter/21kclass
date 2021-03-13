@@ -15,7 +15,7 @@
                     </div>
 
                     <div class="w-lg-75 mx-lg-auto">
-                        <img class="img-fluid" src="{{ cdn_mix('/svg/illustrations/communicating-men.svg') }}" alt="Image Description">
+                        <img class="img-fluid" src="/images/coaching/svg/illustrations/communicating-men.svg" alt="Image Description">
                     </div>
                 </div>
             </div>
@@ -40,11 +40,11 @@
                 </div>
 
                 <figure class="position-absolute top-0 left-0 mt-10 ml-10">
-                    <img src="{{ cdn_mix('/svg/components/abstract-shapes-11.svg') }}" alt="SVG">
+                    <img src="/images/coaching/svg/components/abstract-shapes-11.svg" alt="SVG">
                 </figure>
                 <figure class="max-w-15rem w-100 position-absolute bottom-0 right-0">
                     <div class="mb-n7 mr-n7">
-                        <img class="img-fluid" src="{{ cdn_mix('/svg/components/dots-1.svg') }}" alt="Image Description">
+                        <img class="img-fluid" src="/images/coaching/svg/components/dots-1.svg" alt="Image Description">
                     </div>
                 </figure>
             </div>
@@ -54,10 +54,10 @@
             <div class="w-md-90 w-lg-75 space-bottom-3 mx-md-auto">
                 <div class="media d-block d-sm-flex">
                     <div class="position-relative mx-auto mb-3 mb-sm-0 mr-sm-4">
-                        <img class="img-fluid rounded-lg" src="{{ cdn_mix('/images/others/team-santhosh.jpg') }}" alt="Image Description">
+                        <img class="img-fluid rounded-lg" src="/images/others/team-santhosh.jpg" alt="Image Description">
                         <figure class="max-w-19rem w-100 position-absolute bottom-0 left-0 z-index-n1 d-none d-lg-block">
                             <div class="mb-n7 ml-n7">
-                                <img class="img-fluid" src="{{ cdn_mix('/svg/components/dots-4.svg') }}" alt="Image Description">
+                                <img class="img-fluid" src="/images/coaching/svg/components/dots-4.svg" alt="Image Description">
                             </div>
                         </figure>
                     </div>
@@ -76,10 +76,10 @@
             <div class="w-md-90 w-lg-75 space-bottom-3 mx-md-auto">
                 <div class="media d-block d-sm-flex">
                     <div class="position-relative mx-auto mb-3 mb-sm-0 mr-sm-4">
-                        <img class="img-fluid rounded-lg" src="{{ cdn_mix('/images/others/team-yeshwanth.jpeg') }}" alt="Image Description">
+                        <img class="img-fluid rounded-lg" src="/images/others/team-yeshwanth.jpeg" alt="Image Description">
                         <figure class="max-w-19rem w-100 position-absolute bottom-0 left-0 z-index-n1 d-none d-lg-block">
                             <div class="mb-n7 ml-n7">
-                                <img class="img-fluid" src="{{ cdn_mix('/svg/components/dots-4.svg') }}" alt="Image Description">
+                                <img class="img-fluid" src="/images/coaching/svg/components/dots-4.svg" alt="Image Description">
                             </div>
                         </figure>
                     </div>
@@ -98,10 +98,10 @@
             <div class="w-md-90 w-lg-75 space-bottom-3 mx-md-auto">
                 <div class="media d-block d-sm-flex">
                     <div class="position-relative mx-auto mb-3 mb-sm-0 mr-sm-4">
-                        <img class="img-fluid rounded-lg" src="{{ cdn_mix('/images/others/team-dinesh.jpg') }}" alt="Image Description">
+                        <img class="img-fluid rounded-lg" src="/images/others/team-dinesh.jpg" alt="Image Description">
                         <figure class="max-w-19rem w-100 position-absolute bottom-0 left-0 z-index-n1 d-none d-lg-block">
                             <div class="mb-n7 ml-n7">
-                                <img class="img-fluid" src="{{ cdn_mix('/svg/components/dots-4.svg') }}" alt="Image Description">
+                                <img class="img-fluid" src="/images/coaching/svg/components/dots-4.svg" alt="Image Description">
                             </div>
                         </figure>
                     </div>
@@ -120,10 +120,10 @@
             <div class="w-md-90 w-lg-75 space-bottom-3 mx-md-auto">
                 <div class="media d-block d-sm-flex">
                     <div class="position-relative mx-auto mb-3 mb-sm-0 mr-sm-4">
-                        <img class="img-fluid rounded-lg" src="{{ cdn_mix('/images/others/team-joshi.jpg') }}" alt="Image Description">
+                        <img class="img-fluid rounded-lg" src="/images/others/team-joshi.jpg" alt="Image Description">
                         <figure class="max-w-19rem w-100 position-absolute bottom-0 left-0 z-index-n1 d-none d-lg-block">
                             <div class="mb-n7 ml-n7">
-                                <img class="img-fluid" src="{{ cdn_mix('/svg/components/dots-4.svg') }}" alt="Image Description">
+                                <img class="img-fluid" src="/images/coaching/svg/components/dots-4.svg" alt="Image Description">
                             </div>
                         </figure>
                     </div>

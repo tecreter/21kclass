@@ -25,7 +25,7 @@
                                 <div class="border-bottom pb-4 mb-4">
                                     <div class="media">
                                         <div class="avatar avatar-lg mr-3">
-                                            <img class="avatar-img" src="{{ ($course['thumb']) ? asset('/storage/'.$course['thumb']) : cdn_mix('/images/logos/logo.png') }}" alt="{{ $course['name'] }}">
+                                            <img class="avatar-img" src="{{ ($course['thumb']) ? asset('/storage/'.$course['thumb']) : '/images/logos/logo.png' }}" alt="{{ $course['name'] }}">
                                         </div>
                                         <div class="media-body">
                                             <a class="h6 d-block pgm-card-title mb-0" href="{{ route(strtolower($course['site_type']) . '.course-details', ['course'=>$course['slug']]) }}">{{ $course['name'] }}</a>

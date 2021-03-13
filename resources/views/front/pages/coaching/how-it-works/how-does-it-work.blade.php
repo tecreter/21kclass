@@ -41,7 +41,7 @@
 
                     <div class="col-lg-6 align-self-lg-end d-none d-lg-inline-block">
                         <figure class="mb-n7 ml-lg-4">
-                            <img class="img-fluid" src="{{ cdn_mix('/svg/illustrations/knowledgebase-community-1.svg') }}" alt="Image Description">
+                            <img class="img-fluid" src="/images/coaching/svg/illustrations/knowledgebase-community-1.svg" alt="Image Description">
                         </figure>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
             <p>All these will be available on an easy to handle portal and be accessible from Tablets, Desk Tops & Laptops at an affordable price.</p>
         </div>
 
-        <div class="bg-soft-primary text-center bg-img-hero" style="background-image: url({{ cdn_mix('/svg/components/abstract-shapes-19.svg') }});">
+        <div class="bg-soft-primary text-center bg-img-hero" style="background-image: url('/images/coaching/svg/components/abstract-shapes-19.svg');">
             <div class="container space-2">
                 <div class="mb-5">
                     <h3 class="h2 text-dark">Join your coaching with 21K Class</h3>

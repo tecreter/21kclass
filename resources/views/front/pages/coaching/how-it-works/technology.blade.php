@@ -6,7 +6,7 @@
 
     <main id="content" role="main">
 
-        <div class="position-relative bg-img-hero" style="background-image: url({{ cdn_mix('/svg/components/abstract-shapes-12.svg') }});">
+        <div class="position-relative bg-img-hero" style="background-image: url('/images/coaching/svg/components/abstract-shapes-12.svg');">
             <div class="container space-top-3 space-top-lg-4 space-bottom-2 space-bottom-lg-3 position-relative z-index-2">
                 <div class="row justify-content-lg-between align-items-md-center">
                     <div class="col-md-6 col-lg-5 mb-11 mb-md-0">
@@ -36,17 +36,17 @@
                         <div class="row justify-content-end">
                             <div class="col-3 mb-4">
                                 <div class="d-block bg-white avatar avatar-lg shadow-sm rounded-circle p-3 mt-n3 ml-5" data-aos="fade-up">
-                                    <img class="avatar-img" src="{{ cdn_mix('/images/160x160/img17.png') }}" alt="Image Description">
+                                    <img class="avatar-img" src="/images/coaching/160x160/img17.png" alt="Image Description">
                                 </div>
                             </div>
                             <div class="col-4 mb-4">
                                 <div class="d-block bg-white avatar avatar-xl shadow-sm rounded-circle p-4 mx-auto mt-5" data-aos="fade-up" data-aos-delay="50">
-                                    <img class="avatar-img" src="{{ cdn_mix('/images/160x160/img12.png') }}" alt="Image Description">
+                                    <img class="avatar-img" src="/images/coaching/160x160/img12.png" alt="Image Description">
                                 </div>
                             </div>
                             <div class="col-4 mb-4">
                                 <div class="d-block bg-white avatar avatar-xl shadow-sm rounded-circle p-4 ml-auto" data-aos="fade-up" data-aos-delay="150">
-                                    <img class="avatar-img" src="{{ cdn_mix('/images/160x160/img13.png') }}" alt="Image Description">
+                                    <img class="avatar-img" src="/images/coaching/160x160/img13.png" alt="Image Description">
                                 </div>
                             </div>
                         </div>
@@ -54,12 +54,12 @@
                         <div class="row">
                             <div class="col-3 offset-1 my-4">
                                 <div class="d-block bg-white avatar avatar-xl shadow-sm rounded-circle p-4 ml-auto" data-aos="fade-up" data-aos-delay="200">
-                                    <img class="avatar-img" src="{{ cdn_mix('/images/160x160/img8.jpg') }}" alt="Image Description">
+                                    <img class="avatar-img" src="/imagescoaching//160x160/img8.jpg" alt="Image Description">
                                 </div>
                             </div>
                             <div class="col-3 offset-2 my-4">
                                 <div class="d-block bg-white avatar avatar-xl shadow-sm rounded-circle p-4 ml-auto" data-aos="fade-up" data-aos-delay="250">
-                                    <img class="avatar-img" src="{{ cdn_mix('/images/160x160/img29.png') }}" alt="Image Description">
+                                    <img class="avatar-img" src="/images/coaching/160x160/img29.png" alt="Image Description">
                                 </div>
                             </div>
                         </div>
@@ -67,12 +67,12 @@
                         <div class="row d-none d-md-flex">
                             <div class="col-6">
                                 <div class="d-block bg-white avatar avatar-lg shadow-sm rounded-circle p-3 ml-auto" data-aos="fade-up" data-aos-delay="300">
-                                    <img class="avatar-img" src="{{ cdn_mix('/images/160x160/img35.png') }}" alt="Image Description">
+                                    <img class="avatar-img" src="/images/coaching/160x160/img35.png" alt="Image Description">
                                 </div>
                             </div>
                             <div class="col-6 mt-6">
                                 <div class="d-block bg-white avatar avatar-xl shadow-sm rounded-circle p-4 ml-auto" data-aos="fade-up" data-aos-delay="350">
-                                    <img class="avatar-img" src="{{ cdn_mix('/images/160x160/img24.png') }}" alt="Image Description">
+                                    <img class="avatar-img" src="/images/coaching/160x160/img24.png" alt="Image Description">
                                 </div>
                             </div>
                         </div>
@@ -186,7 +186,7 @@
             </div>
         </div>
 
-        <div class="bg-soft-primary text-center bg-img-hero" style="background-image: url({{ cdn_mix('/svg/components/abstract-shapes-19.svg') }});">
+        <div class="bg-soft-primary text-center bg-img-hero" style="background-image: url('/images/coaching/svg/components/abstract-shapes-19.svg');">
             <div class="container space-2">
                 <div class="mb-5">
                     <h3 class="h2 text-dark">Join your coaching with 21K Class</h3>

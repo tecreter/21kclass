@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="col-lg-6">
-                    <img class="img-fluid" src="{{ cdn_mix('/svg/illustrations/digital-currency-2.svg') }}" alt="Image Descriptio">
+                    <img class="img-fluid" src="/images/coaching/svg/illustrations/digital-currency-2.svg" alt="Image Description">
                 </div>
             </div>
         </div>
@@ -99,7 +99,7 @@
 
         <div class="border-top">
             <div class="container space-2">
-                <div class="text-center" style="background: url({{ cdn_mix('/svg/components/abstract-shapes-19.svg') }}) center no-repeat;">
+                <div class="text-center" style="background: url('/images/coaching/svg/components/abstract-shapes-19.svg') center no-repeat;">
                     <h2>Find the right learning path for you</h2>
                     <p>Answer a few questions and match your goals to our programs.</p>
                     <span class="d-block mt-5">

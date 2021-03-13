@@ -7,7 +7,7 @@
     <main id="content" role="main">
 
         <div class="position-relative">
-            <div class="bg-img-hero" style="background-image: url({{ cdn_mix('/svg/components/abstract-shapes-12.svg') }});">
+            <div class="bg-img-hero" style="background-image: url('images/coaching/svg/components/abstract-shapes-12.svg'');">
                 <div class="container space-top-3 space-top-lg-4 space-bottom-2 position-relative z-index-2">
                     <div class="w-md-80 w-lg-60 text-center mx-md-auto mb-5 mb-md-9">
                         <h1>Contact us</h1>
@@ -20,7 +20,7 @@
                             <div class="card text-center h-100">
                                 <div class="card-body p-lg-5">
                                     <figure class="max-w-8rem w-100 mx-auto mb-4">
-                                        <img class="img-fluid" src="{{ cdn_mix('/svg/icons/icon-15.svg') }}" alt="SVG">
+                                        <img class="img-fluid" src="/images/coaching/svg/icons/icon-15.svg" alt="SVG">
                                     </figure>
                                     <h3 class="h4">Learningbot Education Private Limited</h3>
                                     <p class="text">Registered address: No. 148 Unit No. 203 II Floor, Embassy Square, Infantry Road Bangalore Karnataka, 560001 India</p>
@@ -159,7 +159,7 @@
                              {
                                "coords": [12.9837496, 77.5937948],
                                "icon": {
-                                 "iconUrl": "/svg/components/map-pin.svg",
+                                 "iconUrl": "/images/coaching/svg/components/map-pin.svg",
                                  "iconSize": [50, 45]
                                },
                                "popup": {

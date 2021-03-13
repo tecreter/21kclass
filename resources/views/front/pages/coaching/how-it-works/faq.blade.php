@@ -6,7 +6,7 @@
 
     <main id="content" role="main">
 
-        <div class="bg-img-hero" style="background-image: url({{ cdn_mix('/svg/components/abstract-shapes-12.svg') }});">
+        <div class="bg-img-hero" style="background-image: url('/images/coaching/svg/components/abstract-shapes-12.svg');">
             <div class="container space-top-3 space-top-lg-4 space-bottom-2 position-relative z-index-2">
                 <div class="w-md-80 w-lg-60 text-center mx-md-auto">
                     <h1>FAQ</h1>
@@ -193,7 +193,7 @@
                     </div>
 
                     <figure class="w-25 d-none d-md-block content-centered-y ml-n4">
-                        <img class="img-fluid" src="{{ cdn_mix('/svg/illustrations/communication.svg') }}" alt="Image Description">
+                        <img class="img-fluid" src="/images/coaching/svg/illustrations/communication.svg" alt="Image Description">
                     </figure>
                 </div>
             </div>
