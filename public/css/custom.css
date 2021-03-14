@@ -18,12 +18,12 @@
 }
 
 .navbar-brand, .navbar-brand>img {
-    width: 13rem;
+    width: 11rem;
 }
 
 @media (max-width: 1200px) {
     .navbar-expand-xl .navbar-brand, .navbar-expand-xl .navbar-brand>img {
-        width: 13rem;
+        width: 11rem;
     }
 }
 

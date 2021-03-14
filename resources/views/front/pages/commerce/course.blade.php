@@ -87,9 +87,13 @@
 
                         <div class="card-body">
                             <div class="mb-3">
-                                <span class="h2 text-lh-sm mr-1 mb-0 text-danger">₹{{ number_format($course->price) }}</span>
+                                @if($course->price > 0)
+                                    <span class="d-block h5 text-lh-sm mb-0 text-danger">₹{{ number_format($course->price) }}</span>
+                                @else
+                                    <span class="d-block h5 text-lh-sm mb-0 text-danger">FREE</span>
+                                @endif
                                 @if($course->original_price > 0)
-                                    <span class="lead text-muted text-lh-sm"><del>₹{{ number_format($course->original_price) }}</del></span>
+                                    <span class="text-muted text-lh-sm"><del>₹{{ number_format($course->original_price) }}</del></span>
                                 @endif
                             </div>
 

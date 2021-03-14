@@ -10,7 +10,8 @@ class TutoringController extends Controller
 {
     public function index()
     {
-        $courseCategories = CourseCategory::with('courses')->where('type_id', 2)->where('enable_flag', 1)->get();
+        $courseCategories = CourseCategory::with('courses')->where('enable_flag', 1)->get();
+        //$courseCategories = CourseCategory::with('courses')->where('type_id', 2)->where('enable_flag', 1)->get();
         return view('front.pages.tutoring.index', [
             'courseCategories' => $courseCategories
         ]);

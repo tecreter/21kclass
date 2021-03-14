@@ -316,7 +316,11 @@
                                                 <div class="card-footer border-0 p-0 px-3 pb-3">
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <div class="mr-2">
-                                                            <span class="d-block h5 text-lh-sm mb-0 text-danger">₹{{ number_format($course->price) }}</span>
+                                                            @if($course->price > 0)
+                                                                <span class="d-block h5 text-lh-sm mb-0 text-danger">₹{{ number_format($course->price) }}</span>
+                                                            @else
+                                                                <span class="d-block h5 text-lh-sm mb-0 text-danger">FREE</span>
+                                                            @endif
                                                             @if($course->original_price > 0)
                                                                 <small class="d-block text-muted text-lh-sm"><del>₹{{ number_format($course->original_price) }}</del></small>
                                                             @endif

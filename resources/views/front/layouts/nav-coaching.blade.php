@@ -60,7 +60,7 @@
                                                     <div class="list-group-item p-3">
                                                         <div class="media">
                                                             <div class="avatar avatar-lg mr-2">
-                                                                <img class="img img-fluid" src="{{ ($course['thumb']) ? asset('/storage/'.$course['thumb']) : cdn_mix('/images/logos/logo.png') }}" alt="{{ $course['name'] }}">
+                                                                <img class="img img-fluid" src="{{ ($course['thumb']) ? asset('/storage/'.$course['thumb']) : '/images/logos/logo-top-nav..png' }}" alt="{{ $course['name'] }}">
                                                             </div>
                                                             <div class="media-body">
                                                                 <h6 class="mb-0 pgm-card-title">{{ $course['name'] }}</h6>
@@ -106,7 +106,7 @@
         <div id="logoAndNav" class="container">
             <nav class="js-mega-menu navbar navbar-expand-xl">
                 <a class="navbar-brand" href="{{ route('coaching.index') }}" aria-label="Front">
-                    <img src="/images/logos/logo.png" alt="Logo">
+                    <img src="/images/logos/logo-top-nav.png" alt="21kclass.com">
                 </a>
 
                 <button type="button" class="navbar-toggler btn btn-icon btn-sm rounded-circle"
