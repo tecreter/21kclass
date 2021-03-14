@@ -1,7 +1,7 @@
 <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
     <div class="c-sidebar-brand d-md-down-none bg-white">
         <a class="navbar-brand" href="{{ route('back.home') }}">
-            <img class="navbar-brand-full" src="/images/logos/logo.png" alt="logo" width="100">
+            <img class="navbar-brand-full" src="/images/logos/s-logo.png" alt="logo" width="100">
         </a>
     </div>
     <ul class="c-sidebar-nav ps ps--active-y">

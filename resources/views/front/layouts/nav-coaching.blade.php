@@ -187,14 +187,14 @@
                             </li>
 
 
-                            <li class="hs-has-sub-menu navbar-nav-item">
-                                <a id="admissionsMegaMenu" class="hs-mega-menu-invoker nav-link nav-link-toggle {{ request()->routeIs('coaching.excellence.*') ?? true ? 'active' : '' }}" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false" aria-labelledby="admissionsSubMenu">Excellence</a>
+{{--                            <li class="hs-has-sub-menu navbar-nav-item">--}}
+{{--                                <a id="admissionsMegaMenu" class="hs-mega-menu-invoker nav-link nav-link-toggle {{ request()->routeIs('coaching.excellence.*') ?? true ? 'active' : '' }}" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false" aria-labelledby="admissionsSubMenu">Excellence</a>--}}
 
-                                <div id="admissionsSubMenu" class="hs-sub-menu dropdown-menu" aria-labelledby="admissionsMegaMenu" style="min-width: 230px;">
-                                    <a class="dropdown-item{{ request()->routeIs('coaching.excellence.olympiads') ?? true ? ' active' : '' }}" href="{{ route('coaching.excellence.olympiads') }}">Olympiads</a>
-                                    <a class="dropdown-item{{ request()->routeIs('coaching.excellence.national-talent-exam') ?? true ? ' active' : '' }}" href="{{ route('coaching.excellence.national-talent-exam') }}">National Talent Exam</a>
-                                </div>
-                            </li>
+{{--                                <div id="admissionsSubMenu" class="hs-sub-menu dropdown-menu" aria-labelledby="admissionsMegaMenu" style="min-width: 230px;">--}}
+{{--                                    <a class="dropdown-item{{ request()->routeIs('coaching.excellence.olympiads') ?? true ? ' active' : '' }}" href="{{ route('coaching.excellence.olympiads') }}">Olympiads</a>--}}
+{{--                                    <a class="dropdown-item{{ request()->routeIs('coaching.excellence.national-talent-exam') ?? true ? ' active' : '' }}" href="{{ route('coaching.excellence.national-talent-exam') }}">National Talent Exam</a>--}}
+{{--                                </div>--}}
+{{--                            </li>--}}
 
 
                             <li class="hs-has-sub-menu navbar-nav-item">

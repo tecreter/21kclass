@@ -11,7 +11,7 @@
                                 <form method="POST" action="{{ route('back.login') }}" autocomplete="off">
                                     @csrf
                                     <div class="form-group text-center mb-4">
-                                        <img src="/images/logos/logo.png" alt="logo" width="100">
+                                        <img src="/images/logos/s-logo.png" alt="logo" width="100">
                                     </div>
                                     <div class="form-group text-center mb-4">
                                         <h3>{{ __('ADMIN LOGIN') }}</h3>

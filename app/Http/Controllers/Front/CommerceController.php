@@ -19,7 +19,7 @@ class CommerceController extends Controller
 
     public function meetOurFaculty()
     {
-        $tutors = Tutor::with('category')->get();
+        $tutors = Tutor::with('category')->where('type_id', 3)->get();
         return view('front.pages.commerce.being21k.meet-our-faculty', [
             'tutors' => $tutors
         ]);

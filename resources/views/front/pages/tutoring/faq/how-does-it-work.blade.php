@@ -14,29 +14,29 @@
                             <h1>How it works?</h1>
                         </div>
 
-                        <forms>
-                            <div class="card p-2 mb-3">
-                                <div class="form-row input-group-borderless">
-                                    <div class="col-sm">
-                                        <input type="text" class="form-control shadow-none" placeholder="Search the knowledge base..." aria-label="Search the knowledge base...">
-                                    </div>
-                                    <div class="col-sm-auto">
-                                        <button type="button" class="btn btn-block btn-primary">
-                                            <i class="fas fa-search"></i>
-                                            <span class="d-sm-none ml-1">Search</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </forms>
+{{--                        <forms>--}}
+{{--                            <div class="card p-2 mb-3">--}}
+{{--                                <div class="form-row input-group-borderless">--}}
+{{--                                    <div class="col-sm">--}}
+{{--                                        <input type="text" class="form-control shadow-none" placeholder="Search the knowledge base..." aria-label="Search the knowledge base...">--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col-sm-auto">--}}
+{{--                                        <button type="button" class="btn btn-block btn-primary">--}}
+{{--                                            <i class="fas fa-search"></i>--}}
+{{--                                            <span class="d-sm-none ml-1">Search</span>--}}
+{{--                                        </button>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </forms>--}}
 
-                        <p class="font-size-1 text-dark">
-                            Popular topics:
-                            <span class="link text-info">21K NEET Test Series,</span>
-                            <span class="link text-info ml-1">NEET Extension Course,</span>
-                            <span class="link text-info ml-1">NEET Comprehensive Course,</span>
-                            <span class="link text-info ml-1">CA Foundation Course</span>
-                        </p>
+{{--                        <p class="font-size-1 text-dark">--}}
+{{--                            Popular topics:--}}
+{{--                            <span class="link text-info">21K NEET Test Series,</span>--}}
+{{--                            <span class="link text-info ml-1">NEET Extension Course,</span>--}}
+{{--                            <span class="link text-info ml-1">NEET Comprehensive Course,</span>--}}
+{{--                            <span class="link text-info ml-1">CA Foundation Course</span>--}}
+{{--                        </p>--}}
                     </div>
 
                     <div class="col-lg-6 align-self-lg-end d-none d-lg-inline-block">

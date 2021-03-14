@@ -81,7 +81,7 @@
 
                         <div class="position-relative">
                             <div class="w-100 mx-auto">
-                                <img class="card-img-top" src="{{ ($course->thumb) ? asset('/storage/'.$course->thumb) : cdn_mix('/images/logos/logo.png') }}" alt="Image Description">
+                                <img class="card-img-top" src="{{ ($course->thumb) ? asset('/storage/'.$course->thumb) : '/images/logos/s-logo.png' }}" alt="Image Description">
                             </div>
                         </div>
 
@@ -155,7 +155,7 @@
                         <article class="col-md-6 col-lg-4 mb-5">
                             <div class="card card-bordered h-100">
                                 <a class="card-img-top position-relative" href="/course/{{ $otherCourse->slug }}">
-                                    <img class="card-img-top" src="{{ ($otherCourse->thumb) ? asset('/storage/'.$otherCourse->thumb) : cdn_mix('/images/logos/logo.png') }}" alt="{{ $otherCourse->name }}">
+                                    <img class="card-img-top" src="{{ ($otherCourse->thumb) ? asset('/storage/'.$otherCourse->thumb) : '/images/logos/logo-top-nav.png' }}" alt="{{ $otherCourse->name }}">
                                 </a>
                                 <div class="card-body">
                                     <div class="mb-3">

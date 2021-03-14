@@ -106,10 +106,6 @@
 
 </script>
 
-<style>
-    .wh-svg-icon{margin-bottom:0 !important;}
-    #wa-widget-send-button{right:15px !important;margin-bottom:65px !important;}
-</style>
 <script>
     var url = 'https://wati-integration-service.clare.ai/ShopifyWidget/shopifyWidget.js?70576';
     var s = document.createElement('script');

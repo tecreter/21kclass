@@ -19,7 +19,7 @@ class TutoringController extends Controller
 
     public function meetOurFaculty()
     {
-        $tutors = Tutor::with('category')->get();
+        $tutors = Tutor::with('category')->where('type_id', 2)->get();
         return view('front.pages.tutoring.being21k.meet-our-faculty', [
             'tutors' => $tutors
         ]);

@@ -63,7 +63,7 @@
                         <div class="card h-100">
                             <div class="card-body">
                                 <div class="avatar avatar-xl avatar-circle mb-4">
-                                    <img class="avatar-img" src="{{ ($tutor->profile_picture) ? asset('/storage/'.$tutor->profile_picture) : cdn_mix('/images/100x100/img12.jpg') }}">
+                                    <img class="avatar-img" src="{{ ($tutor->profile_picture) ? asset('/storage/'.$tutor->profile_picture) : '/images/commerce/100x100/img12.jpg' }}">
                                 </div>
 
                                 <h4 class="text-lh-sm">{{ $tutor->honorifics }} {{ $tutor->first_name }} {{ $tutor->last_name }}</h4>

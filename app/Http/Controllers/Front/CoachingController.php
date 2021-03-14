@@ -19,7 +19,7 @@ class CoachingController extends Controller
 
     public function meetOurFaculty()
     {
-        $tutors = Tutor::with('category')->get();
+        $tutors = Tutor::with('category')->where('type_id', 1)->get();
         return view('front.pages.coaching.being21k.meet-our-faculty', [
             'tutors' => $tutors
         ]);
