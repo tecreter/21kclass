@@ -48,8 +48,6 @@
 
                     <ul class="nav nav-sm nav-x-0 nav-white flex-column">
                         <li class="nav-item"><a class="nav-link" href="{{ route('commerce.admission.how-to-apply') }}">How to Apply?</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('commerce.admission.key-dates') }}">Key Dates</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('commerce.admission.process-and-requirements') }}">Process & Requirements</a></li>
                     </ul>
                 </div>
 
@@ -78,7 +76,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('commerce.how-it-works.faq') }}">
+                            <a class="nav-link" href="{{ route('commerce.faq.faq') }}">
                                 <span class="media align-items-center">
                                   <i class="fa fa-question-circle mr-2"></i>
                                   <span class="media-body">FAQ</span>
@@ -97,7 +95,7 @@
                 <div class="col-md-6 mb-4 mb-md-0">
                     <ul class="nav nav-sm nav-white nav-x-sm align-items-center">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('commerce.how-it-works.your-privacy') }}">Privacy & Policy</a>
+                            <a class="nav-link" href="{{ route('commerce.faq.your-privacy') }}">Privacy & Policy</a>
                         </li>
                         <li class="nav-item opacity mx-3">&#47;</li>
                         <li class="nav-item">

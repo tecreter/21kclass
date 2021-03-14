@@ -21,36 +21,19 @@ Route::prefix('tutoring')->name('tutoring.')->group(function () {
 
     // Academics
     Route::name('academics.')->group(function () {
-        Route::name('neet.')->group(function () {
-            Route::view('21k-class-neet-tutoring', 'front.pages.tutoring.academics.neet.introduction')->name('introduction');
-            Route::view('21k-neet-extension-course', 'front.pages.tutoring.academics.neet.extension-course')->name('extension-course');
-            Route::view('21k-neet-comprehensive-course', 'front.pages.tutoring.academics.neet.comprehensive-course')->name('comprehensive-course');
-            Route::view('21k-neet-crash-course', 'front.pages.tutoring.academics.neet.crash-course')->name('crash-course');
-            Route::view('21k-neet-repeater-course', 'front.pages.tutoring.academics.neet.repeater-course')->name('repeater-course');
-            Route::view('21k-neet-test-series', 'front.pages.tutoring.academics.neet.test-series')->name('test-series');
-        });
-        Route::name('jee.')->group(function () {
-            Route::view('21k-class-jee-tutoring', 'front.pages.tutoring.academics.jee.introduction')->name('introduction');
-            Route::view('21k-jee-extension-course', 'front.pages.tutoring.academics.jee.extension-course')->name('extension-course');
-            Route::view('21k-jee-comprehensive-course', 'front.pages.tutoring.academics.jee.comprehensive-course')->name('comprehensive-course');
-            Route::view('21k-jee-crash-course', 'front.pages.tutoring.academics.jee.crash-course')->name('crash-course');
-            Route::view('21k-jee-test-series', 'front.pages.tutoring.academics.jee.test-series')->name('test-series');
-        });
-        Route::name('foundation-course.')->group(function () {
-            Route::view('21k-class-foundation-course', 'front.pages.tutoring.academics.foundation-course.introduction')->name('introduction');
-            Route::view('21k-class-pre-foundation-course-for-class-viii', 'front.pages.tutoring.academics.foundation-course.pre-foundation-course')->name('pre-foundation-course');
-            Route::view('21k-class-preparatory-course-for-class-ix-and-x', 'front.pages.tutoring.academics.foundation-course.preparatory-foundation-course')->name('preparatory-foundation-course');
-        });
-        Route::view('21k-competitive-examination-practice-programs', 'front.pages.tutoring.academics.competitive-examination')->name('competitive-examination');
-        Route::view('21k-ce-test-series', 'front.pages.tutoring.academics.ce-test-series')->name('ce-test-series');
+        Route::view('introduction-to-virtual-tutoring', 'front.pages.tutoring.academics.introduction')->name('introduction');
+        Route::view('year-long-course-ix-and-x-science-and-maths-combo', 'front.pages.tutoring.academics.science-maths-combo-ix-x')->name('science-maths-combo-ix-x');
+        Route::view('year-long-course-ix-and-x-individual-subject', 'front.pages.tutoring.academics.individual-subject-ix-x')->name('individual-subject-ix-x');
+        Route::view('year-long-course-xi-and-xii-science-and-maths-combo', 'front.pages.tutoring.academics.science-maths-combo-xi-xii')->name('science-maths-combo-xi-xii');
+        Route::view('year-long-course-xi-and-xii-individual-subject', 'front.pages.tutoring.academics.individual-subject-xi-xii')->name('individual-subject-xi-xii');
     });
 
 
 
-    // Excellence
-    Route::name('excellence.')->group(function () {
-        Route::view('olympiads', 'front.pages.tutoring.excellence.olympiads')->name('olympiads');
-        Route::view('national-talent-exam', 'front.pages.tutoring.excellence.national-talent-exam')->name('national-talent-exam');
+    // Electives
+    Route::name('electives.')->group(function () {
+        Route::view('language', 'front.pages.tutoring.electives.language')->name('language');
+        Route::view('social-science', 'front.pages.tutoring.electives.social-science')->name('social-science');
     });
 
     // Admissions
@@ -59,24 +42,22 @@ Route::prefix('tutoring')->name('tutoring.')->group(function () {
         Route::view('key-dates', 'front.pages.tutoring.admission.key-dates')->name('key-dates');
         Route::view('fees-and-scholarships', 'front.pages.tutoring.admission.fees-and-scholarships')->name('fees-and-scholarships');
         Route::view('who-should-enrol', 'front.pages.tutoring.admission.who-should-enrol')->name('who-should-enrol');
-        Route::view('process-and-requirements', 'front.pages.tutoring.admission.process-and-requirements')->name('process-and-requirements');
     });
 
-    // How it works
-    Route::name('how-it-works.')->group(function () {
-        Route::view('how-does-it-work', 'front.pages.tutoring.how-it-works.how-does-it-work')->name('how-does-it-work');
-        Route::view('technology', 'front.pages.tutoring.how-it-works.technology')->name('technology');
-        Route::view('why-online-only', 'front.pages.tutoring.how-it-works.why-online-only')->name('why-online-only');
-        Route::view('who-is-21k-class', 'front.pages.tutoring.how-it-works.who-is-21k-class')->name('who-is-21k-class');
-        Route::view('faq', 'front.pages.tutoring.how-it-works.faq')->name('faq');
-        Route::view('your-privacy', 'front.pages.tutoring.how-it-works.your-privacy')->name('your-privacy');
+    // FAQ
+    Route::name('faq.')->group(function () {
+        Route::view('how-does-it-work', 'front.pages.tutoring.faq.how-does-it-work')->name('how-does-it-work');
+        Route::view('technology', 'front.pages.tutoring.faq.technology')->name('technology');
+        Route::view('why-online-only', 'front.pages.tutoring.faq.why-online-only')->name('why-online-only');
+        Route::view('who-is-21k-class', 'front.pages.tutoring.faq.who-is-21k-class')->name('who-is-21k-class');
+        Route::view('faq', 'front.pages.tutoring.faq.faq')->name('faq');
+        Route::view('your-privacy', 'front.pages.tutoring.faq.your-privacy')->name('your-privacy');
     });
 
     // #Being21k
     Route::name('being21k.')->group(function () {
         Route::view('student-work', 'front.pages.tutoring.being21k.student-work')->name('student-work');
         Route::view('parents-speak', 'front.pages.tutoring.being21k.parents-speak')->name('parents-speak');
-        Route::view('meet-our-faculty', 'front.pages.tutoring.being21k.meet-our-faculty')->name('meet-our-faculty');
         Route::get('meet-our-faculty', 'TutoringController@meetOurFaculty')->name('meet-our-faculty');
         Route::view('events', 'front.pages.tutoring.being21k.events')->name('events');
         Route::view('media-hub', 'front.pages.tutoring.being21k.media-hub')->name('media-hub');

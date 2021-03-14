@@ -45,7 +45,7 @@
                             <use xlink:href="#mainHeroSVG1"/>
                         </clipPath>
                         <g transform="matrix(1 0 0 1 0 0)" clip-path="url(#mainHeroSVG2)">
-                            <image width="750" height="750" xlink:href="/images/coaching/750x750/img2.jpg" transform="matrix(1.4462 0 0 1.4448 52.8755 0)"></image>
+                            <image width="750" height="750" xlink:href="/images/coaching/others/img2.jpg" transform="matrix(1.4462 0 0 1.4448 52.8755 0)"></image>
                         </g>
                     </svg>
                 </figure>
@@ -163,7 +163,7 @@
         <div class="container space-2 space-lg-3">
             <div class="row justify-content-lg-between">
                 <div class="col-lg-5 order-lg-2 pl-lg-0">
-                    <div class="bg-img-hero h-100 min-h-450rem rounded-lg" style="background-image: url('/images/coaching/900x900/img19.jpg');"></div>
+                    <div class="bg-img-hero h-100 min-h-450rem rounded-lg" style="background-image: url('/images/coaching/others/img3.jpg');"></div>
                 </div>
 
                 <div class="col-lg-6 order-lg-1">

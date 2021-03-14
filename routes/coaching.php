@@ -76,7 +76,6 @@ Route::prefix('coaching')->name('coaching.')->group(function () {
     Route::name('being21k.')->group(function () {
         Route::view('student-work', 'front.pages.coaching.being21k.student-work')->name('student-work');
         Route::view('parents-speak', 'front.pages.coaching.being21k.parents-speak')->name('parents-speak');
-        Route::view('meet-our-faculty', 'front.pages.coaching.being21k.meet-our-faculty')->name('meet-our-faculty');
         Route::get('meet-our-faculty', 'CoachingController@meetOurFaculty')->name('meet-our-faculty');
         Route::view('events', 'front.pages.coaching.being21k.events')->name('events');
         Route::view('media-hub', 'front.pages.coaching.being21k.media-hub')->name('media-hub');

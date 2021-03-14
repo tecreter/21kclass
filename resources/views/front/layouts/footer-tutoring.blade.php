@@ -39,7 +39,8 @@
                     <ul class="nav nav-sm nav-x-0 nav-white flex-column">
                         <li class="nav-item"><a class="nav-link" href="{{ route('tutoring.about-us.21k-group') }}">21K Group</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('tutoring.about-us.our-team') }}">Team</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('tutoring.connect.work-with-us') }}">Careers <span class="badge badge-primary ml-1">We're hiring</span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('tutoring.connect.work-with-us') }}">Careers <span class="badge badge-primary ml-1
+">We're hiring</span></a></li>
                     </ul>
                 </div>
 
@@ -49,7 +50,6 @@
                     <ul class="nav nav-sm nav-x-0 nav-white flex-column">
                         <li class="nav-item"><a class="nav-link" href="{{ route('tutoring.admission.how-to-apply') }}">How to Apply?</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('tutoring.admission.key-dates') }}">Key Dates</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('tutoring.admission.process-and-requirements') }}">Process & Requirements</a></li>
                     </ul>
                 </div>
 
@@ -78,7 +78,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('tutoring.how-it-works.faq') }}">
+                            <a class="nav-link" href="{{ route('tutoring.faq.faq') }}">
                                 <span class="media align-items-center">
                                   <i class="fa fa-question-circle mr-2"></i>
                                   <span class="media-body">FAQ</span>
@@ -97,7 +97,7 @@
                 <div class="col-md-6 mb-4 mb-md-0">
                     <ul class="nav nav-sm nav-white nav-x-sm align-items-center">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('tutoring.how-it-works.your-privacy') }}">Privacy & Policy</a>
+                            <a class="nav-link" href="{{ route('tutoring.faq.your-privacy') }}">Privacy & Policy</a>
                         </li>
                         <li class="nav-item opacity mx-3">&#47;</li>
                         <li class="nav-item">

@@ -12,3 +12,23 @@
 .header.scrolled .header-section {
     box-shadow: 0 2px 16px 0 rgb(0 0 0 / 10%);
 }
+
+.navbar-brand {
+    padding: 0;
+}
+
+.navbar-brand, .navbar-brand>img {
+    width: 13rem;
+}
+
+@media (max-width: 1200px) {
+    .navbar-expand-xl .navbar-brand, .navbar-expand-xl .navbar-brand>img {
+        width: 13rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar-expand-xl .navbar-brand, .navbar-expand-xl .navbar-brand>img {
+        width: 8rem;
+    }
+}
