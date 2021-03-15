@@ -23,7 +23,7 @@
             </div>
 
             <div class="container space-bottom-1">
-                <p>Every Successful thing needs the firm foundation. As cracking the competitive exams like NEET and JEE is Challenging, students need to prepare for such exams from an early age. Our Foundation Program for JEE and NEET caters to this specific need by ensuring strong fundamentals.</p>
+                <p>For effort to be successful, one need to have a firm foundation. As cracking the competitive exams like NEET and JEE is Challenging, students need to prepare for such exams from an early age. Our Foundation Program for JEE and NEET caters to this specific need by ensuring strong fundamentals.</p>
                 <p>Preparing from an early stage also provides ample time to students to understand the complicated aspects of topics. 21K Class Foundation program provides strong support to help students get familiar with various aspects of the relevant exams, as well as the associated careers. Our Foundation programme helps students to have better conceptual understanding and develop the application skill, Computational thinking and Scientific temperament. As a result, every student becomes a strong contender not only for the Board examinations but also for competitive exams like NTSE, Olympiads, KVPY, etc.</p>
                 <p>21k programme comprises of two courses Pre Foundation Course (Class VIII) and Preparatory Course (Class IX & X)</p>
             </div>
@@ -33,7 +33,7 @@
                 <h3>Key Features</h3>
                 <ul style="list-style-type:square;">
                     <li>Interactive Online Live Classes</li>
-                    <li>All-inclusive Study Material</li>
+                    <li>All Inclusive Digitized Study Materials</li>
                     <li>Dedicated online tutors – Individual attention</li>
                     <li>Recorded videos of online classes to revisit</li>
                     <li>Instant Doubt resolution</li>

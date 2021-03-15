@@ -73,7 +73,6 @@
         <div class="bg-light">
             <div class="container space-2 space-lg-3">
                 <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
-                    <span class="d-block small font-weight-bold text-cap mb-2">What's Front?</span>
                     <h2>An expandable model worth attempting by different types of learners.</h2>
                 </div>
 
@@ -121,7 +120,7 @@
                                         <div class="media-body">
                                             <h4 class="mb-0">Society</h4>
                                             <div class="d-none d-lg-block mt-2">
-                                                <p class="text-body mb-0">You can modify any aspect of our society.</p>
+                                                <p class="text-body mb-0">Providing equal opportunity to learners, irrespective of the location and back ground they come from.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -148,7 +147,7 @@
                                             <div class="media text-body mb-3">
                                                 <i class="fas fa-check-circle text-success mt-1 mr-2"></i>
                                                 <div class="media-body">
-                                                    Real-world education delivered by high-quality teachers.
+                                                    Virtual Education delivered by high-quality teachers.
                                                 </div>
                                             </div>
                                             <div class="media text-body mb-3">

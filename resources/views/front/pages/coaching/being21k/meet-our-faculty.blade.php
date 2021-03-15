@@ -1,3 +1,4 @@
+
 @extends('front.layouts.app')
 
 @section('content')
@@ -7,7 +8,7 @@
     <main id="content" role="main">
 
         <div class="container space-top-3 space-top-lg-4">
-            <div class="border-bottom">
+            <div class="">
                 <div class="w-lg-75 text-center mx-lg-auto">
                     <div class="mb-9">
                         <h1 class="display-4 mb-4">Our Team of Faculty Members</h1>
@@ -15,7 +16,7 @@
                     </div>
 
                     <div class="w-lg-75 mx-lg-auto">
-                        <img class="img-fluid" src="/images/coaching/svg/illustrations/discussion-scene.svg" alt="Image Description">
+                        <img class="img-fluid" src="/images/coaching/others/coaching-faculty.jpg" alt="Image Description">
                     </div>
                 </div>
             </div>

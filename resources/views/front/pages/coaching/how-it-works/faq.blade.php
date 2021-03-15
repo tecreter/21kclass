@@ -69,7 +69,7 @@
                                 </div>
                                 <div id="basicsCollapseThree" class="collapse" aria-labelledby="basicsHeadingThree" data-parent="#basicsAccordion">
                                     <div class="card-body px-0">
-                                        <p>No. Only monthly or yearly.</p>
+                                        <p>No Course wise Fees need to be paid.</p>
                                     </div>
                                 </div>
                             </div>
@@ -171,7 +171,7 @@
                                 </div>
                                 <div id="basicsCollapseEight" class="collapse" aria-labelledby="basicsHeadingEight" data-parent="#basicsAccordion">
                                     <div class="card-body px-0">
-                                        <p>Yes, Demo session will be provided. Click to register for a Demo (the click to take it to the Demo registration form in the Stay in Know section of Values and Ethos Page.</p>
+                                        <p>Yes just click the Contact us given below.</p>
                                     </div>
                                 </div>
                             </div>

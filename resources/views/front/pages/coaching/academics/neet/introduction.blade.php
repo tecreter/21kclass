@@ -209,10 +209,10 @@
                 <p>Our team of Expert Faculty Members have more than 15 years of experience in preparing the students for the competitive exams like IIT JEE and Medical Entrance Examinations.</p>
                 <p>We will be providing every student with a Tablet to attend the 21K Class sessions which will be inbuilt with Data Card, Camera and a Head Phone. More so, we will also pay the data charges for the student during the periodicity of the course.</p>
                 <p>We provide the structured Learning experience and a robust practice for the NEET aspirants in our Online Coaching Program. Our Program focuses on the Conceptual understanding and clarity of the students and the continuous practice and assessments pave you a way for your success in NEET Exam.</p>
-                <p>We ensure your better conceptual understanding by using English and Vernacular Language (Tamil, Telugu & Malayalam) as instructional medium of our online Courses.</p>
+                <p>We ensure your better conceptual understanding by using English and Vernacular Language (Tamil, Telugu, Kannada & Malayalam) as instructional medium of our online Courses.</p>
                 <ul style="list-style-type:square;">
                     <li>Interactive Online Live Classes</li>
-                    <li>All-inclusive Study Material</li>
+                    <li>All Inclusive Digitized Study Materials</li>
                     <li>Dedicated online tutors – Individual attention</li>
                     <li>Recorded videos of online classes to revisit</li>
                     <li>Doubt resolution NEET experts</li>

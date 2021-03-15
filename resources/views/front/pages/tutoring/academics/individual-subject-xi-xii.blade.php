@@ -5,7 +5,7 @@
     @include('front.layouts.nav-tutoring')
 
     <main id="content" role="main">
-        <div class="bg-img-hero-center" style="background-image: url('/images/banners/banner-jee.jpeg');background-color: rgba(0, 0, 0, 0.4)">
+        <div class="bg-img-hero-center" style="background-image: url('/images/banners/banner-ta2.jpg');background-color: rgba(0, 0, 0, 0.4)">
             <div class="container space-2 space-sm-3 space-md-4 min-vw-100" style="background-color: rgba(0, 0, 0, 0.45);">
                 <div class="w-xs-auto text-center">
                     <div class="mb-4">
