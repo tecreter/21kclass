@@ -1,13 +1,13 @@
-let invoice = {};
+let order = {};
 
-invoice.invoiceListFormInit = function () {
-    invoice.getCourseTypesList();
+order.orderListFormInit = function () {
+    order.getCourseTypesList();
     setTimeout(function() {
         $(".alert").alert('close');
     }, 5000);
 };
 
-invoice.numberFormat = function (x) {
+order.numberFormat = function (x) {
 
     // 10000000 > 10,00,000
     x = x.toString();
@@ -24,7 +24,7 @@ invoice.numberFormat = function (x) {
     // return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
 
-invoice.getCourseTypesList = function () {
+order.getCourseTypesList = function () {
 
     var buttonCommon = {
         exportOptions: {
@@ -39,7 +39,7 @@ invoice.getCourseTypesList = function () {
         }
     };
 
-    $('#invoices_list').dataTable({
+    $('#orders_list').dataTable({
         "pageLength": 10,
         //"lengthMenu": [[1, 5, 10, 25, 50, -1], [1, 5, 10, 25, 50, "All"]],
         "serverSide": true,
@@ -49,7 +49,7 @@ invoice.getCourseTypesList = function () {
         "scrollX": true,
         "searching": false,
         "ajax" : {
-            "url": '/backoffice/getInvoicesList',
+            "url": '/backoffice/getOrdersList',
             "type": 'POST'
         },
         "dom": 'Blfrtip',
@@ -64,15 +64,16 @@ invoice.getCourseTypesList = function () {
             { "data": null },
             { "data": null },
             { "data": null },
+            { "data": null },
         ],
         "order": [ [4, 'asc'] ],
         "columnDefs": [
             { // Order
-                "targets": [ 1, 2, 3, 5, 6 ],
+                "targets": [ 1, 2, 3, 5, 6, 7 ],
                 "orderable": false
             },
             {
-                "targets" : [ 2, 3, 4, 5, 6 ],
+                "targets" : [ 2, 3, 4, 5, 6, 7 ],
                 "className": 'text-center',
             },
             {
@@ -97,25 +98,31 @@ invoice.getCourseTypesList = function () {
             {
                 "targets" : [ 3 ],
                 "render" : function(data) {
-                    return '₹' + invoice.numberFormat(Math.floor(data.cart_amount), 3);
+                    return '₹ ' + order.numberFormat(Math.floor(data.total), 3);
                 }
             },
             {
                 "targets" : [ 4 ],
                 "render" : function(data) {
-                    return data.transaction_id;
+                    return '<a href="javascript:void(0);" data-toggle="modal" data-target=".docs-order-modal-lg" data-id="' + data.id + '">' + data.invoice + '</a>';
                 }
             },
             {
                 "targets" : [ 5 ],
                 "render" : function(data) {
-                    return data.payment_status;
+                    return data.transaction_id;
                 }
             },
             {
                 "targets" : [ 6 ],
                 "render" : function(data) {
-                    if (data.payment_status == 'success') return moment(data.updated_at).format('YYYY.MM.DD h:mm a');
+                    return data.payment_status;
+                }
+            },
+            {
+                "targets" : [ 7 ],
+                "render" : function(data) {
+                    if (data.payment_status == 'success') return (data.paid_at != null) ? moment(data.paid_at).format('YYYY.MM.DD h:mm a') : '';
                     else return '';
                 }
             },
@@ -123,4 +130,4 @@ invoice.getCourseTypesList = function () {
     });
 };
 
-export default invoice;
+export default order;

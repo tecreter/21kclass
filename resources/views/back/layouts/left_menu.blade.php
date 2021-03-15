@@ -29,9 +29,9 @@
             </a>
         </li>
 
-        <li class="c-sidebar-nav-dropdown{!! (Request::is('backoffice/invoice/*')) ? ' c-show' : '' !!}">
-            <a class="c-sidebar-nav-link{!! Request::is('backoffice/invoice/tutor*') ? ' c-active' : '' !!}" href="{{ route('back.invoice.index') }}">
-                <i class="fas fa-file mr-2"></i> {{ __('Invoices') }}
+        <li class="c-sidebar-nav-dropdown{!! (Request::is('backoffice/order/*')) ? ' c-show' : '' !!}">
+            <a class="c-sidebar-nav-link{!! Request::is('backoffice/order/tutor*') ? ' c-active' : '' !!}" href="{{ route('back.order.index') }}">
+                <i class="fas fa-file mr-2"></i> {{ __('Orders') }}
             </a>
         </li>
 

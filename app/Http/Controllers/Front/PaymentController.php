@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Events\OrderCompleted;
+use App\Events\OrderCreated;
+use App\Events\OrderCreatedEvent;
 use App\Http\Controllers\Controller;
 use App\Models\Back\Course;
-use App\Models\Back\Invoice;
+use App\Models\Back\Order;
+use App\Models\Back\OrderProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
@@ -32,6 +34,7 @@ class PaymentController extends Controller
 
             $course_info = Course::where('id', (int) $request->course_id)->first();
             $session_cart_course_details[] = array(
+                'site_id' => $course_info->category->type_id,
                 'site_type' => strtolower($course_info->category->getSiteName()),
                 'id' => (int)$request->course_id,
                 'name' => $course_info->name,
@@ -49,7 +52,6 @@ class PaymentController extends Controller
         return redirect()->route('index');
     }
 
-
     public function buyNow(Request $request)
     {
         $session_cart_course_ids = session('SESSION_TOC_CART_COURSE_IDS', []);
@@ -61,6 +63,7 @@ class PaymentController extends Controller
 
             $course_info = Course::where('id', (int) $request->course_id)->first();
             $session_cart_course_details[] = array(
+                'site_id' => $course_info->category->type_id,
                 'site_type' => strtolower($course_info->category->getSiteName()),
                 'id' => (int)$request->course_id,
                 'name' => $course_info->name,
@@ -75,11 +78,8 @@ class PaymentController extends Controller
             return redirect()->route('checkout');
         }
 
-        return redirect()->route('index');
+        return redirect()->route('cart');
     }
-
-
-
 
     public function removeFromCart(Request $request)
     {
@@ -106,15 +106,10 @@ class PaymentController extends Controller
         }
     }
 
-
-
-
     public function cart()
     {
         return view('front.pages.payment.cart');
     }
-
-
 
     public function checkout(Request $request)
     {
@@ -142,39 +137,64 @@ class PaymentController extends Controller
             ]);
 
             // Step 1. Generate Order Number
-            $lastOrderNoInfo = Invoice::select('order_no')->orderBy('id', 'desc')->take(1)->first();
-            $old_order_no = $lastOrderNoInfo ? substr($lastOrderNoInfo->order_no, -5) : 0 . '<br>';
-            $new_order_no = 'LB' . str_pad((int) $old_order_no + 1, 5, 0, STR_PAD_LEFT);
+            $lastOrderNoInfo = Order::select('invoice')->orderBy('id', 'desc')->take(1)->first();
+            $old_invoice = $lastOrderNoInfo ? substr($lastOrderNoInfo->invoice, -5) : 0 . '<br>';
+            $new_invoice = 'LB' . str_pad((int) $old_invoice + 1, 5, 0, STR_PAD_LEFT);
 
             // Step 2. Calculate Checkout Price
-            $course_details = session('SESSION_TOC_CART_COURSE_DETAILS', []);
+            $cart_course_details = session('SESSION_TOC_CART_COURSE_DETAILS', []);
             $checkout_price = 0;
             foreach (session('SESSION_TOC_CART_COURSE_DETAILS', []) as $item) {
                 $checkout_price += (int) $item['price'];
             }
 
-            // Step 2. Save customer information record into invoice table for backoffice team
-            $invc = new Invoice();
-            $invc->order_no = $new_order_no;
-            $invc->first_name = $customer_info['first_name'];
-            $invc->last_name = $customer_info['last_name'];
-            $invc->email_address = $customer_info['email_address'];
-            $invc->phone_number = $customer_info['phone_number'];
-            $invc->cart_amount = $checkout_price;
-            $invc->apt_name = $customer_info['apt_name'];
-            $invc->address = $customer_info['street_address'];
-            $invc->city = $customer_info['city'];
-            $invc->state = $customer_info['state'];
-            $invc->country = $customer_info['country'];
-            $invc->postcode = $customer_info['postcode'];
-            $invc->terms_condition = (isset($request->terms_condition) && $request->terms_condition === 'on') ? 1 : 0;
-            $invc->subscribe_newsletter = (isset($request->subscribe_newsletter) && $request->subscribe_newsletter === 'on') ? 1 : 0;
-            $invc->cart_amount = $checkout_price;
-            $invc->save();
-            $invoice_id = $invc->id;
-            $invoice = Invoice::find($invoice_id);
 
-            // Step 3. Make transaction data to PayU Payment Gateway Server
+
+
+            // Step 3. Save sales order for backoffice team
+            $sales = new Order();
+            $sales->invoice = $new_invoice;
+            $sales->first_name = $customer_info['first_name'];
+            $sales->last_name = $customer_info['last_name'];
+            $sales->email_address = $customer_info['email_address'];
+            $sales->phone_number = $customer_info['phone_number'];
+            $sales->apt_name = $customer_info['apt_name'];
+            $sales->address = $customer_info['street_address'];
+            $sales->city = $customer_info['city'];
+            $sales->state = $customer_info['state'];
+            $sales->country = $customer_info['country'];
+            $sales->postcode = $customer_info['postcode'];
+            $sales->terms_condition = (isset($request->terms_condition) && $request->terms_condition === 'on') ? 1 : 0;
+            $sales->subscribe_newsletter = (isset($request->subscribe_newsletter) && $request->subscribe_newsletter === 'on') ? 1 : 0;
+
+            $sales->total_products = count($cart_course_details);
+            $sales->sub_total = $checkout_price;
+            $sales->discounts = 0;
+            $sales->tax = 0;
+            $sales->total = $checkout_price;
+            $sales->save();
+            $order = Order::find($sales->id);
+
+
+
+
+            // Step 4. Save order's product_list into `order_products` table for backoffice team
+            foreach ($cart_course_details as $cart_course) {
+                $items = new OrderProduct();
+                $items->site_id = $cart_course['site_id'];
+                $items->order_id = $sales->id;
+                $items->course_name = $cart_course['name'];
+                $items->thumb = $cart_course['thumb'];
+                $items->course_price = $cart_course['price'];
+                $items->quantity = (int) 1;
+                $items->total = $cart_course['price'] * 1;
+                $items->save();
+            }
+
+
+
+
+            // Step 5. Make transaction data to PayU Payment Gateway Server
             $customer = Customer::make()
                 ->firstName($request->first_name)
                 ->lastName(($request->last_name) ? $request->last_name : '')
@@ -188,24 +208,23 @@ class PaymentController extends Controller
                 ->zipCode(($request->postcode) ? $request->postcode : '');
 
             $attributes = Attributes::make()
-                ->udf1($course_details[0]['name'])
+                ->udf1($cart_course_details[0]['name'])
                 ->udf2($request->email_address)
                 ->udf3((string)$request->phone_number)
                 ->udf4((($request->apt_name) ? $request->apt_name : '') . ' ' . (($request->address) ? $request->address : ''))
-                ->udf5($new_order_no)
+                ->udf5($new_invoice)
                 ->udf6((isset($request->terms_condition) && $request->terms_condition === 'on') ? 1 : 0)
                 ->udf7((isset($request->subscribe_newsletter) && $request->subscribe_newsletter === 'on') ? 1 : 0);
 
             $transaction = Transaction::make()
                 ->charge($checkout_price)
-                ->for($course_details[0]['name'])
+                ->for($cart_course_details[0]['name'])
                 ->with($attributes)
-                ->against($invoice)
+                ->against($order)
                 ->to($customer);
 
             // Step 4. Update transaction_id to invoice table before sending to PayU
-            Invoice::where('id', $invoice_id)
-                ->update(['transaction_id' => $transaction->transactionId]);
+            Order::where('id', $sales->id)->update(['transaction_id' => $transaction->transactionId]);
 
             // Step 5. Initiate payment
             return Payu::initiate($transaction)->redirect(route('checkout-status'));
@@ -220,9 +239,9 @@ class PaymentController extends Controller
         return view('front.pages.payment.checkout');
     }
 
-
     public function checkoutStatus(Request $request)
     {
+
         // Check if the referer is from PayU
         if (strpos(request()->headers->get('referer'), "payu") !== false) {
 
@@ -230,7 +249,7 @@ class PaymentController extends Controller
             $transaction = Payu::capture();
 
             // Step 2. Update Invoices table about payment status information
-            $invoice = \App\Models\Back\Invoice::where('order_no', $transaction->response('udf5'))->where('transaction_id', $transaction['transaction_id'])->firstOrFail();
+            $invoice = \App\Models\Back\Order::where('invoice', $transaction->response('udf5'))->where('transaction_id', $transaction['transaction_id'])->firstOrFail();
             $invoice->payment_status = $transaction->response('status');
             $invoice->save();
 
@@ -238,8 +257,11 @@ class PaymentController extends Controller
             $request->session()->forget(['SESSION_TOC_CART_COURSE_IDS', 'SESSION_TOC_CART_COURSE_DETAILS']);
 
             // Step 4. Show order status page to Customer based on PayU response
+            $order_info = Order::find($transaction->paidFor->id);
             if ($transaction->successful()) {
 
+
+                // Step 4.1. Verify with PayU
                 // --------- Start - Verify Payment ---------
                 $key = env('PAYU_BIZ_KEY');
                 $salt = env('PAYU_BIZ_SALT');
@@ -274,32 +296,59 @@ class PaymentController extends Controller
                 if($o === 'b:0;' || $valueSerialized !== false) {
                     print_r($valueSerialized);
                 }
-
                 Log::info("------------ /verify_payment/response -----------\n" . $o);
                 // --------- End - Verify Payment ---------
 
+
+
+                // Step 4.2. Update `paid_at` date in orders table
+                $invoice = \App\Models\Back\Order::where('invoice', $transaction->response('udf5'))->where('transaction_id', $transaction['transaction_id'])->firstOrFail();
+                $invoice->paid_at = date('Y-m-d H:i:s', strtotime($transaction->response('addedon')));
+                $invoice->save();
+
+
                 // Step 4.1. Send email to Customer for successful payment
-                $invoice = array(
+                $order_products = OrderProduct::where('order_id', $invoice->id)->get();
+                $products = array();
+                foreach ($order_products as $item) {
+                    $products[] = array(
+                        'name' => $item->course_name,
+                        'quantity' => $item->quantity,
+                        'price' => $item->course_price
+                    );
+                }
+
+                $order = array(
                     'name' => $transaction->response('firstname') . ' ' . $transaction->response('lastname'),
                     'email' => $transaction->response('email'),
-                    'amount' => $transaction->response('amount'),
-                    'order_no' => $transaction->response('udf5')
+                    'invoice' => $transaction->response('udf5'),
+                    'transaction_id' => $transaction['transaction_id'],
+                    'transaction_date' => date('M d, Y h:i A', strtotime($transaction->response('addedon'))),
+
+                    'order' => array(
+                        'sub_total' => $order_info->sub_total,
+                        'discounts' => $order_info->discounts,
+                        'tax' => $order_info->tax,
+                        'total' => $order_info->total
+                    ),
+
+                    'products' => $products
                 );
-                // event(new OrderCompleted((object) $invoice)); // TODO for Production Server
+
+                event(new OrderCreatedEvent( json_decode(json_encode($order)) ));
             }
 
             // Step 5. Get the transactions that are pending in status and verify with PayU
-            $invoice = Invoice::find($transaction->paidFor->id);
-            $transactions = $invoice->transactions()->pending()->get();
+            $transactions = $order_info->transactions()->pending()->get();
             $transactions->each->verifyAsync();
 
             // Step 6. Show order complete page
             return view('front.pages.payment.order-completed', [
                 'status' => $transaction->response('status'),
-                'order_no' => $transaction->response('udf5'),
+                'invoice' => $transaction->response('udf5'),
                 'trans_id' => $transaction['transaction_id'],
-                'trans_datetime' => date('Y-m-d H:i:s'),
-                'amount' => number_format($transaction->response('amount'), 2),
+                'trans_datetime' => $transaction->response('addedon'),
+                'amount' => number_format($transaction->response('amount')),
                 'error_no' => $transaction->response('error'),
                 'error_msg' => $transaction->response('error_Message'),
             ]);

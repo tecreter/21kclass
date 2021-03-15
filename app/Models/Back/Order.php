@@ -5,7 +5,7 @@ namespace App\Models\Back;
 use Illuminate\Database\Eloquent\Model;
 use Tzsk\Payu\Models\HasTransactions;
 
-class Invoice extends Model
+class Order extends Model
 {
     use HasTransactions;
 

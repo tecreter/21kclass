@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInvoicesTable extends Migration
+class CreateOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateInvoicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('invoices', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('order_no')->unique();
+            $table->string('invoice')->unique();
             $table->string('transaction_id')->nullable();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
@@ -29,8 +29,16 @@ class CreateInvoicesTable extends Migration
             $table->string('postcode')->nullable();
             $table->string('terms_condition')->nullable();
             $table->string('subscribe_newsletter')->nullable();
-            $table->float('cart_amount', 10, 2)->nullable();
+
+            $table->integer('total_products');
+            $table->decimal('sub_total')->default(0.00);
+            $table->decimal('discounts')->default(0.00);
+            $table->decimal('tax')->default(0.00);
+            $table->decimal('total')->default(0.00);
+
             $table->string('payment_status')->default('pending');
+            $table->timestamp('paid_at')->nullable();
+
             $table->timestamps();
         });
     }
@@ -42,6 +50,6 @@ class CreateInvoicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('invoices');
+        Schema::dropIfExists('orders');
     }
 }

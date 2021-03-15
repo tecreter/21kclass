@@ -223,7 +223,7 @@
                                             @endif
                                             <span class="d-block h5 text-lh-sm mb-0 text-danger">₹{{ number_format($otherCourse->price) }}</span>
                                         </div>
-                                        <a class="btn btn-sm btn-info transition-3d-hover" href="javascript:void(0);">Buy This Course</a>
+                                        <a class="btn btn-sm btn-info transition-3d-hover" href="/coaching/course/{{ $otherCourse->slug }}">Course details</a>
                                     </div>
                                 </div>
                             </div>

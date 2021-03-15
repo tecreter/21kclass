@@ -1,6 +1,6 @@
 <?php
 
-use App\Events\OrderCompleted;
+use App\Mail\SendOrderToCustomerMail;
 use App\Models\Back\Course;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +22,40 @@ Route::namespace('Front')->group(function () {
     require __DIR__.'/tutoring.php';
     require __DIR__.'/commerce.php';
 
+
+    Route::get('test', function () {
+        $order = array(
+            'name' => 'Saravanan M',
+            'email' => 'mailatmsn@gmail.com',
+            'amount' => 1233,
+            'invoice' => 'LB00001',
+            'transaction_id' => 'sdfFG345',
+            'transaction_date' => date('M d, Y h:i A'),
+
+            'order' => array(
+                'total_products' => 2,
+                'total_shipping' => 0,
+                'discounts' => 0,
+                'tax' => 0,
+                'total' => 1233,
+            ),
+
+            'products' => array(
+                [
+                    'name' => 'Test course 1',
+                    'quantity' => '1',
+                    'price' => '777',
+                ],
+                [
+                    'name' => 'Test course 2',
+                    'quantity' => '1',
+                    'price' => '888',
+                ],
+            )
+        );
+
+        return new SendOrderToCustomerMail( json_decode(json_encode($order)) );
+    });
 
 
     // Authentication

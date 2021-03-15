@@ -16,9 +16,10 @@ Route::namespace('Back')->prefix('backoffice')->name('back.')->group(function ()
     Route::get('/settings', 'HomeController@settings')->name('settings')->middleware(['auth:admin']);
     Route::post('/settings', 'HomeController@settings')->name('settings')->middleware(['auth:admin']);
 
-    // Invoices
-    Route::get('invoice', 'InvoiceController@index')->middleware(['auth:admin'])->name('invoice.index');
-    Route::post('getInvoicesList', 'InvoiceController@getInvoicesList')->name('getInvoicesList');
+    // Orders
+    Route::get('order', 'OrderController@index')->middleware(['auth:admin'])->name('order.index');
+    Route::post('order/{order}', 'OrderController@show')->middleware(['auth:admin'])->name('order.show');
+    Route::post('getOrdersList', 'OrderController@getOrdersList')->name('getOrdersList');
 
 
     // Faculty
